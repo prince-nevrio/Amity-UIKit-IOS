@@ -18,24 +18,41 @@ public struct AmityTypography {
     
     let headerLine: UIFont
     let title: UIFont
+    let titleLarge: UIFont
     let bodyBold: UIFont
     let body: UIFont
+    let bodyRecoleta: UIFont
     let captionBold: UIFont
     let caption: UIFont
+    let captionRecoleta: UIFont
     
-    public init(headerLine: UIFont = .systemFont(ofSize: 20, weight: .bold),
-                title: UIFont = .systemFont(ofSize: 17, weight: .semibold),
-                bodyBold: UIFont = .systemFont(ofSize: 15, weight: .semibold),
-                body: UIFont = .systemFont(ofSize: 15, weight: .regular),
-                captionBold: UIFont = .systemFont(ofSize: 13, weight: .semibold),
-                caption: UIFont = .systemFont(ofSize: 13, weight: .regular) ) {
-        self.headerLine = headerLine
-        self.title = title
-        self.bodyBold = bodyBold
-        self.body = body
-        self.captionBold = captionBold
-        self.caption = caption
+    public init(headerLine: UIFont? = nil,
+                title: UIFont? = nil,
+                titleLarge: UIFont? = nil,
+                bodyBold: UIFont? = nil,
+                body: UIFont? = nil,
+                bodyRecoleta: UIFont? = nil,
+                captionBold: UIFont? = nil,
+                caption: UIFont? = nil,
+                captionRecoleta: UIFont? = nil) {
+        self.headerLine = headerLine ?? AmityTypography.defaultFont(ofSize: 20, weight: .bold,fontName: "Recoleta-Medium")
+        self.title = title ?? AmityTypography.defaultFont(ofSize: 17, weight: .semibold,fontName: "Recoleta-Medium")
+        self.titleLarge = title ?? AmityTypography.defaultFont(ofSize: 21, weight: .semibold,fontName: "Recoleta-Medium")
+        self.bodyBold = bodyBold ?? AmityTypography.defaultFont(ofSize: 15, weight: .semibold,fontName: "Inter-Regular")
+        self.body = body ?? AmityTypography.defaultFont(ofSize: 15, weight: .regular,fontName: "Inter-Regular")
+        self.bodyRecoleta = bodyRecoleta ?? AmityTypography.defaultFont(ofSize: 15, weight: .regular,fontName: "Recoleta-Medium")
+        self.captionBold = captionBold ?? AmityTypography.defaultFont(ofSize: 13, weight: .semibold,fontName: "Inter-Regular")
+        self.caption = caption ?? AmityTypography.defaultFont(ofSize: 13, weight: .regular,fontName: "Inter-Regular")
+        self.captionRecoleta = caption ?? AmityTypography.defaultFont(ofSize: 13, weight: .regular,fontName: "Recoleta-Regular")
     }
+    
+     static func defaultFont(ofSize size: CGFloat, weight: UIFont.Weight, fontName : String) -> UIFont {
+           if let customFont = UIFont(name: fontName, size: size) {
+               return customFont
+           } else {
+               return UIFont.systemFont(ofSize: size, weight: weight)
+           }
+       }
 }
 
 public class AmityFontSet {
@@ -54,6 +71,10 @@ public class AmityFontSet {
         return currentTypography.title
     }
     
+    public static var titleLarge: UIFont {
+        return currentTypography.titleLarge
+    }
+    
     public static var bodyBold: UIFont {
         return currentTypography.bodyBold
     }
@@ -62,12 +83,20 @@ public class AmityFontSet {
         return currentTypography.body
     }
     
+    public static var bodyRecoleta: UIFont {
+        return currentTypography.bodyRecoleta
+    }
+    
     public static var captionBold: UIFont {
         return currentTypography.captionBold
     }
     
     public static var caption: UIFont {
         return currentTypography.caption
+    }
+    
+    public static var captionRecoleta: UIFont {
+        return currentTypography.captionRecoleta
     }
     
 }

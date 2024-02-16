@@ -49,12 +49,12 @@ final class AmitySettingsItemTextContentTableViewCell: UITableViewCell, Nibbable
         
         // Title
         titleLabel.text = AmityLocalizedStringSet.titlePlaceholder
-        titleLabel.font = AmityFontSet.bodyBold
+        titleLabel.font = AmityFontSet.bodyRecoleta
         titleLabel.textColor = AmityColorSet.base
         
         // Description
         descriptionLabel.text = AmityLocalizedStringSet.descriptionPlaceholder
-        descriptionLabel.font = AmityFontSet.caption
+        descriptionLabel.font = AmityFontSet.captionRecoleta
         descriptionLabel.textColor = AmityColorSet.base.blend(.shade1)
         descriptionLabel.numberOfLines = 0
         

@@ -220,9 +220,9 @@ public class AmityButtonPagerTabSViewController: AmityPagerTabViewController, Pa
         bottomLineView.isHidden = hidden
     }
     
-    func setCurrentIndex(_ index: Int) {
+    func setCurrentIndex(_ index: Int,animated: Bool = false) {
         guard 0..<buttonBarView.numberOfItems(inSection: 0) ~= index else { return }
-        moveToViewController(at: index)
+        moveToViewController(at: index,animated: animated)
     }
 
     func calculateStretchedCellWidths(_ minimumCellWidths: [CGFloat], suggestedStretchedCellWidth: CGFloat, previousNumberOfLargeCells: Int) -> CGFloat {

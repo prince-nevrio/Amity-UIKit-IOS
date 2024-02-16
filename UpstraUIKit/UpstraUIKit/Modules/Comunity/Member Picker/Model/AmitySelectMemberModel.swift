@@ -19,6 +19,7 @@ public final class AmitySelectMemberModel: Equatable {
     public let displayName: String?
     public var email = String()
     public var isSelected: Bool = false
+    public var isDeleted: Bool = false
     public let avatarURL: String
     public let defaultDisplayName: String = AmityLocalizedStringSet.General.anonymous.localizedString
     public var isCurrnetUser: Bool {
@@ -31,6 +32,7 @@ public final class AmitySelectMemberModel: Equatable {
         if let metadata = object.metadata {
             self.email = metadata["email"] as? String ?? ""
         }
+        self.isDeleted = object.isDeleted
         self.avatarURL = object.getAvatarInfo()?.fileURL ?? ""
     }
     

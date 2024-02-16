@@ -48,12 +48,12 @@ final class AmitySettingsItemNavigationContentTableViewCell: UITableViewCell, Ni
         
         // Title
         titleLabel.text = AmityLocalizedStringSet.titlePlaceholder
-        titleLabel.font = AmityFontSet.body
+        titleLabel.font = AmityFontSet.bodyRecoleta
         titleLabel.textColor = AmityColorSet.base
         
         // Description
         descriptionLabel.text = AmityLocalizedStringSet.descriptionPlaceholder
-        descriptionLabel.font = AmityFontSet.caption
+        descriptionLabel.font = AmityFontSet.captionRecoleta
         descriptionLabel.textColor = AmityColorSet.base.blend(.shade1)
         descriptionLabel.textAlignment = .right
         descriptionLabel.numberOfLines = 0

@@ -15,6 +15,7 @@ struct AmityCommunityMembershipModel {
     let displayName: String
     let userId: String
     let roles: [String]
+    let isDeleted : Bool
     let isGlobalBan: Bool
     var isCurrentUser: Bool {
         return userId == AmityUIKitManagerInternal.shared.client.currentUserId
@@ -27,6 +28,7 @@ struct AmityCommunityMembershipModel {
         self.user = member.user
         self.displayName = member.displayName == "" ? AmityLocalizedStringSet.General.anonymous.localizedString : member.displayName
         self.userId = member.userId
+        self.isDeleted = member.user?.isDeleted ?? false
         self.roles = member.roles
         self.avatarURL = member.user?.getAvatarInfo()?.fileURL ?? ""
         self.isModerator = roles.contains { $0 == AmityCommunityRole.moderator.rawValue || $0 == AmityCommunityRole.communityModerator.rawValue }

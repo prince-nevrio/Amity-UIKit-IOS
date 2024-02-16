@@ -43,7 +43,8 @@ public final class AmityCommunityExplorerViewController: AmityViewController, In
     }
     
     public static func make() -> AmityCommunityExplorerViewController {
-        return AmityCommunityExplorerViewController(nibName: AmityCommunityExplorerViewController.identifier, bundle: AmityUIKitManager.bundle)
+        var vc = AmityCommunityExplorerViewController(nibName: AmityCommunityExplorerViewController.identifier, bundle: AmityUIKitManager.bundle)
+        return vc
     }
 }
 
@@ -51,8 +52,8 @@ public final class AmityCommunityExplorerViewController: AmityViewController, In
 // MARK: - Setup View
 private extension AmityCommunityExplorerViewController {
     func setupView() {
-        view.backgroundColor = AmityColorSet.secondary.blend(.shade4)
-        backgroundView.backgroundColor = AmityColorSet.secondary.blend(.shade4)
+        view.backgroundColor = AmityColorSet.backgroundColor
+        backgroundView.backgroundColor = AmityColorSet.backgroundColor
         setupScrollView()
         setupRecommended()
         setupTrending()
@@ -67,7 +68,7 @@ private extension AmityCommunityExplorerViewController {
     }
     
     private func setupRecommended() {
-        recommendedContaienrView.backgroundColor = AmityColorSet.secondary.blend(.shade4)
+        recommendedContaienrView.backgroundColor = AmityColorSet.backgroundColor
         addContainerView(recommendedVC, to: recommendedContaienrView)
         
         recommendedVC.selectedCommunityHandler = { [weak self] community in

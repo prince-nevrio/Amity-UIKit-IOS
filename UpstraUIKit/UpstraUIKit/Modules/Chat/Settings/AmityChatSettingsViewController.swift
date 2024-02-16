@@ -13,10 +13,13 @@ final class AmityChatSettingsViewController: AmityViewController {
     @IBOutlet private weak var tableView: UITableView!
     private var screenViewModel: AmityChatSettingsScreenViewModelType!
     
+    var channelId : String?
+    
     static func make(channelId: String) -> AmityViewController {
         let vc = AmityChatSettingsViewController(
             nibName: AmityChatSettingsViewController.identifier,
             bundle: AmityUIKitManager.bundle)
+        vc.channelId = channelId
         vc.screenViewModel = AmityChatSettingsScreenViewModel(channelId: channelId)
         return vc
     }
@@ -102,14 +105,14 @@ extension AmityChatSettingsViewController: UITableViewDelegate {
                 style: .destructive,
                 handler: {
                     AmityHUD.show(HUDContentType.loading)
-                    self.screenViewModel.action.didClickCell(index: indexPath.row)
+                    self.deleteChannel(channelId: self.channelId ?? "")
                 })
             AmityAlertController.present(
                 title: AmityLocalizedStringSet.ChatSettings.leaveChatTitle.localizedString,
                 message: AmityLocalizedStringSet.ChatSettings.leaveChatMessage.localizedString,
                                          actions: [cancelAction, leaveAction],
                                          from: self)
-        case .report(let _):
+        case .report( _):
             AmityHUD.show(.loading)
             screenViewModel.action.didClickCell(index: indexPath.row)
         default:
@@ -119,6 +122,27 @@ extension AmityChatSettingsViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 60
+    }
+    
+    func deleteChannel(channelId: String){
+        deleteChannelApi(channelId: channelId){ [weak self] result in
+            switch result {
+            case .success(let authResponse):
+                AmityHUD.show(HUDContentType.success(message: "Lyckat"))
+                let viewControllers: [UIViewController] = (self?.navigationController!.viewControllers as? [UIViewController])!
+                self?.navigationController!.popToViewController(viewControllers[viewControllers.count - 3], animated: true)
+                break
+            case .failure(let error):
+                AmityHUD.show(.error(message: error.localizedDescription))
+                print(error)
+                break
+            }
+        }
+    }
+    
+    func deleteChannelApi(channelId: String, onCompletion: ((Result<String?,Error>)->())? = nil) {
+        print("Channel id ::: \(channelId)")
+        AmityNetwork.session.request(method: .post, urlPath: "v1/employee/deleteChannel",bodyParams: ["channelId":channelId], onCompletion: onCompletion)
     }
 }
 

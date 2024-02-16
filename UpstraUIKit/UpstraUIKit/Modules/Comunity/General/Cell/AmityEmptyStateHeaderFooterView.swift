@@ -70,9 +70,21 @@ class AmityEmptyStateHeaderFooterView: UITableViewHeaderFooterView {
             stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16.0),
             stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16.0),
             stackView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-            stackView.topAnchor.constraint(greaterThanOrEqualTo: contentView.topAnchor),
-            stackView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor, constant: -36.0),
+            stackView.topAnchor.constraint(greaterThanOrEqualTo: contentView.topAnchor, constant: 115.0),
         ])
+    }
+    
+    private func removeAllConstraints(forView view: UIView) {
+        var constraintsToRemove = [NSLayoutConstraint]()
+        
+        for constraint in view.constraints {
+            if constraint.firstItem as? UIView == stackView || constraint.secondItem as? UIView == stackView {
+                constraintsToRemove.append(constraint)
+            }
+        }
+        
+        NSLayoutConstraint.deactivate(constraintsToRemove)
+        contentView.removeConstraints(constraintsToRemove)
     }
     
     private func setupImageView() {
@@ -83,7 +95,7 @@ class AmityEmptyStateHeaderFooterView: UITableViewHeaderFooterView {
     private func setupTitle() {
         titleLabel.text = AmityLocalizedStringSet.emptyNewsfeedTitle.localizedString
         titleLabel.font = AmityFontSet.title
-        titleLabel.textColor = AmityColorSet.base.blend(.shade3)
+        titleLabel.textColor = AmityColorSet.grey
         titleLabel.textAlignment = .center
     }
     
@@ -121,19 +133,19 @@ class AmityEmptyStateHeaderFooterView: UITableViewHeaderFooterView {
         }
     }
     
-    func setLayout(layout: EmptyStateLayout) {
+    func setLayout(layout: EmptyStateLayout, center : Bool = false) {
         switch layout {
         case .label(let title, let subtitle, let image):
             titleLabel.text = title
             subtitleLabel.text = subtitle
             imageView.image = image
             setupDefaultSubviews()
-            
             // visibility
             titleLabel.isHidden = false
             subtitleLabel.isHidden = subtitle == nil
             imageView.isHidden = image == nil
             loadingIndicator.isHidden = true
+            self.layoutIfNeeded()
             
         case .loading:
             loadingIndicator.startAnimating()
@@ -148,6 +160,12 @@ class AmityEmptyStateHeaderFooterView: UITableViewHeaderFooterView {
         case .custom(let view):
             stackView.arrangedSubviews.forEach({ $0.removeFromSuperview() })
             stackView.addArrangedSubview(view)
+            NSLayoutConstraint.activate([
+                   stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16.0),
+                   stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16.0),
+                   stackView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+                   stackView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor), // Add the centerYConstraint based on the condition
+               ])
         }
     }
     

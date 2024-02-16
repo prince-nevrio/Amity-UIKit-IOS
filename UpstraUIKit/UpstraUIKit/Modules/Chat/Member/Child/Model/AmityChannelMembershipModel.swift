@@ -20,6 +20,8 @@ struct AmityChannelMembershipModel {
     }
     let avatarURL: String
     
+    let isDeleted : Bool
+    
     let isModerator: Bool
     
     init(member: AmityChannelMember) {
@@ -32,6 +34,7 @@ struct AmityChannelMembershipModel {
         self.userId = member.userId
         self.roles = member.roles
         self.avatarURL = member.user?.getAvatarInfo()?.fileURL ?? ""
+        self.isDeleted = member.user?.isDeleted ?? false
         
         self.isModerator = roles.contains { $0 == AmityChannelRole.moderator.rawValue || $0 == AmityChannelRole.channelModerator.rawValue }
     }

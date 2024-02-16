@@ -50,7 +50,7 @@ public final class AmityRecommendedCommunityViewController: UIViewController, Am
 private extension AmityRecommendedCommunityViewController {
     
     func setupView() {
-        view.backgroundColor = AmityColorSet.secondary.blend(.shade4)
+        view.backgroundColor = AmityColorSet.greyLite
         setupTitle()
         setupCollectionView()
         
@@ -58,7 +58,7 @@ private extension AmityRecommendedCommunityViewController {
     
     func setupTitle() {
         titleLabel.text = AmityLocalizedStringSet.recommendedCommunityTitle.localizedString
-        titleLabel.textColor = AmityColorSet.base
+        titleLabel.textColor = AmityColorSet.primary
         titleLabel.font = AmityFontSet.title
     }
     

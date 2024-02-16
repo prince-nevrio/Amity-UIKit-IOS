@@ -54,7 +54,7 @@ final class AmityPollCreatorQusetionTableViewCell: UITableViewCell, Nibbable, Am
         pollTextView.customTextViewDelegate = self
         pollTextView.typingAttributes = [.font: AmityFontSet.body, .foregroundColor: AmityColorSet.base]
         
-        lineView.backgroundColor = AmityColorSet.base.blend(.shade4)
+        lineView.backgroundColor = AmityColorSet.dividerColor
     }
     
     private func setupErrorLabel() {
@@ -77,7 +77,7 @@ extension AmityPollCreatorQusetionTableViewCell: AmityTextViewDelegate {
         let count = textView.text?.utf16.count ?? 0
         pollLenghtLabel.text = "\(count)/\(AmityPollCreatorConstant.questionMax)"
         errorLabel.isHidden = count != AmityPollCreatorConstant.questionMax
-        lineView.backgroundColor = count != AmityPollCreatorConstant.questionMax ? AmityColorSet.base.blend(.shade4) : AmityColorSet.alert
+        lineView.backgroundColor = count != AmityPollCreatorConstant.questionMax ? AmityColorSet.dividerColor : AmityColorSet.alert
         delegate?.didPerformAction(self, action: .textViewDidChange(textView: textView))
     }
     

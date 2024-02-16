@@ -22,7 +22,7 @@ class AmityDeletedReplyTableViewCell: UITableViewCell, Nibbable {
         titleLabel.text = AmityLocalizedStringSet.PostDetail.deletedReplyMessage.localizedString
         titleLabel.textColor = AmityColorSet.base.blend(.shade2)
         titleLabel.font = AmityFontSet.caption
-        containerView.backgroundColor = AmityColorSet.secondary.blend(.shade4)
+        containerView.backgroundColor = AmityColorSet.backgroundColor
         
     }
     

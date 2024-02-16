@@ -102,11 +102,12 @@ public final class AmityCommunityProfilePageViewController: AmityProfileViewCont
     private func showCommunitySettingModal() {
         if AmityCommunityProfilePageViewController.newCreatedCommunityIds.contains(screenViewModel.dataSource.communityId) {
             let firstAction = AmityDefaultModalModel.Action(title: AmityLocalizedStringSet.communitySettings,
-                                                          textColor: AmityColorSet.baseInverse,
-                                                          backgroundColor: AmityColorSet.primary)
+                                                          textColor: AmityColorSet.primary,
+                                                            font: AmityFontSet.bodyRecoleta,
+                                                          backgroundColor: AmityColorSet.secondary)
             let secondAction = AmityDefaultModalModel.Action(title: AmityLocalizedStringSet.skipForNow,
                                                            textColor: AmityColorSet.primary,
-                                                           font: AmityFontSet.body,
+                                                           font: AmityFontSet.bodyRecoleta,
                                                            backgroundColor: .clear)
 
             let communitySettingsModel = AmityDefaultModalModel(image: AmityIconSet.iconMagicWand,

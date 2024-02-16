@@ -47,11 +47,16 @@ class VideoPreviewViewController: PreviewViewController {
             imageManager.requestAVAsset(forVideo: asset, options: settings.fetch.preview.videoOptions) { (avasset, audioMix, arguments) in
                 guard let avasset = avasset as? AVURLAsset else { return }
                 
-            DispatchQueue.main.async { [weak self] in
+                DispatchQueue.main.async { [weak self] in
+                    // Update UI elements or properties that depend on the asset here
+                    // For example, you can obtain the preferredTransform
+                    let preferredTransform = avasset.preferredTransform
+                    // ...
+                    
+                    // Continue with setting up the player
                     self?.player = AVPlayer(url: avasset.url)
                     self?.updateState(.playing, animated: false)
-                }
-            }
+                }}
         }
     }
     
@@ -66,25 +71,42 @@ class VideoPreviewViewController: PreviewViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        try? AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
-
+        
+        
         pauseBarButton = UIBarButtonItem(barButtonSystemItem: .pause, target: self, action: #selector(pausePressed(sender:)))
-        pauseBarButton.tintColor = UIColor.white
+        pauseBarButton.tintColor = AmityColorSet.backgroundColor
         playBarButton = UIBarButtonItem(barButtonSystemItem: .play, target: self, action: #selector(playPressed(sender:)))
-        playBarButton.tintColor = UIColor.white
+        playBarButton.tintColor = AmityColorSet.backgroundColor
         
         playerView.frame = view.bounds
         playerView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         view.addSubview(playerView)
-
+        
         scrollView.isUserInteractionEnabled = false
         doubleTapRecognizer.isEnabled = false
     }
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        if keyPath == "outputVolume" {
+            do{
+                try AVAudioSession.sharedInstance().setCategory(.playback)
+            }catch {
+                print("Error configuring audio session: \(error)")
+            }
+        }
+    }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         playerView.isHidden = true
+        
+        do {
+            try AVAudioSession.sharedInstance().setActive(true)
+            AVAudioSession.sharedInstance().addObserver(self, forKeyPath: "outputVolume", options: NSKeyValueObservingOptions.new, context: nil)
+            
+        } catch {
+            print("Error configuring audio session: \(error)")
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -99,6 +121,7 @@ class VideoPreviewViewController: PreviewViewController {
         playerView.isHidden = true
         
         NotificationCenter.default.removeObserver(self)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: nil)
     }
     
     private func updateState(_ state: State, animated: Bool = true) {
@@ -117,7 +140,7 @@ class VideoPreviewViewController: PreviewViewController {
         if player?.currentTime() == player?.currentItem?.duration {
             player?.seek(to: .zero)
         }
-
+        
         updateState(.playing)
     }
     

@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import SwiftEventBus
+import AmitySDK
 
 /// Amity Chat home
 public class AmityChatHomePageViewController: AmityPageViewController {
@@ -18,6 +20,20 @@ public class AmityChatHomePageViewController: AmityPageViewController {
     private init() {
         super.init(nibName: AmityChatHomePageViewController.identifier, bundle: AmityUIKitManager.bundle)
         title = AmityLocalizedStringSet.chatTitle.localizedString
+        if(AmityRecentChatViewController.isLiveStreamEnabled){
+            let searchItem = UIBarButtonItem(image: AmityIconSet.iconChatCreate, style: .plain, target: self, action:  #selector(didClickAdd(_:)))
+            searchItem.tintColor = AmityColorSet.base
+            navigationItem.rightBarButtonItem = searchItem
+        }
+    }        
+    
+    @objc func didClickAdd(_ barButton: UIBarButtonItem) {
+        AmityChannelEventHandler.shared.channelCreateNewChat(
+            from: self,
+            completionHandler: { [weak self] storeUsers in
+                guard self != nil else { return }
+                self?.recentsChatViewController.screenViewModel.action.createChannel(users: storeUsers)
+        })
     }
     
     required init?(coder: NSCoder) {
@@ -31,6 +47,14 @@ public class AmityChatHomePageViewController: AmityPageViewController {
     override func viewControllers(for pagerTabStripController: AmityPagerTabViewController) -> [UIViewController] {
         recentsChatViewController.pageTitle = AmityLocalizedStringSet.recentTitle.localizedString
         return [recentsChatViewController]
+    }
+    
+    public override func viewWillAppear(_ animated: Bool) {
+        SwiftEventBus.post("onHideBottomNavigationBar",sender: false)
+    }
+    
+    public override func viewWillDisappear(_ animated: Bool) {
+        SwiftEventBus.post("onHideBottomNavigationBar",sender: true)
     }
     
 }

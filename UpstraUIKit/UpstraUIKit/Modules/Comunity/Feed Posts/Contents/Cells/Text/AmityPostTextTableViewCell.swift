@@ -50,7 +50,7 @@ public final class AmityPostTextTableViewCell: UITableViewCell, Nibbable, AmityP
                 
                 contentLabel.setText(post.text, withAttributes: attributes)
             } else {
-                contentLabel.text = post.text
+                contentLabel.text = post.text.trimmingCharacters(in: .whitespacesAndNewlines)
             }
         } else {
             
@@ -59,7 +59,7 @@ public final class AmityPostTextTableViewCell: UITableViewCell, Nibbable, AmityP
                 let attributes = AmityMentionManager.getAttributes(fromText: post.text, withMetadata: metadata, mentionees: mentionees)
                 contentLabel.setText(post.text, withAttributes: attributes)
             } else {
-                contentLabel.text = post.text
+                contentLabel.text = post.text.trimmingCharacters(in: .whitespacesAndNewlines)
             }
         }
         

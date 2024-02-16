@@ -53,7 +53,7 @@ final class AmityMessageListScreenViewModel: AmityMessageListScreenViewModelType
         
     // MARK: - Repository
     private var membershipParticipation: AmityChannelParticipation?
-    private let channelRepository: AmityChannelRepository!
+     let channelRepository: AmityChannelRepository!
     private var messageRepository: AmityMessageRepository!
     private var userRepository: AmityUserRepository!
     private var editor: AmityMessageEditor?
@@ -89,6 +89,7 @@ final class AmityMessageListScreenViewModel: AmityMessageListScreenViewModelType
         membershipParticipation = AmityChannelParticipation(client: AmityUIKitManagerInternal.shared.client, andChannel: channelId)
         channelRepository = AmityChannelRepository(client: AmityUIKitManagerInternal.shared.client)
         messageRepository = AmityMessageRepository(client: AmityUIKitManagerInternal.shared.client)
+        
     }
     
     // MARK: - DataSource

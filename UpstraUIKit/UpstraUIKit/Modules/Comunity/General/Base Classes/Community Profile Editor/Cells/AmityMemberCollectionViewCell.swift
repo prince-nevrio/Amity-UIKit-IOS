@@ -41,7 +41,7 @@ class AmityMemberCollectionViewCell: UICollectionViewCell {
     }
     
     private func setupView() {
-        containerView.backgroundColor = AmityColorSet.secondary.blend(.shade4)
+        containerView.backgroundColor = AmityColorSet.backgroundColor
         containerView.layer.cornerRadius = contentView.frame.height / 2
         
         setupAvatarView()
@@ -76,7 +76,7 @@ class AmityMemberCollectionViewCell: UICollectionViewCell {
     }
     
     private func setupContainerAddView() {
-        containerAddView.backgroundColor = AmityColorSet.secondary.blend(.shade4)
+        containerAddView.backgroundColor = AmityColorSet.backgroundColor
         containerAddView.layer.cornerRadius = containerAddView.frame.height / 2
         addButton.addTarget(self, action: #selector(addTap), for: .touchUpInside)
         addImageView.image = AmityIconSet.iconAdd

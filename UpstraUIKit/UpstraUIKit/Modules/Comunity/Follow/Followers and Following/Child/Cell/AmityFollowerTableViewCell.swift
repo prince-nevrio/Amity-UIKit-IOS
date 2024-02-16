@@ -79,7 +79,7 @@ private extension AmityFollowerTableViewCell {
     }
     
     func setupAvatarView() {
-        avatarView.backgroundColor = AmityColorSet.secondary.blend(.shade4)
+        avatarView.backgroundColor = AmityColorSet.backgroundColor
         avatarView.placeholder = AmityIconSet.defaultAvatar
         avatarView.actionHandler = { [weak self] in
             self?.avatarTap()

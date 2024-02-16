@@ -32,27 +32,30 @@ final class AmityNewsfeedEmptyView: AmityView {
         
         imageView.image = AmityIconSet.emptyNewsfeed
         titleLabel.text = AmityLocalizedStringSet.emptyNewsfeedTitle.localizedString
-        titleLabel.textColor = AmityColorSet.base.blend(.shade2)
-        titleLabel.font = AmityFontSet.headerLine
+        titleLabel.textColor = AmityColorSet.primary
+        titleLabel.font = AmityTypography.defaultFont(ofSize: 34, weight: .bold,fontName: "Recoleta-Medium")
         
         subtitleLabel.text = AmityLocalizedStringSet.emptyNewsfeedSubtitle.localizedString
-        subtitleLabel.textColor = AmityColorSet.base.blend(.shade2)
-        subtitleLabel.font = AmityFontSet.body
         
         exploreCommunityButton.setTitle(AmityLocalizedStringSet.emptyNewsfeedExploreButton.localizedString, for: .normal)
-        exploreCommunityButton.setTitleFont(AmityFontSet.bodyBold)
-        exploreCommunityButton.setTitleColor(AmityColorSet.baseInverse, for: .normal)
-        exploreCommunityButton.backgroundColor = AmityColorSet.primary
-        exploreCommunityButton.setImage(AmityIconSet.iconSearch, position: .left)
+        exploreCommunityButton.setTitleFont(AmityFontSet.title)
+        exploreCommunityButton.setTitleColor(AmityColorSet.primary, for: .normal)
+        exploreCommunityButton.backgroundColor = AmityColorSet.secondary
         exploreCommunityButton.tintColor = AmityColorSet.baseInverse
-        exploreCommunityButton.contentEdgeInsets = .init(top: 0, left: 30, bottom: 0, right: 30)
-        exploreCommunityButton.layer.cornerRadius = 4
+       // exploreCommunityButton.contentEdgeInsets = .init(top: 0, left: 0, bottom: 0, right: 0)
+        exploreCommunityButton.layer.cornerRadius = exploreCommunityButton.layer.frame.height/2
         
         createCommunityButton.setTitle(AmityLocalizedStringSet.emptyNewsfeedCreateButton.localizedString, for: .normal)
-        createCommunityButton.setTitleFont(AmityFontSet.body)
+        createCommunityButton.setTitleFont(AmityFontSet.title)
         createCommunityButton.setTitleColor(AmityColorSet.primary, for: .normal)
         createCommunityButton.setTitleColor(AmityColorSet.primary.blend(.shade2), for: .disabled)
         createCommunityButton.isEnabled = Reachability.shared.isConnectedToNetwork
+        
+        if(AmityRecentChatViewController.isLiveStreamEnabled){
+            createCommunityButton.isHidden = false
+        }else{
+            createCommunityButton.isHidden = true
+        }
     }
     
     func setNeedsUpdateState() {

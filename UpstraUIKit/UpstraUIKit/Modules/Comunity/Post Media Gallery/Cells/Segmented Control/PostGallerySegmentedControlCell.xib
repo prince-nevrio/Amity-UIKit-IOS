@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -18,23 +18,23 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2g6-xz-Ujz">
-                        <rect key="frame" x="0.0" y="15" width="72" height="34"/>
+                        <rect key="frame" x="0.0" y="15" width="64" height="34"/>
                         <inset key="contentEdgeInsets" minX="12" minY="8" maxX="12" maxY="8"/>
-                        <state key="normal" title="Photos"/>
+                        <state key="normal" title="Foton"/>
                         <connections>
                             <action selector="photoDidTouch" destination="gTV-IL-0wX" eventType="touchUpInside" id="Ctp-ZP-ahm"/>
                         </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dFq-dA-8rr">
-                        <rect key="frame" x="80" y="15" width="71" height="34"/>
+                        <rect key="frame" x="72" y="15" width="69" height="34"/>
                         <inset key="contentEdgeInsets" minX="12" minY="8" maxX="12" maxY="8"/>
-                        <state key="normal" title="Videos"/>
+                        <state key="normal" title="Videor"/>
                         <connections>
                             <action selector="videoDidTouch" destination="gTV-IL-0wX" eventType="touchUpInside" id="NkF-GR-fB9"/>
                         </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sn5-QM-k8F" userLabel="Live Stream Button">
-                        <rect key="frame" x="159" y="15" width="107" height="34"/>
+                        <rect key="frame" x="149" y="15" width="107" height="34"/>
                         <inset key="contentEdgeInsets" minX="12" minY="8" maxX="12" maxY="8"/>
                         <state key="normal" title="Livestreams"/>
                         <connections>

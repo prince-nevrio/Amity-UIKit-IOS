@@ -67,8 +67,8 @@ class AmityPostLiveStreamTableViewCell: UITableViewCell, Nibbable, AmityPostProt
         // Whether to show stream end view, which will obsecure all the view behinds.
         switch streamStatus {
         case .ended:
-            streamEndTitleLabel.text = "This livestream has ended."
-            streamEndDescriptionLabel.text = "Playback will be available for you to watch shortly."
+            streamEndTitleLabel.text = "Denna livestream har avslutats."
+            streamEndDescriptionLabel.text = "Uppspelning kommer att vara tillgänglig för dig att titta på inom kort."
             streamEndDescriptionLabel.isHidden = false
             streamEndView.isHidden = false
         case .idle:
@@ -86,19 +86,20 @@ class AmityPostLiveStreamTableViewCell: UITableViewCell, Nibbable, AmityPostProt
             streamStateContainer.isHidden = false
             streamStateContainer.backgroundColor = UIColor(hex: "FF305A")
             streamStateLabel.text = "LIVE"
+            let placeholder = UIImage(named: "default_livestream", in: AmityUIKitManager.bundle, compatibleWith: nil)
+            thumbnailImageView.image = placeholder
         case .recorded:
             streamStateContainer.isHidden = false
             streamStateContainer.backgroundColor = UIColor.black.withAlphaComponent(0.7)
-            streamStateLabel.text = "RECORDED"
+            streamStateLabel.text = "Inspelat"
+            let placeholder = UIImage(named: "recorded_livestream", in: AmityUIKitManager.bundle, compatibleWith: nil)
+            thumbnailImageView.image = placeholder
         default:
             streamStateContainer.isHidden = true
+            let placeholder = UIImage(named: "recorded_livestream", in: AmityUIKitManager.bundle, compatibleWith: nil)
+            thumbnailImageView.image = placeholder
         }
-        
-        // Set the placeholder
-        // - while waiting for image loading
-        // - or if there's no image to load
-        let placeholder = UIImage(named: "default_livestream", in: AmityUIKitManager.bundle, compatibleWith: nil)
-        thumbnailImageView.image = placeholder
+
         
         // Load thumbnail image
         if let thumbnailImageUrl = thumbnailImageUrl {

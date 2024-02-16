@@ -14,7 +14,7 @@ extension AmityPhotoViewerController {
 
     @IBAction private func moreButtonTapped(_ sender: UIButton) {
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertController.Style.actionSheet)
-        alertController.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
+        alertController.addAction(UIAlertAction(title: "Klar", style: UIAlertAction.Style.cancel, handler: nil))
         let saveButton = UIAlertAction(title: "Save", style: UIAlertAction.Style.default) { _ in
             // Save photo to Camera roll
             if let delegate = self.delegate {

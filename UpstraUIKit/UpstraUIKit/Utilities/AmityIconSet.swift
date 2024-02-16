@@ -21,6 +21,7 @@ public struct AmityIconSet {
     
     private init() { }
     
+    public static var iconChatCreate = UIImage(named: "icon_chat_create", in: AmityUIKitManager.bundle, compatibleWith: nil)
     public static var iconBack = UIImage(named: "icon_back", in: AmityUIKitManager.bundle, compatibleWith: nil)
     public static var iconClose = UIImage(named: "icon_close", in: AmityUIKitManager.bundle, compatibleWith: nil)
     public static var iconMessage = UIImage(named: "icon_message", in: AmityUIKitManager.bundle, compatibleWith: nil)
@@ -103,7 +104,7 @@ public struct AmityIconSet {
     public static var iconDeleteMessage = UIImage(named: "icon_delete_message", in: AmityUIKitManager.bundle, compatibleWith: nil)
     
     // MARK: - Empty Newsfeed
-    public static var emptyNewsfeed = UIImage(named: "empty_newsfeed", in: AmityUIKitManager.bundle, compatibleWith: nil)
+    public static var emptyNewsfeed = UIImage(named: "empty_image", in: AmityUIKitManager.bundle, compatibleWith: nil)
     public static var emptyNoPosts = UIImage(named: "empty_no_posts", in: AmityUIKitManager.bundle, compatibleWith: nil)
     
     // MARK: - User Feed
@@ -144,7 +145,7 @@ public struct AmityIconSet {
         public static var iconPostSetting = UIImage(named: "icon_community_setting_post", in: AmityUIKitManager.bundle, compatibleWith: nil)
         public static var iconCommunitySettingBanned = UIImage(named: "icon_community_setting_banned", in: AmityUIKitManager.bundle, compatibleWith: nil)
     }
-        
+    
     enum CommunityNotificationSettings {
         public static var iconComments = UIImage(named: "icon_comments", in: AmityUIKitManager.bundle, compatibleWith: nil)
         public static var iconNewPosts = UIImage(named: "icon_new_posts", in: AmityUIKitManager.bundle, compatibleWith: nil)

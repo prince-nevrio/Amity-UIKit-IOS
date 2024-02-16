@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftEventBus
 
 public class AmityCommunityHomePageViewController: AmityPageViewController {
     
@@ -19,6 +20,14 @@ public class AmityCommunityHomePageViewController: AmityPageViewController {
         title = AmityLocalizedStringSet.communityHomeTitle.localizedString
     }
     
+    public override func viewWillAppear(_ animated: Bool) {
+            SwiftEventBus.post("onHideBottomNavigationBar",sender: false)
+    }
+    
+    public override func viewWillDisappear(_ animated: Bool) {
+        SwiftEventBus.post("onHideBottomNavigationBar",sender: true)
+    }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -29,7 +38,8 @@ public class AmityCommunityHomePageViewController: AmityPageViewController {
     }
     
     public static func make() -> AmityCommunityHomePageViewController {
-        return AmityCommunityHomePageViewController()
+        let controller = AmityCommunityHomePageViewController()
+        return controller
     }
     
     override func viewControllers(for pagerTabStripController: AmityPagerTabViewController) -> [UIViewController] {
@@ -44,6 +54,13 @@ public class AmityCommunityHomePageViewController: AmityPageViewController {
         let searchItem = UIBarButtonItem(image: AmityIconSet.iconSearch, style: .plain, target: self, action: #selector(searchTap))
         searchItem.tintColor = AmityColorSet.base
         navigationItem.rightBarButtonItem = searchItem
+       
+        SwiftEventBus.onMainThread(self, name: "firstTab") { result in
+            self.setCurrentIndex(0,animated: true)
+        }
+        SwiftEventBus.onMainThread(self, name: "secondTab") { result in
+            self.setCurrentIndex(1,animated: true)
+        }
     }
 }
 

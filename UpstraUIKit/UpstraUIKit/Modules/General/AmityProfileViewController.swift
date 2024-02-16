@@ -38,7 +38,7 @@ public class AmityProfileViewController: AmityViewController, AmityProfileDataSo
     }
     
     func scrollViewDidLoad(_ scrollView: UIScrollView) {
-        refreshControl.tintColor = .gray
+        refreshControl.tintColor = AmityColorSet.base.blend(.shade3)
         refreshControl.addTarget(self, action: #selector(handleRefreshControl), for: .valueChanged)
         
         let keyWindow = UIApplication.shared.connectedScenes.flatMap { ($0 as? UIWindowScene)?.windows ?? [] }.first { $0.isKeyWindow }
@@ -91,16 +91,16 @@ public class AmityProfileBottomViewController: AmityButtonPagerTabSViewControlle
         settings.style.buttonBarBackgroundColor = AmityColorSet.backgroundColor
         settings.style.buttonBarItemBackgroundColor = AmityColorSet.backgroundColor
         settings.style.selectedBarBackgroundColor = AmityColorSet.primary
-        settings.style.buttonBarItemTitleColor = AmityColorSet.base
+        settings.style.buttonBarItemTitleColor = AmityColorSet.grey
         settings.style.selectedBarHeight = 3
         settings.style.buttonBarItemsShouldFillAvailableWidth = false
         settings.style.buttonBarLeftContentInset = 16
         settings.style.buttonBarRightContentInset = 16
-        settings.style.bottomLineColor = AmityColorSet.secondary.blend(.shade4)
+        settings.style.bottomLineColor = AmityColorSet.dividerColor
         super.viewDidLoad()
         delegate = self
         self.changeCurrentIndexProgressive = { (oldCell: ButtonBarViewCell?, newCell: ButtonBarViewCell?, progressPercentage: CGFloat, changeCurrentIndex: Bool, animated: Bool) -> Void in
-            oldCell?.label.textColor = AmityColorSet.base
+            oldCell?.label.textColor = AmityColorSet.grey
             oldCell?.label.font = AmityFontSet.title
             newCell?.label.textColor = AmityColorSet.primary
             newCell?.label.font = AmityFontSet.title

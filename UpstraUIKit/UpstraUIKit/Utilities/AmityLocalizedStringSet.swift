@@ -40,6 +40,8 @@ public struct AmityLocalizedStringSet {
         static let leave = "general_leave"
         static let like = "general_like"
         static let liked = "general_liked"
+        static let comment = "general_comment"
+        static let share = "general_share"
         static let reply = "general_reply"
         static let viewReply = "general_view_reply"
         static let remove = "general_remove"

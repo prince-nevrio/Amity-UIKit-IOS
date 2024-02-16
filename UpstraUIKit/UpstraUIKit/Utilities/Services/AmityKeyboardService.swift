@@ -28,6 +28,8 @@ extension AmityKeyboardServiceDelegate {
 final class AmityKeyboardService: NSObject {
     static var shared: AmityKeyboardService = AmityKeyboardService()
 
+    private var isKeyboardVisible = false
+
     private override init() {
         super.init()
         subscribeToKeyboardEvents()
@@ -51,6 +53,13 @@ final class AmityKeyboardService: NSObject {
 
     @objc
     private func keyboardWillShow(_ notification: NSNotification) {
+        guard !isKeyboardVisible else {
+            // If the keyboard is already visible, do not trigger another event
+            return
+        }
+
+        isKeyboardVisible = true
+
         delegate?.keyboardWillAppear(service: self)
 
         if
@@ -67,6 +76,13 @@ final class AmityKeyboardService: NSObject {
 
     @objc
     private func keyboardWillHide(_ notification: NSNotification) {
+        guard isKeyboardVisible else {
+            // If the keyboard is already hidden, do not trigger another event
+            return
+        }
+
+        isKeyboardVisible = false
+
         delegate?.keyboardWillDismiss(service: self)
 
         let duration: TimeInterval
@@ -81,5 +97,10 @@ final class AmityKeyboardService: NSObject {
         delegate?.keyboardWillChange(service: self,
                                      height: 0,
                                      animationDuration: duration)
+    }
+
+    func dismissKeyboard() {
+        // Dismiss the keyboard
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }
 }

@@ -18,7 +18,7 @@ final class AmitySettingsItemSeparatorContentTableViewCell: UITableViewCell, Nib
         selectionStyle = .none
         backgroundColor = AmityColorSet.backgroundColor
         contentView.backgroundColor = AmityColorSet.backgroundColor
-        separatorView.backgroundColor = AmityColorSet.base.blend(.shade4)
+        separatorView.backgroundColor = AmityColorSet.dividerColor
     }
 
  

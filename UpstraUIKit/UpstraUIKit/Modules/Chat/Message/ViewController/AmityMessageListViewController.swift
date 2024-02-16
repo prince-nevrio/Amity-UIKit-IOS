@@ -20,7 +20,7 @@ public extension AmityMessageListViewController {
         /// Set compose bar style. The default value is `ComposeBarStyle.default`.
         public var composeBarStyle = ComposeBarStyle.default
         public var shouldHideAudioButton: Bool = false
-        public var shouldShowChatSettingBarButton: Bool = false
+        public var shouldShowChatSettingBarButton: Bool = true
         public var enableConnectionBar: Bool = true
         public init() {
             // Intentionally left empty
@@ -87,7 +87,6 @@ public final class AmityMessageListViewController: AmityViewController {
         super.viewWillAppear(animated)
         AmityKeyboardService.shared.delegate = self
         screenViewModel.startReading()
-        
         bottomConstraint.constant = .zero
         view.endEditing(true)
     }
@@ -95,7 +94,6 @@ public final class AmityMessageListViewController: AmityViewController {
     public override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         AmityKeyboardService.shared.delegate = nil
-        
         screenViewModel.action.toggleKeyboardVisible(visible: false)
         screenViewModel.action.inputSource(for: .default)
         screenViewModel.action.stopReading()
@@ -119,6 +117,9 @@ public final class AmityMessageListViewController: AmityViewController {
         let vc = AmityMessageListViewController(nibName: AmityMessageListViewController.identifier, bundle: AmityUIKitManager.bundle)
         vc.screenViewModel = viewModel
         vc.settings = settings
+        Task {
+            try await viewModel.channelRepository.getChannel(channelId).snapshot?.markAsRead()
+        }
         return vc
     }
     
@@ -184,12 +185,14 @@ private extension AmityMessageListViewController {
             navigationHeaderViewController = AmityMessageListHeaderView(viewModel: screenViewModel)
             let item = UIBarButtonItem(customView: navigationHeaderViewController)
             navigationItem.leftBarButtonItem = item
-            let image = AmityIconSet.Chat.iconSetting
-            let barButton = UIBarButtonItem(image: image,
-                                            style: .plain,
-                                            target: self,
-                                            action: #selector(didTapSetting))
-            navigationItem.rightBarButtonItem = barButton
+            if(AmityRecentChatViewController.isLiveStreamEnabled){
+                let image = AmityIconSet.Chat.iconSetting
+                let barButton = UIBarButtonItem(image: image,
+                                                style: .plain,
+                                                target: self,
+                                                action: #selector(didTapSetting))
+                navigationItem.rightBarButtonItem = barButton
+            }
         }
     }
     

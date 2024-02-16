@@ -55,7 +55,10 @@ extension AmityFeedScreenViewModel {
     }
     
     func postComponents(in section: Int) -> AmityPostComponent {
-        return postComponents[section - 1]
+        guard section > 0 && section <= postComponents.count else {
+            return postComponents[0]
+           }
+           return postComponents[section - 1]
     }
     
     // Plus 1 is for the header view section

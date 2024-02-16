@@ -50,7 +50,7 @@ final class AmityPollCreatorAnswerTableViewCell: UITableViewCell, Nibbable, Amit
         answerTextView.returnKeyType = .done
         answerTextView.customTextViewDelegate = self
         answerTextView.layer.cornerRadius = 4
-        answerTextView.backgroundColor = AmityColorSet.base.blend(.shade4)
+        answerTextView.backgroundColor = AmityColorSet.backgroundColor
     }
     
     private func setupErrorLabel() {
@@ -79,7 +79,7 @@ extension AmityPollCreatorAnswerTableViewCell: AmityTextViewDelegate {
     func textViewDidChange(_ textView: AmityTextView) {
         let count = textView.text?.utf16.count ?? 0
         errorLabel.isHidden = count != AmityPollCreatorConstant.answerMax
-        answerTextView.layer.borderColor = count != AmityPollCreatorConstant.answerMax ? AmityColorSet.base.blend(.shade4).cgColor : AmityColorSet.alert.cgColor
+        answerTextView.layer.borderColor = count != AmityPollCreatorConstant.answerMax ? AmityColorSet.backgroundColor.cgColor : AmityColorSet.alert.cgColor
         answerTextView.layer.borderWidth = 1
         deleteButton.isHidden = answerTextView.text == ""
         delegate?.didPerformAction(self, action: .textViewDidChange(textView: textView))

@@ -50,7 +50,7 @@ final class AmitySettingsItemRadioButtonContentTableViewCell: UITableViewCell, N
         
         // MARK: - Title
         titleLabel.text = AmityLocalizedStringSet.titlePlaceholder
-        titleLabel.font = AmityFontSet.body
+        titleLabel.font = AmityFontSet.bodyRecoleta
         titleLabel.textColor = AmityColorSet.base
         titleLabel.numberOfLines = 0
     }

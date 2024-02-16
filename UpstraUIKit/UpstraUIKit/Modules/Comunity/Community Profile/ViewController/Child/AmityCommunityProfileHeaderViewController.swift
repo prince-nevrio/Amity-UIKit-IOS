@@ -42,6 +42,7 @@ final class AmityCommunityProfileHeaderViewController: UIViewController {
     // MARK: - View lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.navigationBar.isTranslucent = false
         setupDisplayName()
         setupBadgeView()
         setupSubTitleLabel()
@@ -137,16 +138,16 @@ final class AmityCommunityProfileHeaderViewController: UIViewController {
     private func setupActionButton() {
         actionButton.isHidden = true
         actionButton.setTitleShadowColor(AmityColorSet.baseInverse, for: .normal)
-        actionButton.setTitleFont(AmityFontSet.bodyBold)
+        actionButton.setTitleFont(AmityFontSet.bodyRecoleta)
         actionButton.addTarget(self, action: #selector(actionTap), for: .touchUpInside)
     }
     
     private func setupPendingPosts() {
         pendingPostsContainerView.isHidden = true
-        pendingPostsContainerView.layer.cornerRadius = 4
-        pendingPostsContainerView.backgroundColor = AmityColorSet.base.blend(.shade4)
+        pendingPostsContainerView.layer.cornerRadius = pendingPostsContainerView.layer.frame.height / 2
+        pendingPostsContainerView.backgroundColor = AmityColorSet.backgroundColor
         
-        pendingPostsStatusView.backgroundColor = AmityColorSet.primary
+        pendingPostsStatusView.backgroundColor = AmityColorSet.secondary
         pendingPostsStatusView.layer.cornerRadius = pendingPostsStatusView.frame.height / 2
         
         pendingPostsTitleLabel.text = AmityLocalizedStringSet.PendingPosts.statusTitle.localizedString
@@ -184,17 +185,17 @@ final class AmityCommunityProfileHeaderViewController: UIViewController {
         case .guest:
             actionButton.setTitle(AmityLocalizedStringSet.communityDetailJoinButton.localizedString, for: .normal)
             actionButton.setImage(AmityIconSet.iconAdd, position: .left)
-            actionButton.tintColor = AmityColorSet.baseInverse
-            actionButton.backgroundColor = AmityColorSet.primary
-            actionButton.layer.cornerRadius = 4
+            actionButton.tintColor = AmityColorSet.primary
+            actionButton.backgroundColor = AmityColorSet.secondary
+            actionButton.layer.cornerRadius = actionButton.layer.frame.height / 2
             actionButton.tag = 0
             actionButton.isHidden = false
         case .member:
             actionButton.setTitle(AmityLocalizedStringSet.communityDetailMessageButton.localizedString, for: .normal)
             actionButton.setImage(AmityIconSet.iconChat, position: .left)
-            actionButton.tintColor = AmityColorSet.secondary
-            actionButton.backgroundColor = AmityColorSet.backgroundColor
-            actionButton.layer.borderColor = AmityColorSet.secondary.blend(.shade3).cgColor
+            actionButton.tintColor = AmityColorSet.primary
+            actionButton.backgroundColor = AmityColorSet.secondary
+            actionButton.layer.borderColor = AmityColorSet.secondary.cgColor
             actionButton.layer.borderWidth = 1
             actionButton.layer.cornerRadius = 4
             actionButton.tag = 1
@@ -202,11 +203,11 @@ final class AmityCommunityProfileHeaderViewController: UIViewController {
         case .admin:
             actionButton.setTitle(AmityLocalizedStringSet.communityDetailEditProfileButton.localizedString, for: .normal)
             actionButton.setImage(AmityIconSet.iconEdit, position: .left)
-            actionButton.tintColor = AmityColorSet.secondary
-            actionButton.backgroundColor = AmityColorSet.backgroundColor
-            actionButton.layer.borderColor = AmityColorSet.secondary.blend(.shade3).cgColor
+            actionButton.tintColor = AmityColorSet.primary
+            actionButton.backgroundColor = AmityColorSet.secondary
+            actionButton.layer.borderColor = AmityColorSet.secondary.cgColor
             actionButton.layer.borderWidth = 1
-            actionButton.layer.cornerRadius = 4
+            actionButton.layer.cornerRadius = actionButton.layer.frame.height / 2
             actionButton.tag = 2
             actionButton.isHidden = false
         }

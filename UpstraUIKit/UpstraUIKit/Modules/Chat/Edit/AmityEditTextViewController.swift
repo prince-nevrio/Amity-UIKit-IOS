@@ -96,7 +96,7 @@ public class AmityEditTextViewController: AmityViewController {
     private func setupHeaderView() {
         if let header = headerTitle {
             headerView.isHidden = false
-            headerView.backgroundColor = AmityColorSet.secondary.blend(.shade4)
+            headerView.backgroundColor = AmityColorSet.dividerColor
             headerLabel.textColor = AmityColorSet.base.blend(.shade1)
             headerLabel.font = AmityFontSet.body
             headerLabel.text = header

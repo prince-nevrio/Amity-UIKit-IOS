@@ -23,13 +23,13 @@ class AmityEmptyView: AmityView {
         contentView.backgroundColor = AmityColorSet.backgroundColor
         titleLabel.text = ""
         titleLabel.font = AmityFontSet.title
-        titleLabel.textColor = AmityColorSet.base.blend(.shade3)
+        titleLabel.textColor = AmityColorSet.primary
         titleLabel.textAlignment = .center
         titleLabel.numberOfLines = 0
         
         subtitleLabel.text = ""
         subtitleLabel.font = AmityFontSet.caption
-        subtitleLabel.textColor = AmityColorSet.base.blend(.shade2)
+        subtitleLabel.textColor = AmityColorSet.primary
         subtitleLabel.textAlignment = .center
         subtitleLabel.numberOfLines = 0
     }

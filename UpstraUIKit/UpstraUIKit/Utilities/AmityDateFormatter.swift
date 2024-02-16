@@ -15,10 +15,10 @@ private extension Date {
         }
         
         if isInYesterday {
-            return "Yesterday"
+            return "Igår"
         }
 
-        return "Today"
+        return "Idag"
     }
     
     var isToday: Bool {
@@ -48,7 +48,7 @@ struct AmityDateFormatter {
             dateFormatter.dateFormat = "M/dd/yy, hh:mm a"
             let dateString = dateFormatter.string(from: date)
             guard let _date = dateFormatter.date(from: dateString) else { return "" }
-            dateFormatter.dateFormat = _date.isToday ? "h:mm a" : "dd/MM/yy"
+            dateFormatter.dateFormat = _date.isToday ? "HH:mm" : "dd/MM/yy"
             return dateFormatter.string(from: _date)
         }
     }
@@ -76,7 +76,7 @@ struct AmityDateFormatter {
         static func getTime(date: Date) -> String {
             dateFormatter.dateStyle = .none
             dateFormatter.timeStyle = .short
-            dateFormatter.dateFormat = "h:mm a"
+            dateFormatter.dateFormat = "HH:mm"
             return dateFormatter.string(from: date)
         }
     }

@@ -38,7 +38,7 @@ final class AmityPendingPostsDetailViewController: AmityViewController {
     
     // MARK: - Setup views
     private func setupTableView() {
-        tableView.backgroundColor = AmityColorSet.secondary.blend(.shade4)
+        tableView.backgroundColor = AmityColorSet.dividerColor
         tableView.tableFooterView = UIView()
         tableView.separatorStyle = .none
         tableView.showsVerticalScrollIndicator = false

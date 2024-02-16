@@ -76,7 +76,7 @@ final public class AmityUserProfileEditorViewController: AmityViewController {
     private func setupView() {
         // avatar
         userAvatarView.placeholder = AmityIconSet.defaultAvatar
-        cameraImageView.backgroundColor = AmityColorSet.secondary.blend(.shade4)
+        cameraImageView.backgroundColor = AmityColorSet.backgroundColor
         cameraImageView.layer.borderColor = AmityColorSet.backgroundColor.cgColor
         cameraImageView.layer.borderWidth = 1.0
         cameraImageView.layer.cornerRadius = 14.0
@@ -103,8 +103,8 @@ final public class AmityUserProfileEditorViewController: AmityViewController {
         aboutTextView.maxCharacters = Constant.maxCharactor
         
         // separator
-        aboutSeparatorView.backgroundColor = AmityColorSet.secondary.blend(.shade4)
-        displaynameSeparatorView.backgroundColor = AmityColorSet.secondary.blend(.shade4)
+        aboutSeparatorView.backgroundColor = AmityColorSet.dividerColor
+        displaynameSeparatorView.backgroundColor = AmityColorSet.dividerColor
         
         updateViewState()
     }

@@ -13,7 +13,7 @@ final class AmityCircularTransition {
     private var containerView = UIView()
     private var circleView = UIView()
     
-    var circleColor: UIColor = UIColor.white
+    var circleColor: UIColor = AmityColorSet.backgroundColor
     var presentedView: UIView?
     
     private var presenterViewCenter: CGPoint = CGPoint.zero

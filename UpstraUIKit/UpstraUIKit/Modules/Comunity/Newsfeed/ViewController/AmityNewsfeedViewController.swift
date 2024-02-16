@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftEventBus
 
 /// A view controller for providing global feed with create post functionality.
 public class AmityNewsfeedViewController: AmityViewController, IndicatorInfoProvider {
@@ -28,6 +29,12 @@ public class AmityNewsfeedViewController: AmityViewController, IndicatorInfoProv
         setupHeaderView()
         setupEmptyView()
         setupPostButton()
+        headerView.retrieveCommunityList()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            self.viewWillAppear(false)
+            self.viewDidLoad()
+            self.view.layoutIfNeeded()
+        }
     }
     
     public override func viewWillAppear(_ animated: Bool) {
@@ -64,6 +71,7 @@ private extension AmityNewsfeedViewController {
             guard let parent = self?.parent as? AmityCommunityHomePageViewController else { return }
             // Switch to explore tap which is an index 1.
             parent.setCurrentIndex(1)
+            SwiftEventBus.post("onCommunityPageIndexChange",sender: 1)
         }
         emptyView.createHandler = { [weak self] in
             let vc = AmityCommunityCreatorViewController.make()
@@ -110,7 +118,9 @@ extension AmityNewsfeedViewController: AmityMyCommunityPreviewViewControllerDele
 
     public func viewController(_ viewController: AmityMyCommunityPreviewViewController, shouldShowMyCommunityPreview: Bool) {
         if shouldShowMyCommunityPreview {
-            feedViewController.headerView = headerView
+            if(feedViewController.headerView == nil){
+                feedViewController.headerView = headerView
+            }
         } else {
             feedViewController.headerView = nil
         }

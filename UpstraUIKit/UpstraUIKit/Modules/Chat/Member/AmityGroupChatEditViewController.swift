@@ -74,7 +74,7 @@ class AmityGroupChatEditViewController: AmityViewController {
         screenViewModel = AmityGroupChatEditScreenViewModel(channelId: channelId)
         screenViewModel?.delegate = self
         avatarView.placeholder = AmityIconSet.defaultGroupChat
-        cameraImageView.backgroundColor = AmityColorSet.secondary.blend(.shade4)
+        cameraImageView.backgroundColor = AmityColorSet.dividerColor
         cameraImageView.layer.borderColor = AmityColorSet.backgroundColor.cgColor
         cameraImageView.layer.borderWidth = 1.0
         cameraImageView.layer.cornerRadius = 14.0

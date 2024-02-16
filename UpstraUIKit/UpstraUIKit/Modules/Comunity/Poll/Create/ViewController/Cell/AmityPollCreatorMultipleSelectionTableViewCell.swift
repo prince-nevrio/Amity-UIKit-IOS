@@ -46,7 +46,7 @@ final class AmityPollCreatorMultipleSelectionTableViewCell: UITableViewCell, Nib
         multipleSelectionSwitch.backgroundColor = AmityColorSet.base.blend(.shade3)
         multipleSelectionSwitch.layer.cornerRadius = multipleSelectionSwitch.frame.height / 2
         
-        lineView.backgroundColor = AmityColorSet.secondary.blend(.shade4)
+        lineView.backgroundColor = AmityColorSet.dividerColor
     }
     
     // MARK: - Action

@@ -128,12 +128,12 @@ class AmityPostDetailCompostView: UIView {
         replyContainerView.isHidden = true
         replyContainerView.addSubview(replyLabel)
         replyContainerView.addSubview(dismissButton)
-        replyContainerView.backgroundColor = AmityColorSet.base.blend(.shade4)
+        replyContainerView.backgroundColor = AmityColorSet.backgroundColor
         stackView.addArrangedSubview(replyContainerView)
         
         // Separater view
         separtorLineView.translatesAutoresizingMaskIntoConstraints = false
-        separtorLineView.backgroundColor = AmityColorSet.secondary.blend(.shade4)
+        separtorLineView.backgroundColor = AmityColorSet.dividerColor
         stackView.addArrangedSubview(separtorLineView)
         
         // Text composer view
@@ -142,7 +142,7 @@ class AmityPostDetailCompostView: UIView {
         avatarView.clipsToBounds = true
         avatarView.layer.cornerRadius = 14.0
         textView.translatesAutoresizingMaskIntoConstraints = false
-        textView.backgroundColor = AmityColorSet.secondary.blend(.shade4)
+        textView.backgroundColor = AmityColorSet.backgroundColor
         textView.isScrollEnabled = false
         textView.padding = UIEdgeInsets(top: Constant.textViewTopPadding,
                                         left: Constant.textViewLeftPadding,

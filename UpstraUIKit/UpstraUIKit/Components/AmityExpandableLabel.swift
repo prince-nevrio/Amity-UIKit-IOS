@@ -38,7 +38,7 @@ enum HyperlinkType {
 open class AmityExpandableLabel: UILabel {
     
     private let truncateText = "..."
-    private var readMoreText = "Read more"
+    private var readMoreText = "Läs mer"
     
     public enum TextReplacementType {
         case character
@@ -90,7 +90,7 @@ open class AmityExpandableLabel: UILabel {
     }
     
     // Set a color for hyperLink text in label
-    open var hyperLinkColor: UIColor = AmityColorSet.highlight
+    open var hyperLinkColor: UIColor = AmityColorSet.primary
     
     /// Set a font for readmore label
     /// The default value is 'AmityFontSet.bodyBold'.
@@ -247,13 +247,12 @@ extension AmityExpandableLabel {
         guard let touch = touches.first else {
             return
         }
-        
         let isReadMoreTapped: Bool = {
-            guard let collapsedLinkTextRange else { return false }
-            return check(touch: touch, isInRange: collapsedLinkTextRange) && isExpandable && !isExpanded
-        }()
-        
-        if let hyperLink = hyperLinks.first(where: { check(touch: touch, isInRange: $0.range) }), !isReadMoreTapped {
+                    guard let collapsedLinkTextRange else { return false }
+                    return check(touch: touch, isInRange: collapsedLinkTextRange) && isExpandable && !isExpanded
+                }()
+
+                if let hyperLink = hyperLinks.first(where: { check(touch: touch, isInRange: $0.range) }), !isReadMoreTapped {
             switch hyperLink.type {
             case .url(let url):
                 UIApplication.shared.open(url, options: [:], completionHandler: nil)
@@ -437,7 +436,8 @@ extension AmityExpandableLabel {
     private func check(touch: UITouch, isInRange targetRange: NSRange) -> Bool {
         let touchPoint = touch.location(in: self)
         let index = characterIndex(at: touchPoint)
-        
+        // if text is expandable and it doesn't expand yet, add a reserved range for "...Read More".
+        // other cases mean text is showing at the full size and no need to a range.
         return NSLocationInRange(index, targetRange)
     }
 
@@ -541,44 +541,44 @@ extension UILabel {
 
     func characterIndex(at touchPoint: CGPoint) -> Int {
         guard let attributedString = attributedText, !attributedString.string.isEmpty else { return NSNotFound }
-        
-        // Create a text container and layout manager
-        let textContainer = NSTextContainer(size: bounds.size)
-        let layoutManager = NSLayoutManager()
-        layoutManager.addTextContainer(textContainer)
-        
-        // Set text container attributes
-        textContainer.lineFragmentPadding = 0
-        textContainer.lineBreakMode = lineBreakMode
-        textContainer.maximumNumberOfLines = numberOfLines
-        
-        // Create a text storage and set the label's attributed text
-        let textStorage = NSTextStorage(attributedString: attributedString)
-        textStorage.addLayoutManager(layoutManager)
-        
-        // Find the character index at the tap location
-        var characterIndex = NSNotFound
-        let adjustedTouchPoint: CGPoint
-        
-        switch textAlignment {
-        case .left:
-            adjustedTouchPoint = touchPoint
-        case .center:
-            adjustedTouchPoint = CGPoint(x: touchPoint.x - (bounds.width - textContainer.size.width) / 2.0, y: touchPoint.y)
-        case .right:
-            adjustedTouchPoint = CGPoint(x: touchPoint.x - (bounds.width - textContainer.size.width), y: touchPoint.y)
-        default:
-            adjustedTouchPoint = touchPoint
+
+                // Create a text container and layout manager
+                let textContainer = NSTextContainer(size: bounds.size)
+                let layoutManager = NSLayoutManager()
+                layoutManager.addTextContainer(textContainer)
+
+                // Set text container attributes
+                textContainer.lineFragmentPadding = 0
+                textContainer.lineBreakMode = lineBreakMode
+                textContainer.maximumNumberOfLines = numberOfLines
+
+                // Create a text storage and set the label's attributed text
+                let textStorage = NSTextStorage(attributedString: attributedString)
+                textStorage.addLayoutManager(layoutManager)
+
+                // Find the character index at the tap location
+                var characterIndex = NSNotFound
+                let adjustedTouchPoint: CGPoint
+
+                switch textAlignment {
+                case .left:
+                    adjustedTouchPoint = touchPoint
+                case .center:
+                    adjustedTouchPoint = CGPoint(x: touchPoint.x - (bounds.width - textContainer.size.width) / 2.0, y: touchPoint.y)
+                case .right:
+                    adjustedTouchPoint = CGPoint(x: touchPoint.x - (bounds.width - textContainer.size.width), y: touchPoint.y)
+                default:
+                    adjustedTouchPoint = touchPoint
         }
-        
+
         // Iterate through the glyphs to find the correct index
-        let glyphIndex = layoutManager.glyphIndex(for: adjustedTouchPoint, in: textContainer)
-        let glyphRect = layoutManager.boundingRect(forGlyphRange: NSRange(location: glyphIndex, length: 1), in: textContainer)
-        
-        if glyphRect.contains(adjustedTouchPoint) {
-            characterIndex = layoutManager.characterIndexForGlyph(at: glyphIndex)
+               let glyphIndex = layoutManager.glyphIndex(for: adjustedTouchPoint, in: textContainer)
+               let glyphRect = layoutManager.boundingRect(forGlyphRange: NSRange(location: glyphIndex, length: 1), in: textContainer)
+
+               if glyphRect.contains(adjustedTouchPoint) {
+                   characterIndex = layoutManager.characterIndexForGlyph(at: glyphIndex)
         }
-        
+
         return characterIndex
     }
 
@@ -589,6 +589,8 @@ extension UILabel {
         case .right:
             return 1.0
         case .left, .natural, .justified:
+            return 0.0
+        default:
             return 0.0
         }
     }

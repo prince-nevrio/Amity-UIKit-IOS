@@ -45,7 +45,7 @@ final class AmitySelectMemberListCollectionViewCell: UICollectionViewCell {
         deleteButton.addTarget(self, action: #selector(deleteTap(_:)), for: .touchUpInside)
         
         deleteImageView.image = AmityIconSet.iconClose
-        deleteImageView.tintColor = UIColor.white
+        deleteImageView.tintColor = AmityColorSet.backgroundColor
         
         displayNameLabel.text = ""
         displayNameLabel.textColor = AmityColorSet.base

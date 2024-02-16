@@ -59,8 +59,10 @@ public final class AmityPostFooterTableViewCell: UITableViewCell, Nibbable, Amit
         warningLabel.isHidden = post.isCommentable
         topContainerView.isHidden = isReactionExisted
         
-        shareButton.isHidden = !AmityPostSharePermission.canSharePost(post: post)
+       // shareButton.isHidden = !AmityPostSharePermission.canSharePost(post: post)
         shareLabel.isHidden = post.sharedCount == 0
+        shareLabel.isHidden = true
+        shareButton.isHidden = true
         let sharePrefix = post.sharedCount > 1 ? AmityLocalizedStringSet.Unit.sharesPlural.localizedString :
             AmityLocalizedStringSet.Unit.sharesSingular.localizedString
         shareLabel.text = String.localizedStringWithFormat(sharePrefix, post.sharedCount)
@@ -72,7 +74,7 @@ public final class AmityPostFooterTableViewCell: UITableViewCell, Nibbable, Amit
         backgroundColor = AmityColorSet.backgroundColor
         contentView.backgroundColor = AmityColorSet.backgroundColor
         // separator
-        separatorView.forEach { $0.backgroundColor = AmityColorSet.secondary.blend(.shade4) }
+        separatorView.forEach { $0.backgroundColor = AmityColorSet.dividerColor }
     }
     
     private func setupWarningLabel() {
@@ -98,30 +100,42 @@ public final class AmityPostFooterTableViewCell: UITableViewCell, Nibbable, Amit
         
         // like badge
         likeLabel.textColor = AmityColorSet.base.blend(.shade2)
-        likeLabel.font = AmityFontSet.caption
+        likeLabel.font = AmityFontSet.captionBold
     }
     private func setupCommentButton() {
         // comment button
+        commentButton.setTitle(AmityLocalizedStringSet.General.comment.localizedString, for: .selected)
+        commentButton.setTitle(AmityLocalizedStringSet.General.comment.localizedString, for: .normal)
         commentButton.tintColor = AmityColorSet.base.blend(.shade2)
         commentButton.setTitleColor(AmityColorSet.base.blend(.shade2), for: .normal)
         commentButton.setImage(AmityIconSet.iconComment, for: .normal)
+        commentButton.setImage(AmityIconSet.iconComment, for: .selected)
+        commentButton.setTintColor(AmityColorSet.primary, for: .selected)
         commentButton.setTintColor(AmityColorSet.base.blend(.shade2), for: .normal)
         commentButton.setTitleFont(AmityFontSet.bodyBold)
         commentButton.setInsets(forContentPadding: .zero, imageTitlePadding: 4)
         
         // comment badge
         commentLabel.textColor = AmityColorSet.base.blend(.shade2)
-        commentLabel.font = AmityFontSet.caption
+        commentLabel.font = AmityFontSet.captionBold
     }
     
     private func setupShareButton() {
         // share button
+        shareButton.setTitle(AmityLocalizedStringSet.General.share.localizedString, for: .selected)
+        shareButton.setTitle(AmityLocalizedStringSet.General.share.localizedString, for: .normal)
+        shareButton.setTitleColor(AmityColorSet.base.blend(.shade2), for: .normal)
+        shareButton.tintColor = AmityColorSet.base.blend(.shade2)
         shareButton.setInsets(forContentPadding: .zero, imageTitlePadding: 4)
         shareButton.setTitleFont(AmityFontSet.bodyBold)
         
+        shareButton.setTintColor(AmityColorSet.primary, for: .selected)
+        shareButton.setTintColor(AmityColorSet.base.blend(.shade2), for: .normal)
+
+        
         // share
         shareLabel.textColor = AmityColorSet.base.blend(.shade2)
-        shareLabel.font = AmityFontSet.caption
+        shareLabel.font = AmityFontSet.captionBold
     }
  
     // MARK: - Perform Action

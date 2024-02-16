@@ -54,12 +54,9 @@ final class AmityRecentChatTableViewCell: UITableViewCell, Nibbable {
         titleLabel.textColor = AmityColorSet.base
         memberLabel.font = AmityFontSet.caption
         memberLabel.textColor = AmityColorSet.base.blend(.shade1)
-        
-        previewMessageLabel.text = "No message yet\nNo message yet"
         previewMessageLabel.numberOfLines = 2
         previewMessageLabel.font = AmityFontSet.body
         previewMessageLabel.textColor = AmityColorSet.base.blend(.shade2)
-        previewMessageLabel.alpha = 0
         
         dateTimeLabel.font = AmityFontSet.caption
         dateTimeLabel.textColor = AmityColorSet.base.blend(.shade2)
@@ -69,10 +66,20 @@ final class AmityRecentChatTableViewCell: UITableViewCell, Nibbable {
     func display(with channel: AmityChannelModel) {
         badgeView.badge = channel.unreadCount
         memberLabel.text = ""
+        let previewUser = channel.object.messagePreview?.user?.displayName
+        if let lastMesssage = channel.object.messagePreview?.data?.first{
+            let (_, value) = lastMesssage
+            if let stringValue = value as? String {
+                let displayPreviewText = "\(previewUser ?? ""): \(stringValue)"
+                previewMessageLabel.text = displayPreviewText
+                } else {
+                    previewMessageLabel.text = ""
+                }
+
+        }
         dateTimeLabel.text = AmityDateFormatter.Chat.getDate(date: channel.lastActivity)
         titleLabel.text = channel.displayName
         avatarView.placeholder = AmityIconSet.defaultAvatar
-        
         switch channel.channelType {
         case .standard:
             avatarView.setImage(withImageURL: channel.avatarURL, placeholder: AmityIconSet.defaultGroupChat)
@@ -83,10 +90,12 @@ final class AmityRecentChatTableViewCell: UITableViewCell, Nibbable {
             titleLabel.text = channel.displayName
             
             token?.invalidate()
-            if !channel.getOtherUserId().isEmpty {
+            
+            if !channel.getOtherUserId().isEmpty && channel.getAllUserCount() == 2 {
                 token = repository?.getUser(channel.getOtherUserId()).observeOnce { [weak self] user, error in
-                    guard let userObject = user.object else { return }
+                    guard let userObject = user.snapshot else { return }
                     self?.titleLabel.text = userObject.displayName
+                    self?.avatarView.setImage(withImageURL: userObject.getAvatarInfo()?.fileURL, placeholder: AmityIconSet.defaultAvatar)
                 }
             }
         case .community:

@@ -20,7 +20,7 @@ class PostGalleryEmptyStateCell: UICollectionViewCell, Nibbable {
     func configure(image: UIImage?, text: String) {
         emptyImageView.image = image
         emptyTextLabel.font = AmityFontSet.title
-        emptyTextLabel.textColor = AmityColorSet.base.blend(.shade3)
+        emptyTextLabel.textColor = AmityColorSet.grey
         emptyTextLabel.text = text
     }
     

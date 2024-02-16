@@ -21,6 +21,7 @@ public struct AmityChannelModel {
     let participation: AmityChannelParticipation
     let metadata: [String:Any]
     let object: AmityChannel
+    let isDeleted : Bool
     
     init(object: AmityChannel) {
         self.channelId = object.channelId
@@ -34,6 +35,7 @@ public struct AmityChannelModel {
         self.avatarFileId = object.getAvatarInfo()?.fileURL
         self.metadata = object.metadata ?? [:]
         self.object = object
+        self.isDeleted = object.isDeleted
     }
     
     var isConversationChannel: Bool {
@@ -50,9 +52,21 @@ public struct AmityChannelModel {
         }
         return ""
     }
+    
+    func getAllUserCount() -> Int {
+        if let userIds = metadata["userIds"] as? [String]{
+            return userIds.count
+        }
+        return 0
+    }
 }
 
 final class AmityRecentChatScreenViewModel: AmityRecentChatScreenViewModelType {
+    
+    func leaveChannel(channelId : String) {
+        print("Channel leave success")
+    }
+    
     weak var delegate: AmityRecentChatScreenViewModelDelegate?
     
     
@@ -95,7 +109,7 @@ final class AmityRecentChatScreenViewModel: AmityRecentChatScreenViewModelType {
     }
     
     func isAddMemberBarButtonEnabled() -> Bool {
-        return channelType == .community
+        return true
     }
     
     func createCommunityChannel(users: [AmitySelectMemberModel]) {
@@ -161,11 +175,12 @@ final class AmityRecentChatScreenViewModel: AmityRecentChatScreenViewModelType {
         }
         let builder = AmityConversationChannelBuilder()
         let userIds = users.map{ $0.userId }
-        let channelDisplayName = users.count == 1 ? users.first?.displayName ?? "" : allUsers.map { $0.displayName ?? "" }.joined(separator: "-")
-        let metaData: [String:Any] = [
+        let channelDisplayName = allUsers.count == 1 ? users.first?.displayName ?? "" : allUsers.map { $0.displayName ?? "" }.joined(separator: "-")
+        var metaData: [String:Any] = [
             "isDirectChat": allUsers.count == 2,
             "creatorId": currentUser?.userId ?? "",
-            "sdk_type":"ios"
+            "sdk_type":"ios",
+            "userIds":allUsers.map { $0.userId }
         ]
         builder.setMetadata(metaData)
         builder.setUserIds(userIds)

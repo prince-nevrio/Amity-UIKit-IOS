@@ -87,6 +87,7 @@ private extension AmityMessageListComposeBarViewController {
             self?.screenViewModel.action.toggleKeyboardVisible(visible: true)
             self?.screenViewModel.action.inputSource(for: .default)
         }
+        textComposeBarView.textView.inputAccessoryView = nil
     }
     
     func setupSendMessageButton() {
@@ -115,7 +116,7 @@ private extension AmityMessageListComposeBarViewController {
     
     func setupRecordButton() {
         recordButton.layer.cornerRadius = 4
-        recordButton.backgroundColor = AmityColorSet.secondary.blend(.shade4)
+        recordButton.backgroundColor = AmityColorSet.backgroundColor
         recordButton.titleLabel?.font = AmityFontSet.bodyBold
         recordButton.setTitleColor(AmityColorSet.base, for: .normal)
         recordButton.setImage(AmityIconSet.Chat.iconMic, for: .normal)

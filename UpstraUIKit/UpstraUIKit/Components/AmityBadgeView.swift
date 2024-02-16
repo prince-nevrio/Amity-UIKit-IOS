@@ -31,7 +31,7 @@ final class AmityBadgeView: AmityView {
     private func setupView() {
         badgeView.backgroundColor = AmityColorSet.alert
         
-        label.textColor = UIColor.white
+        label.textColor = AmityColorSet.backgroundColor
         label.textAlignment = .center
         label.font = AmityFontSet.caption
     }

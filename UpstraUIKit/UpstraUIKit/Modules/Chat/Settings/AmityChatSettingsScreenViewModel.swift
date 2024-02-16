@@ -121,7 +121,7 @@ final class AmityChatSettingsScreenViewModel: AmityChatSettingsScreenViewModelTy
         channelRepository = AmityChannelRepository(client: AmityUIKitManagerInternal.shared.client)
         userRepository = AmityUserRepository(client: AmityUIKitManagerInternal.shared.client)
         
-        directChatSetting = [.report(isUserReported)]
+        directChatSetting = [.report(isUserReported),.leave]
         
         self.channelId = channelId
         

@@ -61,13 +61,9 @@ class AmityUserProfileEditorScreenViewModel: AmityUserProfileEditorScreenViewMod
         // Update user avatar
         dispatchGroup.enter()
         fileRepository.uploadImage(avatar, progress: nil) { [weak self] (imageData, error) in
-            guard let self = self else { return }
-            
             let userUpdateBuilder = AmityUserUpdateBuilder()
-            userUpdateBuilder.setAvatar(imageData)
-            
-            
-            AmityUIKitManagerInternal.shared.client.updateUser(userUpdateBuilder) { [weak self] success, error in
+                        userUpdateBuilder.setAvatar(imageData)
+                        AmityUIKitManagerInternal.shared.client.updateUser(userUpdateBuilder) { [weak self] success, error in
                 if success {
                     self?.dispatchGroup.leave()
                 } else {

@@ -12,49 +12,61 @@ extension Date {
     var yearsFromNow: Int {
         return Calendar.current.dateComponents([.year], from: self, to: Date()).year!
     }
+    
     var monthsFromNow: Int {
         return Calendar.current.dateComponents([.month], from: self, to: Date()).month!
     }
+    
     var weeksFromNow: Int {
         return Calendar.current.dateComponents([.weekOfYear], from: self, to: Date()).weekOfYear!
     }
+    
     var daysFromNow: Int {
         return Calendar.current.dateComponents([.day], from: self, to: Date()).day!
     }
+    
     var isInYesterday: Bool {
         return Calendar.current.isDateInYesterday(self)
     }
+    
     var hoursFromNow: Int {
         return Calendar.current.dateComponents([.hour], from: self, to: Date()).hour!
     }
+    
     var minutesFromNow: Int {
         return Calendar.current.dateComponents([.minute], from: self, to: Date()).minute!
     }
+    
     var secondsFromNow: Int {
         return Calendar.current.dateComponents([.second], from: self, to: Date()).second!
     }
+    
     var relativeTime: String {
         if yearsFromNow > 0 {
-            return "\(yearsFromNow) year" + (yearsFromNow > 1 ? "s" : "") + " ago"
+            return "\(yearsFromNow) " + (yearsFromNow > 1 ? "år" : "år") + " sedan"
         }
         if monthsFromNow > 0 {
-            return "\(monthsFromNow) month" + (monthsFromNow > 1 ? "s" : "") + " ago"
+            return "\(monthsFromNow) " + (monthsFromNow > 1 ? "månader" : "månad") + " sedan"
         }
         if weeksFromNow > 0 {
-            return "\(weeksFromNow) week" + (weeksFromNow > 1 ? "s" : "") + " ago"
+            return "\(weeksFromNow) " + (weeksFromNow > 1 ? "veckor" : "vecka") + " sedan"
         }
         if isInYesterday {
-            return "Yesterday"
+            return "I går"
         }
         if daysFromNow > 0 {
-            return "\(daysFromNow) day" + (daysFromNow > 1 ? "s" : "") + " ago"
+            return "\(daysFromNow) " + (daysFromNow > 1 ? "dagar" : "dag") + " sedan"
         }
+        
+        // Use the difference in hours directly
         if hoursFromNow > 0 {
-            return "\(hoursFromNow) hour" + (hoursFromNow > 1 ? "s" : "") + " ago"
+            return "\(hoursFromNow) " + (hoursFromNow > 1 ? "timmar" : "timme") + " sedan"
         }
+        
         if minutesFromNow > 0 {
-            return "\(minutesFromNow) minute" + (minutesFromNow > 1 ? "s" : "") + " ago"
+            return "\(minutesFromNow) " + (minutesFromNow > 1 ? "minuter" : "min") + " sedan"
         }
-        return "Just now"
+        
+        return "Alldeles nyss"
     }
 }

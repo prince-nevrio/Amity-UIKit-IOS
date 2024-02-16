@@ -9,7 +9,7 @@
 import UIKit
 
 public final class AmityMemberPickerViewController: AmityViewController {
-
+    
     // MARK: - Callback
     public var selectUsersHandler: (([AmitySelectMemberModel]) -> Void)?
     
@@ -30,7 +30,7 @@ public final class AmityMemberPickerViewController: AmityViewController {
         screenViewModel.delegate = self
         screenViewModel.action.getUsers()
     }
-
+    
     public static func make(withCurrentUsers users: [AmitySelectMemberModel] = []) -> AmityMemberPickerViewController {
         let viewModeel: AmityMemberPickerScreenViewModelType = AmityMemberPickerScreenViewModel()
         viewModeel.setCurrentUsers(users: users)
@@ -55,6 +55,11 @@ private extension AmityMemberPickerViewController {
     
     func deleteItem(at indexPath: IndexPath) {
         screenViewModel.action.deselectUser(at: indexPath)
+        let cancelButton = UIBarButtonItem(title: AmityLocalizedStringSet.General.cancel.localizedString, style: .plain, target: self, action: #selector(cancelTap))
+        cancelButton.tintColor = AmityColorSet.base
+        cancelButton.isEnabled = true
+        
+        navigationItem.leftBarButtonItem = cancelButton
     }
 }
 
@@ -93,6 +98,7 @@ private extension AmityMemberPickerViewController {
         
         let cancelButton = UIBarButtonItem(title: AmityLocalizedStringSet.General.cancel.localizedString, style: .plain, target: self, action: #selector(cancelTap))
         cancelButton.tintColor = AmityColorSet.base
+        cancelButton.isEnabled = true
         
         navigationItem.leftBarButtonItem = cancelButton
         navigationItem.rightBarButtonItem = doneButton
@@ -133,11 +139,17 @@ extension AmityMemberPickerViewController: UISearchBarDelegate {
 }
 
 extension AmityMemberPickerViewController: UITableViewDelegate {
+    
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let user = screenViewModel.dataSource.user(at: indexPath) else { return }
         if !user.isCurrnetUser {
             screenViewModel.action.selectUser(at: indexPath)
         }
+        let cancelButton = UIBarButtonItem(title: AmityLocalizedStringSet.General.cancel.localizedString, style: .plain, target: self, action: #selector(cancelTap))
+        cancelButton.tintColor = AmityColorSet.base
+        cancelButton.isEnabled = true
+        
+        navigationItem.leftBarButtonItem = cancelButton
     }
     
     public func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -152,6 +164,17 @@ extension AmityMemberPickerViewController: UITableViewDelegate {
 }
 
 extension AmityMemberPickerViewController: UITableViewDataSource {
+    
+    public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        guard let user = screenViewModel.dataSource.user(at: indexPath) else { return 0.0}
+        if user.isDeleted {
+            return 0.0 // Set the height to zero
+        } else {
+            return UITableView.automaticDimension // Use the default cell height
+        }
+    }
+    
+    
     public func numberOfSections(in tableView: UITableView) -> Int {
         return screenViewModel.numberOfAlphabet()
     }
@@ -195,6 +218,7 @@ extension AmityMemberPickerViewController: UICollectionViewDataSource {
             cell.display(with: user)
             cell.deleteHandler = { [weak self] indexPath in
                 self?.deleteItem(at: indexPath)
+                
             }
         }
     }

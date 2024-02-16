@@ -53,13 +53,13 @@ class PostGallerySegmentedControlCell: UICollectionViewCell, Nibbable {
         let attributes: [NSAttributedString.Key: Any]
         if isHighlighted {
             attributes = [
-                .foregroundColor: AmityThemeManager.currentTheme.primary.blend(.shade4),
-                .font: AmityFontSet.bodyBold
+                .foregroundColor: AmityThemeManager.currentTheme.primary,
+                .font: AmityFontSet.bodyRecoleta
             ]
         } else {
             attributes = [
-                .foregroundColor: AmityThemeManager.currentTheme.secondary.blend(.shade3),
-                .font: AmityFontSet.body
+                .foregroundColor: AmityThemeManager.currentTheme.grey,
+                .font: AmityFontSet.bodyRecoleta
             ]
         }
         let title = button.title(for: .normal) ?? ""
@@ -70,8 +70,8 @@ class PostGallerySegmentedControlCell: UICollectionViewCell, Nibbable {
             button.layoutIfNeeded()
         }
         button.backgroundColor = isHighlighted
-            ? AmityThemeManager.currentTheme.primary
-            : AmityThemeManager.currentTheme.secondary.blend(.shade4)
+            ? AmityThemeManager.currentTheme.secondary
+            : AmityThemeManager.currentTheme.greyLite
     }
     
     func setSelectedSection(_ section: Section?, animated: Bool) {

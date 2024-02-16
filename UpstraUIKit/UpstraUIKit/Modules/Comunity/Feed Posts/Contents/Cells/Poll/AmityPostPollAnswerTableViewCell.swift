@@ -40,7 +40,7 @@ final public class AmityPostPollAnswerTableViewCell: UITableViewCell, Nibbable {
         titleLabel.textColor = AmityColorSet.base
         iconImageView.image = AmityIconSet.iconRadioOff
         iconImageView.isHidden = false
-        containerView.layer.borderColor = AmityColorSet.base.blend(.shade4).cgColor
+        containerView.layer.borderColor = AmityColorSet.backgroundColor.cgColor
         statusView.isHidden = true
         votingStackView.isHidden = true
         votedStackView.isHidden = true
@@ -60,7 +60,7 @@ final public class AmityPostPollAnswerTableViewCell: UITableViewCell, Nibbable {
             let voteProgress = poll.voteCount > 0 ? Double(answer.voteCount) / Double(poll.voteCount) : 0
             
             let progressTintColor = answer.isVotedByUser ? AmityColorSet.primary : AmityColorSet.base.blend(.shade1)
-            let containerViewBorderColor = answer.isVotedByUser ? AmityColorSet.primary : AmityColorSet.base.blend(.shade4)
+            let containerViewBorderColor = answer.isVotedByUser ? AmityColorSet.primary : AmityColorSet.backgroundColor
             
             voteProgressView.progress = Float(voteProgress)
             voteProgressView.trackTintColor = AmityColorSet.base.blend(.shade4)
@@ -77,7 +77,7 @@ final public class AmityPostPollAnswerTableViewCell: UITableViewCell, Nibbable {
             if answer.isVotedByUser || answer.isSelected {
                 containerView.layer.borderColor = AmityColorSet.primary.cgColor
             } else {
-                containerView.layer.borderColor = AmityColorSet.base.blend(.shade4).cgColor
+                containerView.layer.borderColor = AmityColorSet.backgroundColor.cgColor
             }
         }
     }
@@ -94,7 +94,7 @@ final public class AmityPostPollAnswerTableViewCell: UITableViewCell, Nibbable {
         titleLabel.font = AmityFontSet.body
         iconImageView.isHidden = true
         statusView.isHidden = true
-        containerView.layer.borderColor = AmityColorSet.base.blend(.shade4).cgColor
+        containerView.layer.borderColor = AmityColorSet.backgroundColor.cgColor
         votingStackView.isHidden = false
         votedStackView.isHidden = true
     }
@@ -113,7 +113,7 @@ final public class AmityPostPollAnswerTableViewCell: UITableViewCell, Nibbable {
     }
     
     private func setupContainer() {
-        containerView.layer.borderColor = AmityColorSet.base.blend(.shade4).cgColor
+        containerView.layer.borderColor = AmityColorSet.backgroundColor.cgColor
         containerView.layer.cornerRadius = 4
         containerView.layer.borderWidth = 1
         containerView.clipsToBounds = true

@@ -95,7 +95,7 @@ private extension AmityMessageListRecordingViewController {
     
     func setupTimerLabel() {
         timerLabel.text = "0:00"
-        timerLabel.textColor = UIColor.white
+        timerLabel.textColor = AmityColorSet.backgroundColor
         timerLabel.font = AmityFontSet.title
     }
     
@@ -118,12 +118,12 @@ private extension AmityMessageListRecordingViewController {
     
     func waitingForRecordUI() {
         recordingView.backgroundColor = AmityColorSet.primary.blend(.shade1).withAlphaComponent(0.5)
-        recordingImageView.tintColor = UIColor.white
+        recordingImageView.tintColor = AmityColorSet.backgroundColor
     }
     
     func recordingUI() {
         recordingView.backgroundColor = AmityColorSet.primary.blend(.shade1)
-        recordingImageView.tintColor = UIColor.white
+        recordingImageView.tintColor = AmityColorSet.backgroundColor
         
         waitingForDeleteUI()
     }

@@ -1,13 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Recoleta-Medium.ttf">
+            <string>Recoleta-Medium</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AmityCommunityProfileEditorViewController" customModule="AmityUIKit" customModuleProvider="target">
             <connections>
@@ -32,6 +38,8 @@
                 <outlet property="communityNameCountLabel" destination="Qna-0b-NA0" id="0oe-up-jCF"/>
                 <outlet property="communityNameTextfield" destination="rXD-AP-32g" id="tJT-vU-kIK"/>
                 <outlet property="communityNameTitleLabel" destination="a6T-sj-htM" id="kNX-VH-JyV"/>
+                <outlet property="communityPrivateImageView" destination="5Wf-El-1zn" id="yUj-sI-ZgS"/>
+                <outlet property="communityPublicImageView" destination="yBP-du-D91" id="LTi-2Y-9C6"/>
                 <outlet property="communityTypeLineView" destination="ZZH-fL-gKi" id="uec-2h-DYo"/>
                 <outlet property="communityTypePrivateDescLabel" destination="BD1-I6-WMd" id="nzT-tR-uxB"/>
                 <outlet property="communityTypePrivateRadioImageView" destination="nxl-HZ-fSr" id="xhv-h4-n39"/>
@@ -73,7 +81,7 @@
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gBl-XX-p5d" userLabel="Overlay View">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="310.5"/>
-                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            <color key="backgroundColor" name="BackgroundColor"/>
                                         </view>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gwK-ob-Egj" userLabel="Upload photo button">
                                             <rect key="frame" x="184" y="140.5" width="46" height="30"/>
@@ -86,7 +94,7 @@
                                             </connections>
                                         </button>
                                     </subviews>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="backgroundColor" name="BackgroundColor"/>
                                     <constraints>
                                         <constraint firstItem="zIp-4D-q93" firstAttribute="height" secondItem="nFf-MO-rk6" secondAttribute="height" id="4oc-P8-Kib"/>
                                         <constraint firstItem="gBl-XX-p5d" firstAttribute="leading" secondItem="uic-5e-PGy" secondAttribute="leading" id="6kF-Y4-vVz"/>
@@ -132,6 +140,7 @@
                                                     <subviews>
                                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rXD-AP-32g" customClass="AmityTextField" customModule="AmityUIKit" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="0.0" width="382" height="40"/>
+                                                            <color key="backgroundColor" name="BackgroundColor"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="40" id="tlA-l6-edw"/>
                                                             </constraints>
@@ -140,7 +149,7 @@
                                                         </textField>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GA1-JN-gLP">
                                                             <rect key="frame" x="0.0" y="44" width="382" height="1"/>
-                                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                            <color key="backgroundColor" name="BackgroundColor"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="1" id="Y5d-zT-eu7"/>
                                                             </constraints>
@@ -156,7 +165,7 @@
                                             </subviews>
                                         </stackView>
                                     </subviews>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="backgroundColor" name="BackgroundColor"/>
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="eVP-Gs-Xtx" secondAttribute="trailing" constant="16" id="3Rv-J6-TEX"/>
                                         <constraint firstItem="eVP-Gs-Xtx" firstAttribute="leading" secondItem="eql-FW-n8Z" secondAttribute="leading" constant="16" id="40m-ve-WfX"/>
@@ -195,7 +204,7 @@
                                                             <subviews>
                                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="3bC-Dd-eE1" customClass="AmityTextView" customModule="AmityUIKit" customModuleProvider="target">
                                                                     <rect key="frame" x="0.0" y="0.0" width="344" height="40"/>
-                                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                    <color key="backgroundColor" name="BackgroundColor"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="ig9-1E-XsT"/>
                                                                     </constraints>
@@ -218,7 +227,7 @@
                                                         </stackView>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tfG-Zq-bQj">
                                                             <rect key="frame" x="0.0" y="116.5" width="382" height="1"/>
-                                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                            <color key="backgroundColor" name="BackgroundColor"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="1" id="xQZ-lH-cMs"/>
                                                             </constraints>
@@ -228,7 +237,7 @@
                                             </subviews>
                                         </stackView>
                                     </subviews>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="backgroundColor" name="BackgroundColor"/>
                                     <constraints>
                                         <constraint firstItem="rfT-cm-ZLW" firstAttribute="leading" secondItem="byC-0u-D95" secondAttribute="leading" constant="16" id="HKt-Jd-XXx"/>
                                         <constraint firstAttribute="trailing" secondItem="rfT-cm-ZLW" secondAttribute="trailing" constant="16" id="O2Q-BK-teV"/>
@@ -278,7 +287,7 @@
                                             </connections>
                                         </button>
                                     </subviews>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="backgroundColor" name="BackgroundColor"/>
                                     <constraints>
                                         <constraint firstItem="lNK-kH-rhN" firstAttribute="height" secondItem="TLM-lp-tq9" secondAttribute="height" id="KDH-ZT-tts"/>
                                         <constraint firstItem="lNK-kH-rhN" firstAttribute="centerX" secondItem="TLM-lp-tq9" secondAttribute="centerX" id="TsN-sj-mJC"/>
@@ -356,6 +365,7 @@
                                                             <subviews>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_public" translatesAutoresizingMaskIntoConstraints="NO" id="yBP-du-D91">
                                                                     <rect key="frame" x="11" y="11" width="18" height="18"/>
+                                                                    <color key="tintColor" name="TextColor"/>
                                                                 </imageView>
                                                             </subviews>
                                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -399,7 +409,8 @@
                                                             <rect key="frame" x="0.0" y="4.5" width="40" height="40"/>
                                                             <subviews>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_private" translatesAutoresizingMaskIntoConstraints="NO" id="5Wf-El-1zn">
-                                                                    <rect key="frame" x="8" y="8" width="24" height="24"/>
+                                                                    <rect key="frame" x="12" y="11" width="16" height="18"/>
+                                                                    <color key="tintColor" name="TextColor"/>
                                                                 </imageView>
                                                             </subviews>
                                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -458,7 +469,7 @@
                                             </connections>
                                         </button>
                                     </subviews>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="backgroundColor" name="BackgroundColor"/>
                                     <constraints>
                                         <constraint firstItem="6gv-7H-hvP" firstAttribute="centerY" secondItem="vst-md-AoL" secondAttribute="centerY" id="15T-ZZ-GJQ"/>
                                         <constraint firstItem="ZEn-iW-S4J" firstAttribute="width" secondItem="wnR-FV-0bI" secondAttribute="width" id="46k-zO-LgU"/>
@@ -488,7 +499,7 @@
                                                 </label>
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="wws-Xt-lDI" customClass="AmityDynamicHeightCollectionView" customModule="AmityUIKit" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="40.5" width="382" height="327"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="backgroundColor" name="BackgroundColor"/>
                                                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Hra-FL-ym3">
                                                         <size key="itemSize" width="128" height="128"/>
                                                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -498,15 +509,16 @@
                                                 </collectionView>
                                                 <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6Vi-bH-53Y">
                                                     <rect key="frame" x="0.0" y="387.5" width="382" height="1"/>
-                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    <color key="backgroundColor" name="BackgroundColor"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="1" id="41P-xV-DaC"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
+                                            <color key="backgroundColor" name="BackgroundColor"/>
                                         </stackView>
                                     </subviews>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="backgroundColor" name="BackgroundColor"/>
                                     <constraints>
                                         <constraint firstItem="5o8-OG-cOy" firstAttribute="top" secondItem="sFb-xq-Ix7" secondAttribute="top" id="USa-cV-CWf"/>
                                         <constraint firstItem="5o8-OG-cOy" firstAttribute="leading" secondItem="sFb-xq-Ix7" secondAttribute="leading" constant="16" id="iSd-e9-V9w"/>
@@ -516,7 +528,7 @@
                                 </view>
                                 <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lKn-Wu-R4u">
                                     <rect key="frame" x="0.0" y="1675" width="414" height="1"/>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="backgroundColor" name="BackgroundColor"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="1" id="Jkz-1S-sjg"/>
                                     </constraints>
@@ -524,12 +536,18 @@
                                 <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="N9Z-G5-G2m">
                                     <rect key="frame" x="0.0" y="1696" width="414" height="40"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vPV-ln-HFk" userLabel="Create">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vPV-ln-HFk" userLabel="Create">
                                             <rect key="frame" x="16" y="0.0" width="382" height="40"/>
+                                            <color key="backgroundColor" name="MainBlueColor"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="40" id="P7E-Qu-j4G"/>
                                             </constraints>
-                                            <state key="normal" title="Button"/>
+                                            <fontDescription key="fontDescription" name="Recoleta-Medium" family="Recoleta" pointSize="15"/>
+                                            <color key="tintColor" name="MainBlueColor"/>
+                                            <inset key="imageEdgeInsets" minX="-20" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                            <state key="normal" title="Button" image="ic_add">
+                                                <color key="titleColor" name="TextColor"/>
+                                            </state>
                                             <connections>
                                                 <action selector="createCommunityTap" destination="-1" eventType="touchUpInside" id="cb0-aN-yKq"/>
                                             </connections>
@@ -548,6 +566,7 @@
                             </variation>
                         </stackView>
                     </subviews>
+                    <color key="backgroundColor" name="BackgroundColor"/>
                     <constraints>
                         <constraint firstItem="GLb-h0-okF" firstAttribute="centerX" secondItem="4m2-xJ-cho" secondAttribute="centerX" id="DJF-HC-vY3"/>
                         <constraint firstItem="GLb-h0-okF" firstAttribute="top" secondItem="4m2-xJ-cho" secondAttribute="top" id="Z99-nG-R47"/>
@@ -558,7 +577,7 @@
                 </scrollView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <color key="backgroundColor" name="BackgroundColor"/>
             <constraints>
                 <constraint firstItem="4m2-xJ-cho" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="6g9-fu-24s"/>
                 <constraint firstItem="4m2-xJ-cho" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="d9F-Df-CKu"/>
@@ -570,10 +589,20 @@
         </view>
     </objects>
     <resources>
+        <image name="ic_add" width="7" height="7"/>
         <image name="icon_close_with_background" width="16" height="16"/>
-        <image name="icon_private" width="24" height="24"/>
+        <image name="icon_private" width="16" height="18"/>
         <image name="icon_public" width="18" height="18"/>
-        <image name="icon_radio_off" width="24" height="24"/>
+        <image name="icon_radio_off" width="20" height="20"/>
+        <namedColor name="BackgroundColor">
+            <color red="0.96470588235294119" green="0.95686274509803926" blue="0.93333333333333335" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="MainBlueColor">
+            <color red="0.91764705882352937" green="0.65490196078431373" blue="0.58039215686274515" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="TextColor">
+            <color red="0.20784313725490197" green="0.12156862745098039" blue="0.396078431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

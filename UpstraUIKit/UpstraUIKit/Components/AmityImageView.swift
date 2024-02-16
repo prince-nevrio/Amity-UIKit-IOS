@@ -44,6 +44,7 @@ public class AmityImageView: AmityView {
     public var placeholder: UIImage? = AmityIconSet.defaultAvatar {
         didSet {
             placeHolderImageView.image = placeholder
+            contentMode = .scaleAspectFill
         }
     }
     

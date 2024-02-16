@@ -25,6 +25,8 @@ public final class AmityUserProfilePageViewController: AmityProfileViewControlle
     private let postButton: AmityFloatingButton = AmityFloatingButton()
     private var screenViewModel: AmityUserProfileScreenViewModelType!
     
+    private var userId = ""
+    
     // MARK: - Initializer
     
     public static func make(withUserId userId: String, settings: AmityUserProfilePageSettings = AmityUserProfilePageSettings()) -> AmityUserProfilePageViewController {
@@ -35,6 +37,7 @@ public final class AmityUserProfilePageViewController: AmityProfileViewControlle
         vc.header = AmityUserProfileHeaderViewController.make(withUserId: userId, settings: settings)
         vc.bottom = AmityUserProfileBottomViewController.make(withUserId: userId)
         vc.screenViewModel = viewModel
+        vc.userId = userId
         return vc
     }
     
@@ -43,13 +46,15 @@ public final class AmityUserProfilePageViewController: AmityProfileViewControlle
     public override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
-        setupNavigationItem()
+        if(self.userId != AmityUIKitManagerInternal.shared.client.currentUserId){
+            setupNavigationItem()
+        }
         setupViewModel()
     }
     
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.setBackgroundColor(with: .white)
+        navigationController?.setBackgroundColor(with: AmityColorSet.backgroundColor)
     }
     
     public override func viewWillDisappear(_ animated: Bool) {

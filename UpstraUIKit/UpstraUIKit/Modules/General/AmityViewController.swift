@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftEventBus
 
 public enum AmityNavigationBarType {
     /// Style for root view controller, align-left title.
@@ -45,8 +46,8 @@ open class AmityViewController: UIViewController {
     
     var titleLabel: UILabel = {
         let label = UILabel()
-        label.textColor = AmityColorSet.base
-        label.textAlignment = .center
+        label.textColor = AmityColorSet.primary
+        label.textAlignment = .left
         return label
     }()
     
@@ -58,7 +59,7 @@ open class AmityViewController: UIViewController {
     }
     
     /// Color for title navigation bar
-    var titleColor: UIColor? = AmityColorSet.base {
+    var titleColor: UIColor? = AmityColorSet.primary {
         didSet {
             titleLabel.textColor = titleColor
         }
@@ -73,6 +74,7 @@ open class AmityViewController: UIViewController {
                 titleLabel.text = title
             }
             titleLabel.sizeToFit()
+           updateNavigationBarLayout()
         }
     }
     
@@ -83,7 +85,7 @@ open class AmityViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = AmityColorSet.backgroundColor
         leftBarButtonItem = UIBarButtonItem(image: AmityIconSet.iconBack, style: .plain, target: self, action: #selector(didTapLeftBarButton))
-        leftBarButtonItem?.tintColor = AmityColorSet.base
+        leftBarButtonItem?.tintColor = AmityColorSet.primary
         
         // We don't support dark mode yet.
         // Override its value with light mode.
@@ -111,16 +113,16 @@ open class AmityViewController: UIViewController {
         #endif
         switch navigationBarType {
         case .root:
-            titleFont = AmityFontSet.headerLine
+            titleFont = AmityFontSet.titleLarge
             navigationItem.leftBarButtonItem = UIBarButtonItem(customView: titleLabel)
-            navigationController?.setBackgroundColor(with: .white)
+            navigationController?.setBackgroundColor(with: AmityColorSet.backgroundColor)
         case .present:
-            titleFont = AmityFontSet.title
+            titleFont = AmityFontSet.titleLarge
             navigationItem.titleView = titleLabel
             leftBarButtonItem?.image = AmityIconSet.iconClose
             navigationItem.leftBarButtonItem = leftBarButtonItem
         case .push:
-            titleFont = AmityFontSet.title
+            titleFont = AmityFontSet.titleLarge
             navigationItem.titleView = titleLabel
             leftBarButtonItem?.image = AmityIconSet.iconBack
             navigationItem.leftBarButtonItem = leftBarButtonItem
@@ -163,6 +165,7 @@ open class AmityViewController: UIViewController {
         switch navigationBarType {
         case .root, .custom:
             // Intentionally left empty
+            SwiftEventBus.post("onAmityNavigationClose")
             break
         case .present:
             dismiss(animated: true, completion: nil)

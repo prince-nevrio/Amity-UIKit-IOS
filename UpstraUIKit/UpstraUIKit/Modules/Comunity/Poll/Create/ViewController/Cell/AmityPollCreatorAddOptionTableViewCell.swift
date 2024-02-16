@@ -28,13 +28,13 @@ final class AmityPollCreatorAddOptionTableViewCell: UITableViewCell, Nibbable, A
         addAnswerOptionButton.layer.cornerRadius = 4
         addAnswerOptionButton.layer.borderWidth = 1
         addAnswerOptionButton.layer.borderColor = AmityColorSet.base.blend(.shade3).cgColor
-        addAnswerOptionButton.backgroundColor = UIColor.white
+        addAnswerOptionButton.backgroundColor = AmityColorSet.backgroundColor
         addAnswerOptionButton.setTitleColor(AmityColorSet.base, for: .normal)
         addAnswerOptionButton.titleLabel?.font = AmityFontSet.bodyBold
         addAnswerOptionButton.setImage(AmityIconSet.iconPollOptionAdd, for: .normal)
         addAnswerOptionButton.tintColor = AmityColorSet.base
         
-        lineView.backgroundColor = AmityColorSet.secondary.blend(.shade4)
+        lineView.backgroundColor = AmityColorSet.dividerColor
     }
     
     // MARK: - Action

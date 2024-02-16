@@ -1,13 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Recoleta-Regular.ttf">
+            <string>Recoleta-Regular</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AmityUserProfileHeaderViewController" customModule="AmityUIKit" customModuleProvider="target">
             <connections>
@@ -34,7 +40,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="zWx-sv-DPR">
-                    <rect key="frame" x="92" y="47" width="435" height="58.5"/>
+                    <rect key="frame" x="92" y="51" width="435" height="58.5"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LyI-Rf-txb" userLabel="Title Label">
                             <rect key="frame" x="0.0" y="0.0" width="41.5" height="20.5"/>
@@ -59,7 +65,7 @@
                     </subviews>
                 </stackView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vhq-BA-fHP" customClass="AmityAvatarView" customModule="AmityUIKit" customModuleProvider="target">
-                    <rect key="frame" x="16" y="44" width="64" height="64"/>
+                    <rect key="frame" x="16" y="48" width="64" height="64"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="64" id="UCZ-qc-Bnh"/>
@@ -67,16 +73,16 @@
                     </constraints>
                 </view>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="FAD-J6-Siy">
-                    <rect key="frame" x="16" y="116" width="511" height="279"/>
+                    <rect key="frame" x="16" y="120" width="511" height="275"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jyx-dK-963" userLabel="Description Label">
-                            <rect key="frame" x="0.0" y="0.0" width="511" height="101"/>
+                            <rect key="frame" x="0.0" y="0.0" width="511" height="97"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="Nbu-nK-O1g">
-                            <rect key="frame" x="0.0" y="113" width="511" height="40"/>
+                            <rect key="frame" x="0.0" y="109" width="511" height="40"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8G1-Jd-TQ9" userLabel="Edit Profile Button" customClass="AmityButton" customModule="AmityUIKit" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="255.5" height="40"/>
@@ -101,17 +107,22 @@
                             </subviews>
                         </stackView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OXY-Se-igs" customClass="AmityButton" customModule="AmityUIKit" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="165" width="511" height="40"/>
+                            <rect key="frame" x="0.0" y="161" width="511" height="40"/>
+                            <color key="backgroundColor" name="MainBlueColor"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="40" id="CsF-qs-4Na"/>
                             </constraints>
-                            <state key="normal" title="Button"/>
+                            <fontDescription key="fontDescription" name="Recoleta-Regular" family="Recoleta" pointSize="15"/>
+                            <color key="tintColor" name="MainBlueColor"/>
+                            <state key="normal" title="Button">
+                                <color key="titleColor" name="TextColor"/>
+                            </state>
                             <connections>
                                 <action selector="followAction:" destination="-1" eventType="touchUpInside" id="pvM-EA-aBe"/>
                             </connections>
                         </button>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="iyn-7Y-jZ9">
-                            <rect key="frame" x="0.0" y="217" width="511" height="62"/>
+                            <rect key="frame" x="0.0" y="213" width="511" height="62"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JpU-9g-L1I">
                                     <rect key="frame" x="0.0" y="0.0" width="511" height="62"/>
@@ -148,7 +159,7 @@
                                             </connections>
                                         </button>
                                     </subviews>
-                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <color key="backgroundColor" name="BackgroundColor"/>
                                     <constraints>
                                         <constraint firstItem="v7F-UG-Waa" firstAttribute="leading" secondItem="JpU-9g-L1I" secondAttribute="leading" id="043-cI-ru9"/>
                                         <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="0Dg-p8-tB9" secondAttribute="trailing" constant="16" id="6tD-xj-T1Q"/>
@@ -173,7 +184,7 @@
                 </stackView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="T2T-8S-oqQ"/>
-            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <color key="backgroundColor" name="BackgroundColor"/>
             <constraints>
                 <constraint firstItem="T2T-8S-oqQ" firstAttribute="trailing" secondItem="zWx-sv-DPR" secondAttribute="trailing" constant="16" id="83V-r8-O2Y"/>
                 <constraint firstItem="FAD-J6-Siy" firstAttribute="top" secondItem="vhq-BA-fHP" secondAttribute="bottom" constant="8" id="D7A-wz-L12"/>
@@ -190,6 +201,15 @@
         </view>
     </objects>
     <resources>
+        <namedColor name="BackgroundColor">
+            <color red="0.96470588235294119" green="0.95686274509803926" blue="0.93333333333333335" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="MainBlueColor">
+            <color red="0.91764705882352937" green="0.65490196078431373" blue="0.58039215686274515" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="TextColor">
+            <color red="0.20784313725490197" green="0.12156862745098039" blue="0.396078431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

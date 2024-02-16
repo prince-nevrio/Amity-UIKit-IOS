@@ -8,450 +8,455 @@
 
 // MARK: - General
 
-"general_report" = "Report";
-"general_undo_report" = "Undo Report";
-"general_report_user" = "Report user";
-"general_unreport_user" = "Unreport user";
-"general_settings" = "Settings";
-"general_accept" = "Accept";
-"general_decline" = "Decline";
-"general_close" = "Close";
-"general_save" = "Save";
-"general_saved" = "Saved";
-"general_cancel" = "Cancel";
-"general_delete" = "Delete";
-"general_edit" = "Edit";
-"general_done" = "Done";
+"general_report" = "Rapportera";
+"general_undo_report" = "Ångra rapport";
+"general_report_user" = "Rapportera användare";
+"general_unreport_user" = "Ej rapporterad användare";
+"general_settings" = "Inställningar";
+"general_accept" = "Acceptera";
+"general_decline" = "Avböja";
+"general_close" = "Stäng";
+"general_save" = "Spara";
+"general_saved" = "Sparad";
+"general_cancel" = "Avbryt";
+"general_delete" = "Radera";
+"general_edit" = "Redigera";
+"general_done" = "Klar";
 "general_ok" = "OK";
-"general_post" = "Post";
-"general_discard" = "Discard";
-"general_leave" = "Leave";
-"general_like" = "Like";
-"general_liked" = "Liked";
-"general_reply" = "Reply";
-"general_view_reply" = "View replies";
-"general_general" = "General";
-"general_anonymous" = "Anonymous";
-"general_remove" = "Remove";
-"general_turn_on" = "Turn on";
-"general_turn_off" = "Turn off";
-"general_on" = "On";
-"general_off" = "Off";
-"general_follow" = "Follow";
-"general_camera" = "Camera";
-"general_file" = "File";
+"general_post" = "Publicera";
+"general_discard" = "Kasta";
+"general_leave" = "Lämna";
+"general_like" = "Gillar";
+"general_comment" = "Kommentera";
+"general_share" = "Dela";
+"general_liked" = "Gillat";
+"general_reply" = "Svar";
+"general_view_reply" = "Visa svar";
+"general_general" = "Allmänt";
+"general_anonymous" = "Anonym";
+"general_remove" = "Ta bort";
+"general_turn_on" = "Sätta på";
+"general_turn_off" = "Stäng av";
+"general_on" = "På";
+"general_off" = "Av";
+"general_follow" = "Följ";
+"general_camera" = "Kamera";
+"general_file" = "Fil";
 "general_album" = "Album";
-"general_location" = "Location";
-"general_image_gallery" = "Image Gallery";
-"general_upload_image" = "Upload Image";
+"general_location" = "Plats";
+"general_image_gallery" = "Bildgalleri";
+"general_upload_image" = "Ladda upp bild";
 "general_moderator" = "Moderator";
-"general_search" = "Search";
-"general_poll" = "Poll";
-"general_day" = "Day";
-"general_days" = "Days";
-"genera_text_input_limit_charactor" = "You have reached %@ characters limit.";
+"general_search" = "Sök";
+"general_poll" = "Omröstning";
+"general_day" = "Dag";
+"general_days" = "Dagar";
+"genera_text_input_limit_charactor" = "Du har nått gränsen för antal tecken.";
 "general_video" = "Video";
-"general_photo" = "Photo";
-"general_attachment" = "Attachment";
-"general_all" = "All";
+"general_photo" = "Foto";
+"general_attachment" = "Anknytning";
+"general_all" = "Alla";
 
-"title_placeholder" = "Title";
-"description_placeholder" = "Description";
+"title_placeholder" = "Titel";
+"description_placeholder" = "Beskrivning";
 
-"unit_like_singular" = "%@ like";
-"unit_like_plural" = "%@ likes";
-"unit_comment_singular" = "%@ comment";
-"unit_comment_plural" = "%@ comments";
-"unit_member_singular" = "%@ member";
-"unit_member_plural" = "%@ members";
-"unit_post_singular" = "%@ post";
-"unit_post_plural" = "%@ posts";
-"unit_share_singular" = "%@ share";
-"unit_share_plural" = "%@ shares";
+"unit_like_singular" = "%@ Gillar";
+"unit_like_plural" = "%@ Gillar";
+"unit_comment_singular" = "%@ Kommentar";
+"unit_comment_plural" = "%@ Kommentarer";
+"unit_member_singular" = "%@ Medlem";
+"unit_member_plural" = "%@ Medlemmar";
+"unit_post_singular" = "%@ Inlägg";
+"unit_post_plural" = "%@ Inlägg";
+"unit_share_singular" = "%@ Dela";
+"unit_share_plural" = "%@ Dela";
 
-"unit_day_singular" = "%@ day";
-"unit_day_plural" = "%@ days";
-"unit_hour_singular" = "%@ hour";
-"unit_hour_plural" = "%@ hours";
-"unit_minute_singular" = "%@ minute";
-"unit_minute_plural" = "%@ minutes";
+"unit_day_singular" = "%@ dag";
+"unit_day_plural" = "%@ dagar";
+"unit_hour_singular" = "%@ time";
+"unit_hour_plural" = "%@ timmar";
+"unit_minute_singular" = "%@ minut";
+"unit_minute_plural" = "%@ minuter";
 
-"chat_title" = "Chat";
-"recent_title" = "Recent";
-"directory_title" = "Directory";
+"chat_title" = "Chatt";
+"recent_title" = "Inkorg";
+"directory_title" = "Katalog";
 
-"edit_message_title" = "Edit message";
-"view_all_comments_title" = "View all comments...";
-"view_all_files_title" = "View all files";
-"community_settings" = "Community settings";
-"skip_for_now" = "Skip for now";
-"no_user_found" = "No user found";
-"search_results" = "Search results";
-"search_result_not_found" = "No results found";
-"search_account_not_found" = "No account found";
+"edit_message_title" = "Redigera meddelande";
+"view_all_comments_title" = "Visa alla kommentarer...";
+"view_all_files_title" = "Visa alla filer";
+"community_settings" = "community inställningar";
+"skip_for_now" = "Hoppa över nu";
+"no_user_found" = "Ingen användare hittades";
+"search_results" = "Sökresultat";
+"search_result_not_found" = "Inga resultat hittades";
+"search_account_not_found" = "Inget konto hittades";
 "communities" = "Communities";
-"accounts" = "Accounts";
+"accounts" = "Konton";
 
-"text_message_placeholder" = "Type message";
+"text_message_placeholder" = "Skriv meddelande";
 
-"message_delete" = "Message deleted • %@";
-"message_edit" = "Edited • %@";
-"message_readmore" = "...Read more";
+"message_delete" = "Meddelande raderat • %@";
+"message_edit" = "Redigera • %@";
+"message_readmore" = "...Läs mer";
 
-"something_went_wrong_with_try_again"= "Something went wrong. Please try again later.";
-"no_internet_connection" = "No internet connection";
+"something_went_wrong_with_try_again"= "Något gick fel. Vänligen försök igen senare.";
+"no_internet_connection" = "Ingen internetanslutning";
 
 // MARK: - Message List
-"message_list_alert_error_message_title" = "Error sending message";
-"message_list_alert_error_message_desc" = "Please try again";
-"message_list_alert_delete_error_title" = "Your message was not sent";
-"message_list_alert_delete_title" = "Delete this message?";
-"message_list_alert_delete_desc" = "Message will be also be permanently removed from your friend's devices.";
-"message_list_sending" = "Sending...";
-"message_list_hold_to_record" = "Hold to record";
-"message_list_release_to_send" = "Release to send";
+"message_list_alert_error_message_title" = "Det gick inte att skicka meddelande";
+"message_list_alert_error_message_desc" = "Vänligen försök igen";
+"message_list_alert_delete_error_title" = "Ditt meddelande skickades inte";
+"message_list_alert_delete_title" = "Vill du radera det här meddelandet?";
+"message_list_alert_delete_desc" = "Meddelandet kommer också att tas bort permanent från din kollegas enheter.?";
+"message_list_sending" = "Skickas..";
+"message_list_hold_to_record" = "Tryck ned för att spela in";
+"message_list_release_to_send" = "Släpp för att skicka";
 
 // MARK: - Empty
-"empty_chat_list" = "No conversations";
-"empty_newsfeed_title" = "Your feed is empty";
-"empty_newsfeed_subtitle" = "Find community or create your own";
-"empty_newsfeed_explore_button" = "Explore community";
-"empty_newsfeed_create_button" = "Create community";
-"empty_newsfeed_start_your_first_post" = "Start your first post";
-"empty_title_no_posts" = "No posts yet";
+"empty_chat_list" = "Inga konversationer";
+"empty_newsfeed_title" = "Ditt community är tomt";
+"empty_newsfeed_subtitle" = "Sök efter personer att följa för att få nyhetsflöde och utforska communityn";
+"empty_newsfeed_explore_button" = "Utforska community";
+"empty_newsfeed_create_button" = "Skapa community";
+"empty_newsfeed_start_your_first_post" = "Publicera ditt första inlägg";
+"empty_title_no_posts" = "Inga inlägg än";
 
 // MARK: - User Feed
-"private_user_feed_title" = "This account is private";
-"private_user_feed_subtitle" = "Follow this user to see all posts";
+"private_user_feed_title" = "Detta konto är privat";
+"private_user_feed_subtitle" = "Följ användare för att se alla inlägg";
 
 // MARK: - Amity Create Community
-"edit_community_title" = "Edit Community";
-"create_community_title" = "Create Community";
-"create_community_name_title" = "Community name";
-"create_community_name_placeholder" = "Name your community";
-"create_community_about_title" = "About";
-"create_community_about_placeholder" = "Enter description";
-"create_community_category_title" = "Category";
-"create_community_category_placeholder" = "Please select category";
-"create_community_admin_rule_title" = "Only admin can post";
-"create_community_admin_rule_desc" = "Choose to allow Only Admins to create posts in this community.";
-"create_community_public_title" = "Public";
-"create_community_public_desc" = "Anyone can join, view, and search the posts in this community.";
-"create_community_private_title" = "Private";
-"create_community_private_desc" = "Only members invited by the moderators can join, view, and search the posts in this community.";
-"create_community_add_member_title" = "Add members";
-"create_community_name_already_taken" = "This name has already been taken.";
-"create_community_button_create" = "Create community";
-"create_community_alert_title" = "Leave without finishing?";
-"create_community_alert_desc" = "Your progress won't be saved and your group won't be created.";
+"edit_community_title" = "Redigera grupp";
+"create_community_title" = "Skapa community";
+"create_community_name_title" = "Community namn";
+"create_community_name_placeholder" = "Namnge ditt community";
+"create_community_about_title" = "Om";
+"create_community_about_placeholder" = "Ange beskrivning";
+"create_community_category_title" = "Kategori";
+"create_community_category_placeholder" = "Välj kategori";
+"create_community_admin_rule_title" = "Endast administratörer kan posta";
+"create_community_admin_rule_desc" = "Välj att tillåta endast administratörer att skapa inlägg i denna grupp.";
+"create_community_public_title" = "Offentlig";
+"create_community_public_desc" = "Vem som helst kan gå med i, visa och söka i inläggen i denna grupp.";
+"create_community_private_title" = "Privat";
+"create_community_private_desc" = "Endast medlemmar som bjudits in av moderatorerna kan gå med i, se och söka i inläggen i denna grupp.";
+"create_community_add_member_title" = "Lägg till medlemmar";
+"create_community_name_already_taken" = "Community namn är upptaget.";
+"create_community_button_create" = "Skapa community";
+"create_community_alert_title" = "Innan du går vidare, stämmer allt?";
+"create_community_alert_desc" = "Stämmer alla ändringar som har gjorts? Dubbelkolla gärna!";
 
 // MARK: - Select Member List
-"select_member_list_title" = "Select member";
-"select_member_list_selected_title" = "%@ Selected";
+"select_member_list_title" = "Välj medlem";
+"select_member_list_selected_title" = "%@ valda";
 
 // MARK: - Category selection
-"category_selection_title" = "Select category";
-"category_selection_title_2" = "Category";
+"category_selection_title" = "Välj kategori";
+"category_selection_title_2" = "Kategori";
 
 // MARK: - My Community
-"my_community_title" = "My Community";
-"my_community_see_all" = "See all";
+"my_community_title" = "Mitt community";
+"my_community_see_all" = "Se allt";
 // MARK: - Newsfeed
-"newsfeed_title" = "Newsfeed";
+"newsfeed_title" = "Nyhetsflöde";
 
 // MARK: - Explore
-"explore_title" = "Explore";
+"explore_title" = "Utforska";
 
 // MARK: - Community home page
 "community_home_title" = "Community";
 
 // MARK: - Community detail page
-"community_detail_join_button" = "Join";
-"community_detail_message_button" = "Message";
-"community_detail_edit_profile_button" = "Edit Profile";
+"community_detail_join_button" = "Gå med";
+"community_detail_message_button" = "Meddelande";
+"community_detail_edit_profile_button" = "Redigera profil";
 
 // MARK: - User detail page
-"user_detail_following_count" = "%@ following";
-"user_detail_followers_count" = "%@ followers";
-"user_detail_follow_button_follow" = "Follow";
-"user_detail_follow_button_cancel" = "Cancel request";
-"user_details_pending_requests" = "Pending requests";
-"user_details_pending_requests_description" = "Your requests are waiting for review";
-"user_details_unable_to_follow" = "Unable to follow %@";
+"user_detail_following_count" = "%@ följer";
+"user_detail_followers_count" = "%@ följare";
+"user_detail_follow_button_follow" = "Följ";
+"user_detail_follow_button_cancel" = "Avbryt förfrågan";
+"user_details_pending_requests" = "Väntande förfrågningar";
+"user_details_pending_requests_description" = "Dina förfrågningar väntar på granskning";
+"user_details_unable_to_follow" = "Kan inte följa en  %@";
 
 // MARK: - Timeline
-"timeline_title" = "Timeline";
+"timeline_title" = "Tidslinje";
 
 // MARK: - Post creation
-"post_creation_edit_post" = "Edit post";
-"post_creation_my_timeline" = "My Timeline";
-"post_creation_text_placeholder" = "What’s going on...";
-"post_creation_discard_post_title" = "Discard Post?";
-"post_creation_discard_post_message" = "Do you want to discard your post?";
-"post_creation_select_image" = "Select image";
-"post_creation_select_video" = "Select video";
-"post_creation_file_upload_icomplete_title" = "Upload incomplete";
-"post_creation_file_upload_icomplete_description" = "Some files could not be uploaded.\nPlease remove and try again";
-"post_craetion_submit_title" = "Post submitted";
-"post_creation_submit_desc" = "Your post has been submitted to the pending list. It will be reviewed by community moderator";
-"post_unable_to_post_title" = "Unable to post";
-"post_unable_to_comment_title" = "Unable to comment";
-"post_unable_to_reply_title" = "Unable to reply";
-"post_unable_to_post_description" = "You have reached maximum 50,000 characters in a post.";
-"post_unable_to_comment_description" = "You have reached maximum 50,000 characters in a comment.";
-"post_unable_to_reply_description" = "You have reached maximum 50,000 characters in a reply.";
+"post_creation_edit_post" = "Redigera inlägg";
+"post_creation_my_timeline" = "Min tidslinje";
+"post_creation_text_placeholder" = "Vad pågår...";
+"post_creation_discard_post_title" = "Radera inlägg?";
+"post_creation_discard_post_message" = "Vill du radera ditt inlägg?";
+"post_creation_select_image" = "Välj bild";
+"post_creation_select_video" = "Välj video";
+"post_creation_file_upload_icomplete_title" = "Uppladdningen är ofullständig";
+"post_creation_file_upload_icomplete_description" = "Vissa filer kunde inte laddas upp.\nTa bort och försök igen";
+"post_craetion_submit_title" = "Inlägg skickat";
+"post_creation_submit_desc" = "Ditt inlägg har skickats till den väntande listan. Det kommer att granskas av community moderator";
+"post_unable_to_post_title" = "Det går inte att lägga upp";
+"post_unable_to_comment_title" = "Det går inte att kommentera";
+"post_unable_to_reply_title" = "Det går inte att svara";
+"post_unable_to_post_description" = "Du har nått maximalt 50 000 tecken i ett inlägg.";
+"post_unable_to_comment_description" = "Du har nått maximalt 50 000 tecken i en kommentar.";
+"post_unable_to_reply_description" = "Du har nått maximalt 50 000 tecken i ett svar.";
 
 // MARK: - Post detail
-"post_detail_replying_to" = "Replying to %@";
-"post_detail_create_reply" = "Reply to";
-"post_detail_edit_reply" = "Edit reply";
-"post_detail_delete_reply" = "Delete reply";
-"post_detail_delete_reply_title" = "Delete reply";
-"post_detail_delete_reply_message" = "This reply will be permanently removed.";
-"post_detail_discard_reply_title" = "Discard Reply?";
-"post_detail_discard_reply_message" = "Do you want to discard your reply?";
-"post_detail_discard_edited_reply_message" = "Do you want to discard edited reply?";
-"post_detail_view_more_reply" = "View more replies";
-"post_detail_deleted_reply_message" = "This reply has been deleted.";
-"post_detail_text_placeholder" = "Say something nice";
-"post_detail_deleted_comment_message" = "This comment has been deleted.";
-"post_detail_view_all_replies" = "View all replies";
-"post_detail_join_community_message" = "Join community to interact with all posts";
-"post_detail_edit_post" = "Edit post";
-"post_detail_delete_post" = "Delete post";
-"post_detail_create_comment" = "Add comment";
-"post_detail_edit_comment" = "Edit comment";
-"post_detail_delete_comment" = "Delete comment";
-"post_detail_delete_comment_title" = "Delete this comment";
-"post_detail_delete_comment_message" = "This comment will be permanently deleted. You’ll no longer to see and find this comment";
-"post_detail_discard_comment_title" = "Discard Comment?";
-"post_detail_discard_comment_message" = "Do you want to discard your comment?";
-"post_detail_discard_edited_comment_message" = "Do you want to discard edited comment?";
-"post_detail_delete_post_title" = "Delete this post";
-"post_detail_delete_post_message" = "This post will be permanently deleted. You’ll no longer to see and find this post";
-"post_detail_banned_comment_error_message" = "Sorry, your comment has been deleted due to containing inappropriate words.\nPlease contact the administrator for more information.";
-"post_detail_comment_edited" = "%@ • Edited";
+"post_detail_replying_to" = "Svara på %@";
+"post_detail_create_reply" = "Svara till";
+"post_detail_edit_reply" = "Redigera svar";
+"post_detail_delete_reply" = "Ta bort svar";
+"post_detail_delete_reply_title" = "Ta bort svar";
+"post_detail_delete_reply_message" = "Detta svar kommer att tas bort permanent.";
+"post_detail_discard_reply_title" = "Ignorera svar?";
+"post_detail_discard_reply_message" = "Vill du ignorera ditt svar?";
+"post_detail_discard_edited_reply_message" = "Vill du ignorera redigerat svar?";
+"post_detail_view_more_reply" = "Se fler svar";
+"post_detail_deleted_reply_message" = "Detta svar har raderats.";
+"post_detail_text_placeholder" = "Skriv något trevlig";
+"post_detail_deleted_comment_message" = "Den här kommentaren har tagits bort.";
+"post_detail_view_all_replies" = "Se alla svar";
+"post_detail_join_community_message" = "Gå med för full integration med alla inlägg.";
+"post_detail_edit_post" = "Redigera inlägg";
+"post_detail_delete_post" = "Radera inlägg";
+"post_detail_create_comment" = "Lägg till kommentar";
+"post_detail_edit_comment" = "Redigera kommentar";
+"post_detail_delete_comment" = "Radera kommentar";
+"post_detail_delete_comment_title" = "Radera denna kommentar";
+"post_detail_delete_comment_message" = "Denna kommentar kommer att raderas permanent. Du kommer inte längre att se och hitta denna kommenta";
+"post_detail_discard_comment_title" = "Släng kommentar?";
+"post_detail_discard_comment_message" = "Vill du ignorera din kommentar?";
+"post_detail_discard_edited_comment_message" = "Vill du redigerad din ignorerade kommentar?";
+"post_detail_delete_post_title" = "Ta bort det här inlägget";
+"post_detail_delete_post_message" = "Detta inlägg kommer att raderas permanent. Du kommer inte längre att se och hitta det här inlägget";
+"post_detail_banned_comment_error_message" = "Tyvärr, din kommentar har raderats på grund av att den innehåller olämpliga ord. Kontakta administratören för mer information..";
+"post_detail_comment_edited" = "%@ • Redigera";
 
 // MARK: - Post to
-"post_to_title" = "Post to";
-"post_to_post_as_community_title" = "Post as Community";
-"post_to_post_as_community_message" = "This option allows you to post on behalf of the community account.";
+"post_to_title" = "Posta till";
+"post_to_post_as_community_title" = "Lägg upp som community";
+"post_to_post_as_community_message" = "Det här alternativet låter dig göra inlägg på uppdrag av communitykontot.";
 
 // MARK: - Recommended Community
-"recommended_community_title" = "Recommended for you";
+"recommended_community_title" = "Rekommenderat för dig";
 
 // MARK: - Trending Community
-"trending_community_title" = "Today’s Trending";
-"trending_community_members" = "• %@ members";
+"trending_community_title" = "Dagens grupper";
+"trending_community_members" = "• %@ medlemmar";
 
 // MARK: - Categories
-"category_title" = "Categories";
+"category_title" = "Utforska grupper";
 
 // MARK: - Community Settings
-"community_settings_item_header_basic_info" = "Basic info";
-"community_settings_item_header_community_permissions" = "Community permissions";
-"community_settings_item_title_edit_profile" = "Edit profile";
-"community_settings_item_title_members" = "Members";
-"community_settings_item_title_notifications" = "Notifications";
-"community_settings_item_title_header_community_permission" = "Community permissions";
-"community_settings_item_title_post_review" = "Post review";
-"community_settings_item_title_leave_community" = "Leave community";
-"community_settings_item_title_close_community" = "Close community";
-"community_settings_item_desc_close_community" = "Closing this community will remove the community page and all its content and comments.";
-"community_settings_alert_title_leave" = "Leave community";
-"community_settings_alert_desc_leave" = "You won’t no longer be able to post and interact in this community after leaving.";
-"community_settings_alert_desc_moderator_leave" = "Leaving community, you’ll give up your moderator status and won’t no longer be able to post and interact in this community.";
-"community_settings_alert_desc_last_moderator_leave" = "As you’re the last moderator and member, leaving will also close this community. All posts shared in community will be deleted. This cannot be undone.";
-"community_settings_alert_title_close" = "Close community?";
-"community_settings_alert_desc_close" = "All members will be removed from the community. All posts, messages, reactions, and media shared in community will be deleted. This cannot be undone.";
-"community_settings_alert_fail_title_leave" = "Unable to leave community";
-"community_settings_alert_fail_title_close" = "Unable to close community";
-"community_settings_alert_fail_title_notification_on" = "Unable to turn on notifications";
-"community_settings_alert_fail_title_notification_off" = "Unable to turn off notifications";
+"community_settings_item_header_basic_info" = "Inställningar";
+"community_settings_item_header_community_permissions" = "Community behörigheter";
+"community_settings_item_title_edit_profile" = "Redigera profil";
+"community_settings_item_title_members" = "Medlemmar";
+"community_settings_item_title_notifications" = "Notifikationer";
+"community_settings_item_title_header_community_permission" = "Community behörigheter";
+"community_settings_item_title_post_review" = "Posta recension";
+"community_settings_item_title_leave_community" = "Lämna community";
+"community_settings_item_title_close_community" = "Stäng community";
+"community_settings_item_desc_close_community" = "Om du stänger denna community kommer communityn och allt dess innehåll och kommentarer att tas bort.";
+"community_settings_alert_title_leave" = "Lämna community";
+"community_settings_alert_desc_leave" = "Du kommer inte längre att kunna göra inlägg och interagera i den här community efter att du lämnat.";
+"community_settings_alert_desc_moderator_leave" = "När du lämnar gruppen, kommer du att ge upp din moderatorstatus och kommer inte längre att kunna göra inlägg och interagera i denna grupp.";
+"community_settings_alert_desc_last_moderator_leave" = "Eftersom du är den sista moderatorn och medlemmen stänger du också denna grupp om du lämnar dig. Alla inlägg som delas i gruppen kommer att raderas. Detta kan inte göras ogjort.";
+"community_settings_alert_title_close" = "Stäng community?";
+"community_settings_alert_desc_close" = "Alla medlemmar kommer att tas bort från gruppen. Alla inlägg, meddelanden, reaktioner och media som delas i gruppen kommer att raderas. Detta kan inte göras ogjort.";
+"community_settings_alert_fail_title_leave" = "Det går inte att lämna communityn";
+"community_settings_alert_fail_title_close" = "Det går inte att stänga communityn";
+"community_settings_alert_fail_title_notification_on" = "Det går inte att aktivera aviseringar";
+"community_settings_alert_fail_title_notification_off" = "Det går inte att stänga av aviseringar";
 
 // MARK: - Notification Settings
-"community_notification_settings_title_notifications" = "Allow notifications";
-"community_notification_settings_description_notifications" = "Turn on to receive push notifications from this community.";
-"community_notification_settings_title_reacts_posts" = "React posts";
-"community_notification_settings_description_reacts_posts" = "Receive notifications when someone make a reaction to your posts in this community";
-"community_notification_settings_title_new_posts" = "New posts";
-"community_notification_settings_description_new_posts" = "Receive notifications when someone create new posts in this community";
-"community_notification_settings_title_reacts_comments" = "React comments";
-"community_notification_settings_description_reacts_comments" = "Receive notifications when someone like your comment in this community.";
-"community_notification_settings_title_new_comments" = "New comments";
-"community_notification_settings_description_new_comments" = "Receive notifications when someone comment to your posts in this community.";
-"community_notification_settings_title_replies" = "Replies";
-"community_notification_settings_description_replies" = "Receive notifications when someone comment to your comments in this community.";
-"community_notification_settings_post" = "Posts";
-"community_notification_settings_comment" = "Comments";
-"community_notification_settings_everyone" = "Everyone";
-"community_notification_settings_only_moderator" = "Only moderator";
+"community_notification_settings_title_notifications" = "Tillåt notifikationer";
+"community_notification_settings_description_notifications" = "Aktivera för att ta emot push-meddelanden från denna grupp.";
+"community_notification_settings_title_reacts_posts" = "Reagera på inlägg";
+"community_notification_settings_description_reacts_posts" = "Få aviseringar när någon reagerar på dina inlägg i denna grupp";
+"community_notification_settings_title_new_posts" = "Nya inlägg";
+"community_notification_settings_description_new_posts" = "Få aviseringar när någon skapar nya inlägg i den här gruppen";
+"community_notification_settings_title_reacts_comments" = "Reagera på kommentarer";
+"community_notification_settings_description_reacts_comments" = "Få aviseringar när någon gillar din kommentar i den här gruppen.";
+"community_notification_settings_title_new_comments" = "Nya kommentarer";
+"community_notification_settings_description_new_comments" = "Få aviseringar när någon kommenterar dina inlägg i den här gruppen.";
+"community_notification_settings_title_replies" = "Svar";
+"community_notification_settings_description_replies" = "Få aviseringar när någon kommenterar dina kommentarer i denna grupp.";
+"community_notification_settings_post" = "Inlägg";
+"community_notification_settings_comment" = "Kommentera";
+"community_notification_settings_everyone" = "Alla";
+"community_notification_settings_only_moderator" = "Endast moderator";
 
 // MARK: - User Settings
-"user_settings_item_header_manage" = "Manage";
-"user_settings_item_header_basic_info" = "Basic info";
-"user_settings_item_unfollow" = "Unfollow";
-"user_settings_item_report_user" = "Report user";
-"user_settings_item_unreport_user" = "Unreport user";
-"user_settings_item_edit_profile" = "Edite profile";
-"user_settings_unfollow_message" = "You’ll have to send a request again to follow %@. Continue?";
-"user_settings_unfollow_fail_title" = "Unable to unfollow %@";
-"user_settings_remove_user" = "Remove user";
-"user_settings_remove_user_title" = "Remove %@ from follwers?";
-"user_settings_remove_user_description" = "We won’t notify %@ that they’ve been remove from your followers";
+"user_settings_item_header_manage" = "Hantera";
+"user_settings_item_header_basic_info" = "Inställningar";
+"user_settings_item_unfollow" = "Sluta följa";
+"user_settings_item_report_user" = "Rapportera användare";
+"user_settings_item_unreport_user" = "Ej rapporterad användare";
+"user_settings_item_edit_profile" = "Redigera profil";
+"user_settings_unfollow_message" = "Du måste skicka en förfrågan igen för att följa %@. Fortsätta?";
+"user_settings_unfollow_fail_title" = "Det går inte att sluta följa %@";
+"user_settings_remove_user" = "Ta bort användare";
+"user_settings_remove_user_title" = "Ta bort %@ från följare?";
+"user_settings_remove_user_description" = "Vi kommer inte att meddela %@ att de har tagits bort från dina följare";
 
 
 // MARK: - Not support role
-"role_permission_alert_desc" = "You don't have permission to perform this action right now , please contact administrator for more info.";
+"role_permission_alert_desc" = "Du har inte behörighet att utföra den här åtgärden just nu, kontakta administratören för mer information.";
 
 // MARK: - Community member settings
-"community_member_settings_title" = "Members";
-"community_member_settings_moderator_title" = "Moderators";
-"community_member_settings_options_promote_to_moderator" = "Promote to moderator";
-"community_member_settings_options_dismiss_moderator" = "Dismiss moderator";
-"community_member_settings_options_remove" = "Remove from community";
-"community_member_settings_alert_title" = "Remove user from community?";
-"community_member_settings_alert_desc" = "This user won't no longer be able to search, post and interact in this community";
+"community_member_settings_title" = "Medlemmar";
+"community_member_settings_moderator_title" = "Moderatorer";
+"community_member_settings_options_promote_to_moderator" = "Lägg till som moderator";
+"community_member_settings_options_dismiss_moderator" = "Avvisa moderator";
+"community_member_settings_options_remove" = "Ta bort från gruppen";
+"community_member_settings_alert_title" = "Ta bort användare från gruppen?";
+"community_member_settings_alert_desc" = "Den här användaren kommer inte längre att kunna söka, göra inlägg och interagera i den här gruppen";
 
 // MARK: - Community
-"community_alert_unable_to_perform_action_title" = "Unable to perform this action";
-"community_alert_unable_to_perform_action_desc" = "You no longer have permission to make any changes in this community";
-"community_alert_unable_to_leave_community_title" = "Unable to leave community";
-"community_alert_unable_to_leave_community_desc" = "You’re the only moderator in this group. To leave community, nominate other members to moderator role.";
+"community_alert_unable_to_perform_action_title" = "Det går inte att utföra den här åtgärden";
+"community_alert_unable_to_perform_action_desc" = "Du har inte längre behörighet att göra några ändringar i den här gruppen";
+"community_alert_unable_to_leave_community_title" = "Det går inte att lämna community";
+"community_alert_unable_to_leave_community_desc" = "Du är den enda moderatorn i den här gruppen. För att lämna communityn, nominera andra medlemmar till moderatorrollen.";
 
 
 // MARK: - Edit User Profile
-"edit_user_profile_title" = "Edit Profile";
-"edit_user_profile_display_name_title" = "Display name";
+"edit_user_profile_title" = "Redigera profil";
+"edit_user_profile_display_name_title" = "Visningsnamn";
 "edit_user_profile_email_title" = "Email";
-"edit_user_profile_phone_number_title" = "Phone number";
-"edit_user_profile_description_title" = "About";
+"edit_user_profile_phone_number_title" = "Telefonnummer";
+"edit_user_profile_description_title" = "Om";
 
 // MARK: - Profile Option
-"profile_option_title" = "Profile Settings";
-"profile_option_edit" = "Edit Profile";
-"profile_option_logout" = "Logout";
+"profile_option_title" = "Profilinställningar";
+"profile_option_edit" = "Redigera profil";
+"profile_option_logout" = "Logga ut";
 
 // MARK: - HUD Message
-"hud_somthing_went_wrong" = "Oops!\nSomething went wrong";
-"hud_successfully_created" = "Successfully\ncreated";
-"hud_successfully_updated" = "Successfully\nupdated";
-"hud_report_sent" = "Report sent";
-"hud_unreport_sent" = "Unreport sent";
-"hud_delete" = "Delete";
+"hud_somthing_went_wrong" = "Oops!\Något gick fel";
+"hud_successfully_created" = "Framgångsrikt/skapat";
+"hud_successfully_updated" = "Uppdaterades/framgångsrikt";
+"hud_report_sent" = "Anmälan skickad";
+"hud_unreport_sent" = "Orapport skickad";
+"hud_delete" = "Radera";
 
 
 // MARK: - Popover Text Message
-"popover_message_is_too_short" = "Message is too short.";
+"popover_message_is_too_short" = "Meddelandet är för kort.";
 
 // MARK: - Post Sharing type
-"share_to_my_timeline" = "Share to My Timeline";
-"share_to_group" = "Share to Group";
-"more_options" = "More options";
+"share_to_my_timeline" = "Dela till min tidslinje";
+"share_to_group" = "Dela till gruppen";
+"more_options" = "Fler alternativ";
 
 // MARK: - Post
-"post_place_holder_title" = "Something went wrong";
-"post_place_holder_desc" = "We couldn’t recognize this post.";
+"post_place_holder_title" = "Något gick fel";
+"post_place_holder_desc" = "Vi kunde inte känna igen det här inlägget.";
 
 // MARK: - Post review setting
-"post_review_settings_title" = "Post review";
-"post_review_settings_item_title_approve_member_posts" = "Approve member posts";
-"post_review_settings_item_desc_approve_member_posts" = "Posts by members have to be reviewed and approved by community moderator.";
-"post_review_settings_alert_title_turn_off_post_review" = "Turn off post review";
-"post_review_settings_alert_desc_turn_off_post_reivew" = "All pending posts will be posted in community feed. Continue?";
-"post_review_settings_hud_title_turn_off_post_review" = "Pending posts\nare posted";
-"post_review_settings_alert_fail_title_turn_on" = "Unable to turn on post review";
-"post_review_settings_alert_fail_title_turn_off" = "Unable to turn off post review";
+"post_review_settings_title" = "Granska inlägg";
+"post_review_settings_item_title_approve_member_posts" = "Godkänn medlemsinlägg";
+"post_review_settings_item_desc_approve_member_posts" = "Medlemmars inlägg måste granskas och godkännas av moderatorn.";
+"post_review_settings_alert_title_turn_off_post_review" = "Stäng av granska inlägg";
+"post_review_settings_alert_desc_turn_off_post_reivew" = "Alla väntande inlägg kommer att läggas upp i communityflödet. Fortsätta?";
+"post_review_settings_hud_title_turn_off_post_review" = "Väntande inlägg\när postade";
+"post_review_settings_alert_fail_title_turn_on" = "Det gick inte att aktivera inläggsgranskning";
+"post_review_settings_alert_fail_title_turn_off" = "Det gick inte att stänga av inläggsgranskning";
 
 // MARK: - Modal
-"modal_community_settings_title" = "Customize your community";
-"modal_community_settings_desc" = "You’ve successfully created a community! Now let's manage permissions that work best for you";
+"modal_community_settings_title" = "Anpassa din community";
+"modal_community_settings_desc" = "Du har nu skapat en community! Låt oss nu hantera behörigheter som fungerar bäst för dig";
 
 // MARK: - Member
-"member_list_title" = "Members";
+"member_list_title" = "Medlemmar";
 
 // MARK: - Chat Settings
-"chat_setting_leave_channel" = "Leave Chat";
-"chat_setting_member" = "Members";
-"chat_setting_group_profile" = "Group profile";
-"chat_setting_report_user" = "Report User";
-"chat_setting_unreport_user" = "Unreport User";
-"chat_setting_title" = "Chat Detail";
-"chat_setting_report_sent" = "Report Sent";
-"chat_setting_leave_chat_title" = "Leave chat?";
-"chat_setting_leave_chat_message" = "You’ll no longer be able to receive any messages or see chat history.";
-"chat_setting_promote_to_moderator" = "Promote to moderator";
-"chat_setting_dimiss_to_moderator" = "Dismiss moderator";
-"chat_setting_remove_from_group_chat" = "Remove from group chat";
-"chat_setting_report" = "Report";
-"chat_setting_member_title" = "Member";
+"chat_setting_leave_channel" = "Radera chatten";
+"chat_setting_member" = "Medlemmar";
+"chat_setting_group_profile" = "Gruppprofil";
+"chat_setting_report_user" = "Rapportera användare";
+"chat_setting_unreport_user" = "Orapporterad användare";
+"chat_setting_title" = "Chatt detaljer";
+"chat_setting_report_sent" = "Anmälan skickad";
+"chat_setting_leave_chat_title" = "Radera chatten";
+"chat_setting_leave_chat_message" = "Du kommer inte längre att kunna ta emot några meddelanden eller se chatthistorik.";
+"chat_setting_promote_to_moderator" = "Gör till moderator";
+"chat_setting_dimiss_to_moderator" = "Avvisa moderator";
+"chat_setting_remove_from_group_chat" = "Ta bort från gruppchatt";
+"chat_setting_report" = "Rapportera";
+"chat_setting_member_title" = "Medlem";
 "chat_setting_moderator_title" = "Moderator";
-"chat_setting_member_detail_title" = "Member Details";
-"chat_setting_remove_member_alert_title" = "Remove user from group chat?";
-"chat_setting_remove_member_alert_body" = "The user won't no longer be able to see this group chat";
+"chat_setting_member_detail_title" = "Medlems Information";
+"chat_setting_remove_member_alert_title" = "Ta bort användare från gruppchatt?";
+"chat_setting_remove_member_alert_body" = "Användaren kommer inte längre att kunna se denna gruppchatt";
 
 /// MARK: - Create Community Channel
-"chat_create_failed" = "Something went wrong while creating the chat.";
+"chat_create_failed" = "Något gick fel när chatten skapades.";
 
 // MARK: - Follow
-"follow_requests_title" = "Follow requests";
-"follow_accept" = "Accept";
-"follow_decline" = "Decline";
-"follow_unavailable_follow_request" = "The request is unavailable";
-"follow_followers" = "Followers";
-"follow_following" = "Following";
-"follow_can_not_refresh_feed" = "Couldn’t refresh feed";
+"follow_requests_title" = "Följ förfrågningar";
+"follow_accept" = "Acceptera";
+"follow_decline" = "Avböja";
+"follow_unavailable_follow_request" = "Begäran är inte tillgänglig";
+"follow_followers" = "Följare";
+"follow_following" = "Följande";
+"follow_can_not_refresh_feed" = "Det gick inte att uppdatera flödet";
+
+
 // MARK: - Pending Posts
-"pending_posts_title" = "Pending posts";
-"pending_posts_status_title" = "Pending posts";
-"pending_posts_status_admin_desc" = "%d Posts need to approval";
-"pending_posts_status_member_desc" = "Your posts are pending for review";
-"pending_posts_header_title" =  "Decline pending post will permanently delete the selected post from community.";
-"pending_posts_empty_title" = "No pending posts";
-"pending_posts_alert_delete_title" = "Delete post";
-"pending_posts_alert_delete_desc" = "This post will be permanently deleted from the pending list";
-"pending_posts_alert_delete_fail_title" = "Unable to delete post";
-"pending_posts_post_not_available" = "Post is not available";
-"pending_posts_alert_delete_fail_approve_or_decline" = "Your post has been reviewed.\nCheck your feed if it got approved";
+"pending_posts_title" = "Väntande inlägg";
+"pending_posts_status_title" = "Väntande inlägg";
+"pending_posts_status_admin_desc" = "%d Inlägg måste godkännas";
+"pending_posts_status_member_desc" = "Dina inlägg väntar på granskning";
+"pending_posts_header_title" =  "Avvisa väntande inlägg raderar det valda inlägget permanent från gruppen.";
+"pending_posts_empty_title" = "Inga väntande inlägg";
+"pending_posts_alert_delete_title" = "Ta bort inlägg";
+"pending_posts_alert_delete_desc" = "Det här inlägget kommer att raderas permanent från den väntande listan";
+"pending_posts_alert_delete_fail_title" = "Det gick inte att ta bort inlägget";
+"pending_posts_post_not_available" = "Posten är inte tillgänglig";
+"pending_posts_alert_delete_fail_approve_or_decline" = "Ditt inlägg har granskats.Kontrollera ditt flöde om det blev godkänt";
 
 // MARK: - Poll
-"poll_create_question_title" = "Poll question";
-"poll_create_question_placeholder" = "What's your poll question";
-"poll_create_answer_title" = "Options";
-"poll_create_answer_desc" = "Create at least 2 options";
-"poll_create_answer_placeholder" = "Add option";
-"poll_create_answer_button" = "Add option";
-"poll_create_multiple_selection_title" = "Multiple selection";
-"poll_create_multiple_selection_desc" = "Turn on to allow others to vote more than one option";
-"poll_create_schedule_title" = "Schedule poll (Optional)";
-"poll_create_schedule_desc" = "Poll will be automatically closed at the end of chosen time frame (UTC)";
-"poll_create_choose_time_frame_title" = "Choose time frame";
-"poll_create_alert_title" = "Leave without finishing?";
-"poll_create_alert_desc" = "Your progress won’t be saved and poll won’t be created.";
+"poll_create_question_title" = "Omröstningsfråga";
+"poll_create_question_placeholder" = "Vad är din enkätfråga";
+"poll_create_answer_title" = "Alternativ";
+"poll_create_answer_desc" = "Skapa minst 2 alternativ";
+"poll_create_answer_placeholder" = "Lägg till alternativ";
+"poll_create_answer_button" = "Lägg till alternativ";
+"poll_create_multiple_selection_title" = "Flerval";
+"poll_create_multiple_selection_desc" = "Aktivera för att tillåta andra att rösta mer än ett alternativ";
+"poll_create_schedule_title" = "Schemalägg omröstning (valfritt)";
+"poll_create_schedule_desc" = "Omröstningen kommer att stängas automatiskt vid slutet av den valda tidsramen (UTC)";
+"poll_create_choose_time_frame_title" = "Välj tidsram";
+"poll_create_alert_title" = "Lämna utan att avsluta?";
+"poll_create_alert_desc" = "Dina framsteg kommer inte att sparas och omröstningen kommer inte att skapas.";
 
-"poll_close_title" = "Close poll";
-"poll_delete_title" = "Delete poll";
-"poll_more_options" = "more options";
-"poll_view_full_result" = "View full results";
-"poll_alert_close_title" = "Close poll";
-"poll_alert_close_desc" = "Schedule you’ve set will be removed and poll will be closed immediately.";
-"poll_alert_delete_title" = "Delete this poll";
-"poll_alert_delete_desc" = "This poll will be permanently deleted. You’ll no longer to see and find this poll";
-"poll_submit_vote_title" = "Submit vote";
-"poll_vote_count_title" = "votes";
-"poll_final_result" = "Final results";
-"poll_open_for_voting" = "Open for voting";
-"poll_ends_in_days" = "Poll ends in %@";
-"poll_ends_in_minutes" = "Poll ends in %@";
-"poll_ends_in_hours" = "Poll ends in %@";
+"poll_close_title" = "Stäng omröstning";
+"poll_delete_title" = "Ta bort omröstning";
+"poll_more_options" = "fler alternativ";
+"poll_view_full_result" = "Se fullständiga resultat";
+"poll_alert_close_title" = "Stäng omröstning";
+"poll_alert_close_desc" = "Schema du har ställt in kommer att tas bort och omröstningen kommer att stängas omedelbart.";
+"poll_alert_delete_title" = "Ta bort den här omröstningen";
+"poll_alert_delete_desc" = "Den här omröstningen kommer att raderas permanent. Du kommer inte längre att se och hitta den här omröstningen";
+"poll_submit_vote_title" = "Lämna röst";
+"poll_vote_count_title" = "röster";
+"poll_final_result" = "Slutliga resultat";
+"poll_open_for_voting" = "Öppet för omröning";
+"poll_ends_in_days" = "Omröstningen slutar inom%@";
+"poll_ends_in_minutes" = "Omröstningen slutar inom %@";
+"poll_ends_in_hours" = "Omröstningen slutar inom %@";
 
 // MARK: - Mention
-"mention_unable_to_mention_title" = "Unable to mention user";
-"mention_unable_to_mention_post_description" = "You have reached maximum 30 mentioned users in a post.";
-"mention_unable_to_mention_comment_description" = "You have reached maximum 30 mentioned users in a comment.";
-"mention_unable_to_mention_reply_description" = "You have reached maximum 30 mentioned users in a reply.";
+"mention_unable_to_mention_title" = "Det går inte att nämna användaren";
+"mention_unable_to_mention_post_description" = "Du har nått maximalt 30 nämnda användare i ett inlägg.";
+"mention_unable_to_mention_comment_description" = "Du har nått maximalt 30 nämnda användare i en kommentar.";
+"mention_unable_to_mention_reply_description" = "Du har nått maximalt 30 nämnda användare i ett svar.";
 
 // MARK: - Reaction
-"reaction_screen_title" = "Reactions";
-"reaction_empty_state_title" = "Sorry, we couldn't show the content";
-"reaction_empty_state_subtitle" = "Please try again or contact the administrator for more information";
+"reaction_screen_title" = "Reaktioner";
+"reaction_empty_state_title" = "Tyvärr, vi kunde inte visa innehållet";
+"reaction_empty_state_subtitle" = "Försök igen eller kontakta administratören för mer information";
+

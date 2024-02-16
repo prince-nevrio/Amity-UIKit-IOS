@@ -100,14 +100,14 @@ public class AmityPostTextEditorViewController: AmityViewController {
     public override func viewDidLoad() {
         super.viewDidLoad()
         filePicker = AmityFilePicker(presentationController: self, delegate: self)
-        
+        self.view.backgroundColor  = AmityColorSet.backgroundColor
         let isCreateMode = (postMode == .create)
         postButton = UIBarButtonItem(title: isCreateMode ? AmityLocalizedStringSet.General.post.localizedString : AmityLocalizedStringSet.General.save.localizedString, style: .plain, target: self, action: #selector(onPostButtonTap))
         postButton.tintColor = AmityColorSet.primary
         navigationItem.rightBarButtonItem = postButton
         navigationItem.rightBarButtonItem?.isEnabled = false
         
-        #warning("ViewController must be implemented with storyboard")
+#warning("ViewController must be implemented with storyboard")
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         scrollView.keyboardDismissMode = .onDrag
         scrollView.backgroundColor = AmityColorSet.backgroundColor
@@ -124,7 +124,7 @@ public class AmityPostTextEditorViewController: AmityViewController {
         scrollView.addSubview(textView)
         
         separaterLine.translatesAutoresizingMaskIntoConstraints = false
-        separaterLine.backgroundColor = AmityColorSet.secondary.blend(.shade4)
+        separaterLine.backgroundColor = AmityColorSet.dividerColor
         separaterLine.isHidden = true
         scrollView.addSubview(separaterLine)
         
@@ -136,18 +136,23 @@ public class AmityPostTextEditorViewController: AmityViewController {
         scrollView.addSubview(galleryView)
         
         fileView.translatesAutoresizingMaskIntoConstraints = false
+        fileView.backgroundColor = AmityColorSet.backgroundColor
         fileView.actionDelegate = self
         fileView.isEditingMode = true
         scrollView.addSubview(fileView)
+        scrollView.backgroundColor = AmityColorSet.backgroundColor
         
         postMenuView.translatesAutoresizingMaskIntoConstraints = false
         postMenuView.delegate = self
+        postMenuView.backgroundColor = AmityColorSet.backgroundColor
         view.addSubview(postMenuView)
         
         comunityPanelView.translatesAutoresizingMaskIntoConstraints = false
+        comunityPanelView.backgroundColor = AmityColorSet.backgroundColor
         view.addSubview(comunityPanelView)
         
         mentionTableView.isHidden = true
+        mentionTableView.backgroundColor = AmityColorSet.backgroundColor
         mentionTableView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(mentionTableView)
         mentionTableViewHeightConstraint = mentionTableView.heightAnchor.constraint(equalToConstant: 240.0)
@@ -405,6 +410,36 @@ public class AmityPostTextEditorViewController: AmityViewController {
     }
     
     private func uploadVideos() {
+        // Show loading dialog
+        let titleString = NSAttributedString(string: "Video komprimeras", attributes: [
+            NSAttributedString.Key.font: AmityFontSet.bodyRecoleta,
+               NSAttributedString.Key.foregroundColor: AmityColorSet.primary // Change the color as per your preference
+           ])
+        
+        let messageString = NSAttributedString(string: "Var snäll och vänta...\n\n\n", attributes: [
+               NSAttributedString.Key.font: AmityFontSet.bodyRecoleta,
+               NSAttributedString.Key.foregroundColor: AmityColorSet.primary// Change the color as per your preference
+           ])
+        
+        let alertController = UIAlertController(title: "", message: "", preferredStyle: .alert)
+        alertController.setValue(titleString, forKey: "attributedTitle")
+        alertController.setValue(messageString, forKey: "attributedMessage")
+        let loadingIndicator = UIActivityIndicatorView(style: .medium)
+        loadingIndicator.translatesAutoresizingMaskIntoConstraints = false
+        loadingIndicator.startAnimating()
+        alertController.view.addSubview(loadingIndicator)
+        
+        let constraints = [
+            loadingIndicator.centerXAnchor.constraint(equalTo: alertController.view.centerXAnchor),
+            loadingIndicator.topAnchor.constraint(equalTo: alertController.view.topAnchor, constant: 75)
+        ]
+        
+        alertController.view.addConstraints(constraints)
+        
+        // Present the alert controller
+        DispatchQueue.main.async {
+            self.present(alertController, animated: true, completion: nil)
+        }
         let dispatchGroup = DispatchGroup()
         var isUploadFailed = false
         for index in 0..<galleryView.medias.count {
@@ -429,26 +464,42 @@ public class AmityPostTextEditorViewController: AmityViewController {
                         isUploadFailed = true
                         return
                     }
-                    AmityUIKitManagerInternal.shared.fileService.uploadVideo(url: url, progressHandler: { progress in
-                        self?.galleryView.updateViewState(for: media.id, state: .uploading(progress: progress))
-                        Log.add("[UIKit]: Upload Progress \(progress)")
-                    }, completion: { result in
-                        switch result {
-                        case .success(let videoData):
-                            Log.add("[UIKit]: Uploaded video \(videoData.fileId)")
-                            media.state = .uploadedVideo(data: videoData)
-                            self?.galleryView.updateViewState(for: media.id, state: .uploaded)
-                        case .failure:
-                            Log.add("[UIKit]: Video upload failed")
-                            media.state = .error
-                            self?.galleryView.updateViewState(for: media.id, state: .error)
-                            isUploadFailed = true
+                    
+                    self?.convertHEVCtoH264(inputURL: url) { outputURL, error , fileSize in
+                        alertController.dismiss(animated: true) {
+                            print(fileSize)
+                            if let error = error {
+                                print("Error converting video: \(error.localizedDescription)")
+                            } else if let outputURL = outputURL {
+                                print("Video conversion successful. Output file: \(outputURL.path)")
+                                AmityUIKitManagerInternal.shared.fileService.uploadVideo(url: outputURL, progressHandler: { progress in
+                                    self?.galleryView.updateViewState(for: media.id, state: .uploading(progress: progress))
+                                    Log.add("[UIKit]: Upload Progress \(progress)")
+                                }, completion: { result in
+                                    switch result {
+                                    case .success(let videoData):
+                                        Log.add("[UIKit]: Uploaded video \(videoData.fileId)")
+                                        media.state = .uploadedVideo(data: videoData)
+                                        self?.galleryView.updateViewState(for: media.id, state: .uploaded)
+                                    case .failure:
+                                        Log.add("[UIKit]: Video upload failed")
+                                        media.state = .error
+                                        self?.galleryView.updateViewState(for: media.id, state: .error)
+                                        isUploadFailed = true
+                                    }
+                                    dispatchGroup.leave()
+                                    self?.updateViewState()
+                                })
+                            } else {
+                                print("Unknown error occurred during video conversion.")
+                            }
                         }
-                        dispatchGroup.leave()
-                        self?.updateViewState()
-                    })
+                    }
+                    
+                    
                 }
             default:
+                alertController.dismiss(animated: true)
                 break
             }
         }
@@ -459,6 +510,48 @@ public class AmityPostTextEditorViewController: AmityViewController {
             }
         }
         
+    }
+    
+    func convertHEVCtoH264(inputURL: URL, completion: @escaping (URL?, Error?, UInt64?) -> Void) {
+        
+        
+        let asset = AVAsset(url: inputURL)
+        
+        // Determine the output file URL in the cache directory
+        let fileManager = FileManager.default
+        let cacheDirectory = try! fileManager.url(for: .cachesDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
+        let outputURL = cacheDirectory.appendingPathComponent(inputURL.lastPathComponent).deletingPathExtension().appendingPathExtension("mp4")
+        
+        // Create export session
+        guard let exportSession = AVAssetExportSession(asset: asset, presetName: AVAssetExportPresetHighestQuality) else {
+            completion(nil, NSError(domain: "com.yourapp", code: 1, userInfo: [NSLocalizedDescriptionKey: "Unable to create export session"]), nil)
+            return
+        }
+        
+        // Configure export session
+        exportSession.outputURL = outputURL
+        exportSession.outputFileType = .mp4 // H.264 format
+        exportSession.shouldOptimizeForNetworkUse = true
+        
+        // Perform the export
+        exportSession.exportAsynchronously {
+            DispatchQueue.main.async {
+                // Dismiss the loading dialog
+                
+                if let error = exportSession.error {
+                    completion(nil, error, nil)
+                } else {
+                    do {
+                        let attributes = try fileManager.attributesOfItem(atPath: outputURL.path)
+                        let fileSize = attributes[.size] as? UInt64
+                        completion(outputURL, nil, fileSize)
+                    } catch {
+                        completion(outputURL, error, nil)
+                    }
+                    
+                }
+            }
+        }
     }
     
     private func uploadFiles() {
@@ -509,7 +602,7 @@ public class AmityPostTextEditorViewController: AmityViewController {
         }
         
     }
-
+    
     private func showUploadFailureAlert() {
         let alertController = UIAlertController(title: AmityLocalizedStringSet.postCreationUploadIncompletTitle.localizedString, message: AmityLocalizedStringSet.postCreationUploadIncompletDescription.localizedString, preferredStyle: .alert)
         let cancelAction = UIAlertAction(title: AmityLocalizedStringSet.General.ok.localizedString, style: .cancel, handler: nil)
@@ -736,15 +829,14 @@ extension AmityPostTextEditorViewController: AmityPostTextEditorScreenViewModelD
             postButton.isEnabled = true
             return
         }
-        
         if let post = post {
             switch post.getFeedType() {
             case .reviewing:
                 AmityAlertController.present(title: AmityLocalizedStringSet.postCreationSubmitTitle.localizedString,
                                              message: AmityLocalizedStringSet.postCreationSubmitDesc.localizedString, actions: [.ok(style: .default, handler: { [weak self] in
-                                                self?.postButton.isEnabled = true
-                                                self?.closeViewController()
-                                             })], from: self)
+                    self?.postButton.isEnabled = true
+                    self?.closeViewController()
+                })], from: self)
             case .published, .declined:
                 postButton.isEnabled = true
                 closeViewController()
@@ -763,7 +855,6 @@ extension AmityPostTextEditorViewController: AmityPostTextEditorScreenViewModelD
             postButton.isEnabled = true
             return
         }
-        
         postButton.isEnabled = true
         dismiss(animated: true, completion: nil)
     }
@@ -803,7 +894,7 @@ extension AmityPostTextEditorViewController: AmityPostTextEditorMenuViewDelegate
         
         let bottomSheet = BottomSheetViewController()
         let contentView = ItemOptionView<ImageItemOption>()
-        let imageBackgroundColor = AmityColorSet.base.blend(.shade4)
+        let imageBackgroundColor = AmityColorSet.backgroundColor
         let disabledColor = AmityColorSet.base.blend(.shade3)
         
         var cameraOption = ImageItemOption(title: AmityLocalizedStringSet.General.camera.localizedString,
@@ -913,11 +1004,11 @@ extension AmityPostTextEditorViewController: AmityPostTextEditorMenuViewDelegate
 }
 
 extension AmityPostTextEditorViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-
+    
     public func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true, completion: nil)
     }
-
+    
     public func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
         guard let mediaType = info[.mediaType] as? String else {
@@ -971,10 +1062,10 @@ extension AmityPostTextEditorViewController {
         guard isValueChanged, !(mentionManager?.isSearchingStarted ?? false) else {
             return super.gestureRecognizerShouldBegin(gestureRecognizer)
         }
-            
+        
         if let view = gestureRecognizer.view,
-            let directions = (gestureRecognizer as? UIPanGestureRecognizer)?.direction(in: view),
-            directions.contains(.right) {
+           let directions = (gestureRecognizer as? UIPanGestureRecognizer)?.direction(in: view),
+           directions.contains(.right) {
             let alertController = UIAlertController(title: AmityLocalizedStringSet.postCreationDiscardPostTitle.localizedString, message: AmityLocalizedStringSet.postCreationDiscardPostMessage.localizedString, preferredStyle: .alert)
             let cancelAction = UIAlertAction(title: AmityLocalizedStringSet.General.cancel.localizedString, style: .cancel, handler: nil)
             let discardAction = UIAlertAction(title: AmityLocalizedStringSet.General.discard.localizedString, style: .destructive) { [weak self] _ in
@@ -983,7 +1074,7 @@ extension AmityPostTextEditorViewController {
             alertController.addAction(cancelAction)
             alertController.addAction(discardAction)
             present(alertController, animated: true, completion: nil)
-
+            
             // prevents swiping back and present confirmation message
             return false
         }

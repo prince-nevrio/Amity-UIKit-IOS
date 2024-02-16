@@ -33,10 +33,10 @@ final class AmityFloatingButton: UIButton {
     }
     
     override func draw(_ rect: CGRect) {
-        layer.backgroundColor = AmityColorSet.primary.cgColor
+        layer.backgroundColor = AmityColorSet.secondary.cgColor
         layer.cornerRadius = size.height / 2
-        layer.shadowRadius = 5
-        layer.shadowOpacity = 0.25
+        layer.shadowRadius = 7
+        layer.shadowOpacity = 0.1
         layer.shadowOffset = CGSize(width: 0, height: 10)
     }
     
@@ -76,6 +76,7 @@ final class AmityFloatingButton: UIButton {
         }
         
         view.bringSubviewToFront(self)
+        view.layoutIfNeeded()
     }
 }
 

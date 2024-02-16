@@ -31,7 +31,6 @@ final class AmitySelectMemberListTableViewCell: UITableViewCell {
     }
     
     private func setupView() {
-        
         selectionStyle = .none
         avatarView.isUserInteractionEnabled = false
         displayNameLabel.text = ""
@@ -42,6 +41,7 @@ final class AmitySelectMemberListTableViewCell: UITableViewCell {
     }
     
     func display(with user: AmitySelectMemberModel) {
+        print("All Users :: \(user.userId)")
         displayNameLabel.text = user.displayName ?? user.defaultDisplayName
         radioImageView.image = user.isSelected ? AmityIconSet.iconRadioCheck : AmityIconSet.iconRadioOff
         radioImageView.isHidden = user.isCurrnetUser

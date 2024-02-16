@@ -69,14 +69,14 @@ final class AmityUserSettingsViewController: AmityViewController {
                 screenViewModel.action.reportUser()
             case .unreport:
                 screenViewModel.action.unreportUser()
-            case .basicInfo, .manage, .editProfile:
+            case .basicInfo, .manage: /*.editProfile*/
                 break
             }
         case .navigationContent(let content):
             guard let item = AmityUserSettingsItem(rawValue: content.identifier) else { return }
             switch item {
-            case .editProfile:
-                AmityEventHandler.shared.editUserDidTap(from: self, userId: screenViewModel.dataSource.userId)
+//            case .editProfile:
+//                AmityEventHandler.shared.editUserDidTap(from: self, userId: screenViewModel.dataSource.userId)
             case .basicInfo, .manage, .report, .unfollow, .unreport:
                 break
             }

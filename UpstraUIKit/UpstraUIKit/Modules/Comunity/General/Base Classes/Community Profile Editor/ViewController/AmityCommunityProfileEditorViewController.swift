@@ -70,6 +70,10 @@ public class AmityCommunityProfileEditorViewController: AmityViewController {
     @IBOutlet private var communityTypePrivateRadioImageView: UIImageView!
     @IBOutlet private var communityTypeBackgroundView: [UIView]!
     
+    
+    @IBOutlet weak var communityPrivateImageView: UIImageView!
+    @IBOutlet weak var communityPublicImageView: UIImageView!
+    
     // MARK: - Add member
     @IBOutlet private var communityAddMemberView: UIView!
     @IBOutlet private var communityAddMemberTitleLabel: UILabel!
@@ -134,7 +138,7 @@ public class AmityCommunityProfileEditorViewController: AmityViewController {
         dismissKeyboardFromVC()
         screenViewModel.delegate = self
         scrollView.keyboardDismissMode = .onDrag
-        seperatorLineView.backgroundColor = AmityColorSet.secondary.blend(.shade4)
+        seperatorLineView.backgroundColor = AmityColorSet.dividerColor
         switch viewType {
         case .create:
             title = title ?? AmityLocalizedStringSet.createCommunityTitle.localizedString
@@ -150,7 +154,7 @@ public class AmityCommunityProfileEditorViewController: AmityViewController {
         overlayView.backgroundColor = UIColor.black.withAlphaComponent(0.4)
         
         let attributedString = NSAttributedString(string: AmityLocalizedStringSet.General.uploadImage.localizedString,
-                                                  attributes: [.font: AmityFontSet.bodyBold,
+                                                  attributes: [.font: AmityFontSet.bodyRecoleta,
                                                                .foregroundColor: AmityColorSet.baseInverse])
         uploadPhotoButton.setAttributedTitle(attributedString, for: .normal)
         uploadPhotoButton.setImage(AmityIconSet.iconCameraFill, for: .normal)
@@ -181,7 +185,7 @@ public class AmityCommunityProfileEditorViewController: AmityViewController {
         communityNameTextfield.returnKeyType = .done
         communityNameTextfield.attributedPlaceholder = NSAttributedString(string: AmityLocalizedStringSet.createCommunityNamePlaceholder.localizedString, attributes: [.foregroundColor : AmityColorSet.base.blend(.shade3)])
         
-        nameLineView.backgroundColor = AmityColorSet.secondary.blend(.shade4)
+        nameLineView.backgroundColor = AmityColorSet.dividerColor
         
         errorNameLabel.isHidden = true
         errorNameLabel.text = AmityLocalizedStringSet.createCommunityNameAlreadyTaken.localizedString
@@ -208,7 +212,7 @@ public class AmityCommunityProfileEditorViewController: AmityViewController {
         
         communityAboutClearButton.alpha = 0
         
-        aboutLineView.backgroundColor = AmityColorSet.secondary.blend(.shade4)
+        aboutLineView.backgroundColor = AmityColorSet.dividerColor
     }
     
     private func setupCommunityCategory() {
@@ -224,7 +228,7 @@ public class AmityCommunityProfileEditorViewController: AmityViewController {
         commnuityCategoryArrowImageView.image = AmityIconSet.iconNext
         commnuityCategoryArrowImageView.tintColor = AmityColorSet.base
         
-        categoryLineView.backgroundColor = AmityColorSet.secondary.blend(.shade4)
+        categoryLineView.backgroundColor = AmityColorSet.dividerColor
     }
     
     private func updateCommunityCategoryName(_ categoryName: String?) {
@@ -249,7 +253,7 @@ public class AmityCommunityProfileEditorViewController: AmityViewController {
         communityAdminRuleDescLabel.font = AmityFontSet.caption
         communityAdminRuleDescLabel.numberOfLines = 0
         
-        adminRuleLineView.backgroundColor = AmityColorSet.secondary.blend(.shade4)
+        adminRuleLineView.backgroundColor = AmityColorSet.dividerColor
     }
     
     private func setupCommunityTypes() {
@@ -275,10 +279,10 @@ public class AmityCommunityProfileEditorViewController: AmityViewController {
         communityTypePrivateDescLabel.numberOfLines = 0
         
         communityTypePrivateRadioImageView.image = AmityIconSet.iconRadioOff
-        communityTypeLineView.backgroundColor = AmityColorSet.secondary.blend(.shade4)
+        communityTypeLineView.backgroundColor = AmityColorSet.backgroundColor
         
         communityTypeBackgroundView.forEach {
-            $0.backgroundColor = AmityColorSet.secondary.blend(.shade4)
+            $0.backgroundColor = AmityColorSet.backgroundColor
             $0.layer.cornerRadius = $0.frame.height / 2
         }
     }
@@ -295,7 +299,7 @@ public class AmityCommunityProfileEditorViewController: AmityViewController {
             communityAddMemberCollectionView.register(UINib(nibName: AmityMemberCollectionViewCell.identifier, bundle: AmityUIKitManager.bundle), forCellWithReuseIdentifier: AmityMemberCollectionViewCell.identifier)
             
             
-            addMemberLineView.backgroundColor = AmityColorSet.secondary.blend(.shade4)
+            addMemberLineView.backgroundColor = AmityColorSet.dividerColor
         }
     }
     
@@ -304,13 +308,13 @@ public class AmityCommunityProfileEditorViewController: AmityViewController {
             createCommunityButton.isHidden = true
         }
         createCommunityButton.setTitle(AmityLocalizedStringSet.createCommunityButtonCreate.localizedString, for: .normal)
-        createCommunityButton.titleLabel?.font = AmityFontSet.bodyBold
-        createCommunityButton.setTitleColor(AmityColorSet.baseInverse, for: .normal)
-        createCommunityButton.setTitleColor(AmityColorSet.baseInverse, for: .disabled)
+       // createCommunityButton.titleLabel?.font = AmityFontSet.bodyBold
+       // createCommunityButton.setTitleColor(AmityColorSet.primary, for: .normal)
+      //  createCommunityButton.setTitleColor(AmityColorSet.baseInverse, for: .disabled)
         createCommunityButton.isEnabled = false
-        createCommunityButton.setBackgroundColor(color: AmityColorSet.primary, forState: .normal)
-        createCommunityButton.setBackgroundColor(color: AmityColorSet.primary.blend(.shade2), forState: .disabled)
-        createCommunityButton.layer.cornerRadius = 4
+      //  createCommunityButton.setBackgroundColor(color: AmityColorSet.secondary, forState: .normal)
+      //  createCommunityButton.setBackgroundColor(color: AmityColorSet.primary.blend(.shade2), forState: .disabled)
+        createCommunityButton.layer.cornerRadius = createCommunityButton.layer.frame.height / 2
     }
     
     private func setupUpdateButton() {
@@ -500,6 +504,10 @@ extension AmityCommunityProfileEditorViewController: AmityCreateCommunityScreenV
         case .selectedCommunityType(let type):
             communityTypePublicRadioImageView.image = type == .public ? AmityIconSet.iconRadioOn : AmityIconSet.iconRadioOff
             communityTypePrivateRadioImageView.image = type == .public ? AmityIconSet.iconRadioOff : AmityIconSet.iconRadioOn
+            
+            communityPublicImageView.tintColor = type == .public ? AmityColorSet.primary : AmityColorSet.grey
+            communityPrivateImageView.tintColor = type == .private ? AmityColorSet.primary : AmityColorSet.grey
+            
             switch viewType {
             case .create:
                 communityAddMemberView.isHidden = type == .public
@@ -514,21 +522,19 @@ extension AmityCommunityProfileEditorViewController: AmityCreateCommunityScreenV
             rightItem?.isEnabled = status
             createCommunityButton.isEnabled = status
             errorNameLabel.isHidden = true
-            nameLineView.backgroundColor = AmityColorSet.secondary.blend(.shade4)
+            nameLineView.backgroundColor = AmityColorSet.dividerColor
         case .createSuccess(let communityId):
             
             AmityCommunityProfilePageViewController.newCreatedCommunityIds.insert(communityId)
-            AmityHUD.hide { [weak self] in
-                guard let strongSelf = self else { return }
-                strongSelf.dismiss(animated: true) {
-                    strongSelf.delegate?.viewController(strongSelf, didFinishCreateCommunity: communityId)
-                }
+            AmityHUD.hide()
+            self.dismiss(animated: true) {
+                self.delegate?.viewController(self, didFinishCreateCommunity: communityId)
             }
         case .onDismiss(let isChange):
             if isChange {
                 let alert = UIAlertController(title: AmityLocalizedStringSet.createCommunityAlertTitle.localizedString, message: AmityLocalizedStringSet.createCommunityAlertDesc.localizedString, preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: AmityLocalizedStringSet.General.cancel.localizedString, style: .cancel, handler: nil))
-                alert.addAction(UIAlertAction(title: AmityLocalizedStringSet.General.leave.localizedString, style: .destructive, handler: { [weak self] _ in
+                alert.addAction(UIAlertAction(title: "Avbryt", style: .cancel, handler: nil))
+                alert.addAction(UIAlertAction(title: "Lämna", style: .destructive, handler: { [weak self] _ in
                     self?.generalDismiss()
                 }))
                 present(alert, animated: true, completion: nil)
@@ -540,9 +546,8 @@ extension AmityCommunityProfileEditorViewController: AmityCreateCommunityScreenV
             errorNameLabel.isHidden = false
             nameLineView.backgroundColor = AmityColorSet.alert
         case .updateSuccess:
-            AmityHUD.hide { [weak self] in
-                self?.dismiss(animated: true, completion: nil)
-            }
+            AmityHUD.hide()
+            self.dismiss(animated: true, completion: nil)
         }
     }
 }

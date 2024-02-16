@@ -50,7 +50,7 @@ final class AmityPendingPostsActionTableViewCell: UITableViewCell, Nibbable, Ami
         backgroundColor = AmityColorSet.backgroundColor
         contentView.backgroundColor = AmityColorSet.backgroundColor
         selectionStyle = .none
-        separatorView.backgroundColor = AmityColorSet.base.blend(.shade4)
+        separatorView.backgroundColor = AmityColorSet.backgroundColor
     }
     
     private func setupAcceptButton()  {

@@ -1,0 +1,17 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'AmityUIKit' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for AmityUIKit
+
+  target 'AmityUIKitTests' do
+    # Pods for testing
+  end
+
+  pod 'SwiftEventBus', :tag => '5.1.0', :git => 'https://github.com/cesarferreira/SwiftEventBus.git'
+pod 'Alamofire', '~> 5.2'
+
+end

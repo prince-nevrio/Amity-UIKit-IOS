@@ -27,10 +27,10 @@ extension UIColor {
     #warning("Remove this after migrating with AmityColor")
     static var systemBackgroundColor: UIColor {
         if #available(iOS 13.0, *) {
-            return systemBackground
+            return AmityColorSet.backgroundColor
         } else {
             // Same old color used for iOS 12 and earlier
-            return .white
+            return AmityColorSet.backgroundColor
         }
     }
     

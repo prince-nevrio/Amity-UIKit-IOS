@@ -11,7 +11,7 @@ import AmitySDK
 
 public class AmityPostGalleryViewController: AmityViewController {
     
-    public var pageTitle: String = "Gallery"
+    public var pageTitle: String = "Galleri"
     
     private var targetType = AmityPostTargetType.user
     private var targetId = ""
@@ -162,11 +162,11 @@ extension AmityPostGalleryViewController: UICollectionViewDelegateFlowLayout {
             let emptyStateCell = cell as! PostGalleryEmptyStateCell
             switch currentSection {
             case .image:
-                emptyStateCell.configure(image: UIImage(named: "empty_post_gallery_image", in: AmityUIKitManager.bundle, compatibleWith: nil), text: "No photo yet")
+                emptyStateCell.configure(image: UIImage(named: "empty_post_gallery_image", in: AmityUIKitManager.bundle, compatibleWith: nil), text: "Inga foton än")
             case .video:
-                emptyStateCell.configure(image: UIImage(named: "empty_post_gallery_video", in: AmityUIKitManager.bundle, compatibleWith: nil), text: "No video yet")
+                emptyStateCell.configure(image: UIImage(named: "empty_post_gallery_video", in: AmityUIKitManager.bundle, compatibleWith: nil), text: "Inga videor än")
             case .livestream:
-                emptyStateCell.configure(image: UIImage(named: "empty_post_gallery_video", in: AmityUIKitManager.bundle, compatibleWith: nil), text: "No livestream yet")
+                emptyStateCell.configure(image: UIImage(named: "empty_post_gallery_video", in: AmityUIKitManager.bundle, compatibleWith: nil), text: "Ingen livestream än")
             case .none:
                 assertionFailure("currentSection must already have a value at this point.")
             }
@@ -184,7 +184,12 @@ extension AmityPostGalleryViewController: UICollectionViewDelegateFlowLayout {
                 width: collectionView.bounds.size.width,
                 height: PostGallerySegmentedControlCell.height
             )
-        case .post, .fakePost:
+        case .fakePost:
+            return CGSize(
+                width: collectionView.bounds.size.width,
+                height: 30
+            )
+        case .post:
             // We calculate cell width based on available space to fit the cell.
             let availableWidth = collectionView.bounds.width - C.postInterimSpace
             // We divide by half, because we show post cell two items each row.
@@ -230,7 +235,7 @@ extension AmityPostGalleryViewController: UICollectionViewDelegateFlowLayout {
                 }
             case "image":
                 if let imageData = postObject.getImageInfo() {
-                    let placeholder = AmityColorSet.base.blend(.shade4).asImage()
+                    let placeholder = AmityColorSet.backgroundColor.asImage()
                     let itemCell = collectionView.cellForItem(at: indexPath) as! PostGalleryItemCell
                     let state = AmityMediaState.downloadableImage(imageData: imageData, placeholder: placeholder)
                     let media = AmityMedia(state: state, type: .image)

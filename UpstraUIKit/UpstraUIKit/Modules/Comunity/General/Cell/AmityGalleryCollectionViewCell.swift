@@ -68,16 +68,16 @@ public class AmityGalleryCollectionViewCell: UICollectionViewCell {
         progressView.isHidden = true
         progressView.progress = 0
         
-        overlayView.backgroundColor = UIColor.white.withAlphaComponent(0.4)
+        overlayView.backgroundColor = AmityColorSet.backgroundColor
         overlayView.isHidden = true
         
         exclamationImageView.image = AmityIconSet.iconExclamation
         exclamationImageView.tintColor = AmityColorSet.baseInverse
-        exclamationBackgroundView.backgroundColor = AmityColorSet.secondary.withAlphaComponent(0.7)
+        exclamationBackgroundView.backgroundColor = AmityColorSet.backgroundColor
         exclamationBackgroundView.layer.cornerRadius = 13
         exclamationBackgroundView.clipsToBounds = true
         
-        playImageView.tintColor = .white
+        playImageView.tintColor = AmityColorSet.backgroundColor
     }
     
     public override func prepareForReuse() {

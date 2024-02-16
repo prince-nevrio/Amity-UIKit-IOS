@@ -24,7 +24,7 @@ open class AmityPhotoCollectionViewCell: UICollectionViewCell {
     lazy var extraLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .right
-        label.textColor = UIColor.white
+        label.textColor = AmityColorSet.backgroundColor
         label.font = AmityFontSet.body
         return label
     }()
@@ -116,7 +116,7 @@ open class AmityPhotoCollectionViewCell: UICollectionViewCell {
         } else {
             // Fallback on earlier versions
         }
-        playImageView.tintColor = .white
+        playImageView.tintColor = AmityColorSet.backgroundColor
         
         // Views Hierarchy
         scrollView.addSubview(imageView)

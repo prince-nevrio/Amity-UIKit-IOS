@@ -152,7 +152,7 @@ public class AmityHUD {
         self.content = content
         switch content {
         case .success, .error:
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) { [weak self] in
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 4) { [weak self] in
                 self?.hide()
             }
         case .loading:
@@ -175,7 +175,6 @@ public class AmityHUD {
         default:
             alertViewController.dismiss(animated: true, completion: completion)
         }
-        self.content = nil
     }
     
 }

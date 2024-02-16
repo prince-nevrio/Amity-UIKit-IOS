@@ -30,6 +30,7 @@ public enum AmityPostContentType {
     case livestream
 }
 
+
 open class AmityEventHandler {
     
     static var shared = AmityEventHandler()
@@ -134,17 +135,25 @@ open class AmityEventHandler {
         let postOption = ImageItemOption(title: AmityLocalizedStringSet.General.post.localizedString, image: AmityIconSet.CreatePost.iconPost) {
             completion(.post)
         }
-        let pollPostOption = ImageItemOption(title: AmityLocalizedStringSet.General.poll.localizedString, image: AmityIconSet.CreatePost.iconPoll) {
-            completion(.poll)
+//        let pollPostOption = ImageItemOption(title: AmityLocalizedStringSet.General.poll.localizedString, image: AmityIconSet.CreatePost.iconPoll) {
+//            completion(.poll)
+//        }
+        
+        
+        
+        if(AmityRecentChatViewController.isLiveStreamEnabled){
+            let livestreamPost = ImageItemOption(
+                title: "Livestream",
+                image: UIImage(named: "icon_create_livestream_post", in: AmityUIKitManager.bundle, compatibleWith: nil)) {
+                    completion(.livestream)
+                }
+            
+            AmityBottomSheet.present(options: [livestreamPost, postOption], from: source)
+        }else{
+            AmityBottomSheet.present(options: [postOption], from: source)
         }
         
-        let livestreamPost = ImageItemOption(
-            title: "Livestream",
-            image: UIImage(named: "icon_create_livestream_post", in: AmityUIKitManager.bundle, compatibleWith: nil)) {
-                completion(.livestream)
-            }
         
-        AmityBottomSheet.present(options: [livestreamPost, postOption, pollPostOption], from: source)
     }
     
     /// Event for post creator

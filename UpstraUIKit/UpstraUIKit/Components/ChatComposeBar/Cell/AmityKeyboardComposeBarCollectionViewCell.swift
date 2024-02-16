@@ -35,8 +35,8 @@ final class AmityKeyboardComposeBarCollectionViewCell: UICollectionViewCell, Nib
 
 private extension AmityKeyboardComposeBarCollectionViewCell {
     func setupView() {
-        containerBackgroundView.backgroundColor = UIColor.white
-        containerView.backgroundColor = AmityColorSet.secondary.blend(.shade4)
+        containerBackgroundView.backgroundColor = AmityColorSet.backgroundColor
+        containerView.backgroundColor = AmityColorSet.backgroundColor
         containerView.layer.cornerRadius = containerView.frame.height / 2
         
         nameLabel.text = ""

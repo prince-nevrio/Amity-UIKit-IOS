@@ -26,7 +26,7 @@ final class AmityMemberPickerHeaderView: AmityView {
     }
     
     private func setupView() {
-        contentView.backgroundColor = AmityColorSet.secondary.blend(.shade4)
+        contentView.backgroundColor = AmityColorSet.backgroundColor
         
         titleLabel.text = ""
         titleLabel.textColor = AmityColorSet.base.blend(.shade3)

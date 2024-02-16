@@ -55,7 +55,7 @@ public final class AmityFeedViewController: AmityViewController, AmityRefreshabl
     // It will be marked as dirty when data source changed on view disappear.
     private var isDataSourceDirty: Bool = false
     
-    private let debouncer = Debouncer(delay: 0.3)
+    private let debouncer = Debouncer(delay: 0.300)
     
     // MARK: - View lifecycle
     deinit {
@@ -66,7 +66,7 @@ public final class AmityFeedViewController: AmityViewController, AmityRefreshabl
         super.viewDidLoad()
         setupView()
         setupProtocolHandler()
-        setupScreenViewModel()   
+        setupScreenViewModel()
     }
     
     public override func viewWillAppear(_ animated: Bool) {
@@ -137,9 +137,9 @@ public final class AmityFeedViewController: AmityViewController, AmityRefreshabl
     }
     
     private func setupTableView() {
-        tableView.backgroundColor = AmityColorSet.secondary.blend(.shade4)
+        tableView.backgroundColor = AmityColorSet.backgroundColor
         tableView.tableFooterView = UIView()
-        tableView.separatorStyle = .none
+        tableView.separatorStyle = .singleLine
         tableView.showsVerticalScrollIndicator = false
         tableView.registerCustomCell()
         tableView.registerPostCell()
@@ -173,6 +173,7 @@ public final class AmityFeedViewController: AmityViewController, AmityRefreshabl
     }
     
     @objc private func handleRefreshingControl() {
+        isVisible = true
         guard Reachability.shared.isConnectedToNetwork && AmityUIKitManagerInternal.shared.client.isEstablished else {
             tableView.reloadData()
             dataDidUpdateHandler?(0)
@@ -181,6 +182,9 @@ public final class AmityFeedViewController: AmityViewController, AmityRefreshabl
         }
         pullRefreshHandler?()
         screenViewModel.action.fetchPosts()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+            self.refreshControl.endRefreshing()
+        }
     }
 }
 
@@ -315,9 +319,12 @@ extension AmityFeedViewController: AmityFeedScreenViewModelDelegate {
             isDataSourceDirty = true
             return
         }
-        debouncer.run { [weak self] in
-            self?.tableView.reloadData()
+        if(isVisible){
+            debouncer.run { [weak self] in
+                self?.tableView.reloadData()
+            }
         }
+        isVisible = false
         dataDidUpdateHandler?(screenViewModel.dataSource.numberOfPostComponents())
         refreshControl.endRefreshing()
     }

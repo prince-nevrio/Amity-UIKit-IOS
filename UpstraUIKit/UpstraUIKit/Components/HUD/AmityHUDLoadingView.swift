@@ -39,7 +39,7 @@ class AmityHUDLoadingView: UIView {
         label.contentMode = .center
         label.textColor = AmityColorSet.baseInverse
         label.font = AmityFontSet.headerLine
-        label.text = "Loading"
+        label.text = "Laddar"
         
         NSLayoutConstraint.activate([
             loadingIndicator.centerXAnchor.constraint(equalTo: centerXAnchor),

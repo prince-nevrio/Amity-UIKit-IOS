@@ -110,7 +110,7 @@ final class ItemOptionView<T: ItemOption>: UIView, BottomSheetComponent, UITable
         cell.titleLabel.text = item.title
         cell.titleLabel.tintColor = item.tintColor
         cell.titleLabel.textColor = item.textColor
-        cell.titleLabel.font = AmityFontSet.bodyBold
+        cell.titleLabel.font = AmityFontSet.bodyRecoleta
         
         if let imageItem = item as? ImageRepresentableOption {
             cell.iconImageView.image = imageItem.image

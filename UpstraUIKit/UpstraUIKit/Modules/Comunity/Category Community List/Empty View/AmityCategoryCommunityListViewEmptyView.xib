@@ -1,14 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Recoleta-Medium.ttf">
+            <string>Recoleta-Medium</string>
+        </array>
+        <array key="Recoleta-Regular.ttf">
+            <string>Recoleta-Regular</string>
+        </array>
+    </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AmityCategoryCommunityListViewEmptyView" customModule="UpstraUIKit" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AmityCategoryCommunityListViewEmptyView" customModule="AmityUIKit" customModuleProvider="target">
             <connections>
                 <outlet property="imageView" destination="mKF-sd-oyU" id="sMj-pd-aFl"/>
                 <outlet property="subtitleLabel" destination="Goh-jE-YKj" id="fuP-a2-HKN"/>
@@ -21,26 +31,30 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="zpN-Iu-Muj">
-                    <rect key="frame" x="40" y="369" width="334" height="158.5"/>
+                    <rect key="frame" x="40" y="280" width="334" height="336.5"/>
                     <subviews>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="empty_newsfeed" translatesAutoresizingMaskIntoConstraints="NO" id="mKF-sd-oyU">
-                            <rect key="frame" x="130.5" y="0.0" width="73" height="73"/>
+                            <rect key="frame" x="55.5" y="0.0" width="223" height="225"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="225" id="Afj-qS-8nV"/>
+                                <constraint firstAttribute="width" constant="223" id="gsa-2F-bIr"/>
+                            </constraints>
                         </imageView>
-                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="gd4-og-LSn">
-                            <rect key="frame" x="60" y="93" width="214.5" height="65.5"/>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="gd4-og-LSn">
+                            <rect key="frame" x="42.5" y="245" width="249" height="91.5"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="It’s empty here..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ykL-ly-fXm">
-                                    <rect key="frame" x="0.0" y="0.0" width="214.5" height="20.5"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                    <nil key="textColor"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Det är tomt här..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ykL-ly-fXm">
+                                    <rect key="frame" x="0.0" y="0.0" width="249" height="45"/>
+                                    <fontDescription key="fontDescription" name="Recoleta-Medium" family="Recoleta" pointSize="33"/>
+                                    <color key="textColor" name="TextColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Goh-jE-YKj">
-                                    <rect key="frame" x="0.0" y="24.5" width="214.5" height="41"/>
-                                    <string key="text">No community found in this 
-category</string>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                    <nil key="textColor"/>
+                                    <rect key="frame" x="0.0" y="53" width="249" height="38.5"/>
+                                    <string key="text">Ingen community hittades i detta
+kategori</string>
+                                    <fontDescription key="fontDescription" name="Recoleta-Regular" family="Recoleta" pointSize="14"/>
+                                    <color key="textColor" name="TextColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
@@ -48,17 +62,23 @@ category</string>
                     </subviews>
                 </stackView>
             </subviews>
-            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+            <viewLayoutGuide key="safeArea" id="bVs-S1-z91"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="bVs-S1-z91" firstAttribute="trailing" secondItem="zpN-Iu-Muj" secondAttribute="trailing" constant="40" id="1AY-KZ-BC1"/>
                 <constraint firstItem="zpN-Iu-Muj" firstAttribute="centerY" secondItem="d8U-yY-GwM" secondAttribute="centerY" id="u1h-EX-VGc"/>
                 <constraint firstItem="zpN-Iu-Muj" firstAttribute="leading" secondItem="bVs-S1-z91" secondAttribute="leading" constant="40" id="ypV-Yk-V0s"/>
             </constraints>
-            <viewLayoutGuide key="safeArea" id="bVs-S1-z91"/>
             <point key="canvasLocation" x="137.68115942028987" y="99.776785714285708"/>
         </view>
     </objects>
     <resources>
         <image name="empty_newsfeed" width="73" height="73"/>
+        <namedColor name="TextColor">
+            <color red="0.20784313725490197" green="0.12156862745098039" blue="0.396078431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

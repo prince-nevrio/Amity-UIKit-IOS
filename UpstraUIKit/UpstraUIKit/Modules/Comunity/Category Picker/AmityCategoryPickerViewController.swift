@@ -58,6 +58,7 @@ public class AmityCategoryPickerViewController: AmityViewController {
     
     private func setupNavigationBar() {
         doneBarButtonItem = UIBarButtonItem(title: AmityLocalizedStringSet.General.done.localizedString, style: .done, target: self, action: #selector(doneButtonTap))
+        doneBarButtonItem.tintColor = AmityColorSet.primary
         navigationItem.rightBarButtonItem = doneBarButtonItem
         updateNavigationBarState()
     }

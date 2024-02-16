@@ -69,9 +69,9 @@ class AmityCommentView: AmityView {
         contentLabel.textColor = AmityColorSet.base
         contentLabel.font = AmityFontSet.body
         contentLabel.numberOfLines = 8
-        separatorLineView.backgroundColor  = AmityColorSet.secondary.blend(.shade4)
+        separatorLineView.backgroundColor  = AmityColorSet.dividerColor
         
-        labelContainerView.backgroundColor = AmityColorSet.base.blend(.shade4)
+        labelContainerView.backgroundColor = AmityColorSet.greyLite
         labelContainerView.layer.cornerRadius = 12
         labelContainerView.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMinYCorner, .layerMaxXMaxYCorner]
         
@@ -108,7 +108,7 @@ class AmityCommentView: AmityView {
         viewReplyButton.setTitleColor(AmityColorSet.base.blend(.shade1), for: .normal)
         viewReplyButton.setTintColor(AmityColorSet.base.blend(.shade1), for: .normal)
         viewReplyButton.setImage(AmityIconSet.iconReplyInverse, for: .normal)
-        viewReplyButton.backgroundColor = AmityColorSet.secondary.blend(.shade4)
+        viewReplyButton.backgroundColor = AmityColorSet.backgroundColor
         viewReplyButton.clipsToBounds = true
         viewReplyButton.layer.cornerRadius = 4
         viewReplyButton.setInsets(forContentPadding: UIEdgeInsets(top: 6, left: 12, bottom: 6, right: 16), imageTitlePadding: 8)

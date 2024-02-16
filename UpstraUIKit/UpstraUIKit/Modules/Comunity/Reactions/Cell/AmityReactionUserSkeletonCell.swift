@@ -24,7 +24,7 @@ class AmityReactionUserSkeletonCell: UITableViewCell, Nibbable {
     func setupViews() {
         contentView.backgroundColor = AmityColorSet.backgroundColor
         [circleView, label1, label2].forEach {
-            $0?.backgroundColor = AmityColorSet.base.blend(.shade4)
+            $0?.backgroundColor = AmityColorSet.backgroundColor
             $0?.layer.masksToBounds = true
         }
         circleView.layer.cornerRadius = 20

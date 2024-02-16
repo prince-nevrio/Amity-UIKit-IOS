@@ -64,7 +64,7 @@ private extension AmityMentionTableViewCell {
     }
     
     func setupAvatarView() {
-        avatarView.backgroundColor = AmityColorSet.secondary.blend(.shade4)
+        avatarView.backgroundColor = AmityColorSet.dividerColor
         avatarView.placeholder = AmityIconSet.defaultAvatar
     }
     

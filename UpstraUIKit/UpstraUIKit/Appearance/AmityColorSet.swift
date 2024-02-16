@@ -36,7 +36,19 @@ struct AmityColorSet {
     }
     
     static var backgroundColor: UIColor {
-        return UIColor.white
+        return AmityThemeManager.currentTheme.backgroundColor
+    }
+    
+    static var dividerColor: UIColor {
+        return AmityThemeManager.currentTheme.dividerColor
+    } 
+    
+    static var greyLite: UIColor {
+        return AmityThemeManager.currentTheme.greyLite
+    }
+    
+    static var grey: UIColor {
+        return AmityThemeManager.currentTheme.grey
     }
     
 }

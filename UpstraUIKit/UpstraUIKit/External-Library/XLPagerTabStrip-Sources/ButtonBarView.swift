@@ -23,6 +23,7 @@
 // THE SOFTWARE.
 
 import UIKit
+import SwiftEventBus
 
 enum PagerScroll {
     case no
@@ -71,6 +72,7 @@ class ButtonBarView: UICollectionView {
     }
 
     func moveTo(index: Int, animated: Bool, swipeDirection: SwipeDirection, pagerScroll: PagerScroll) {
+        SwiftEventBus.post("onCommunityPageIndexChange",sender: index)
         selectedIndex = index
         updateSelectedBarPosition(animated, swipeDirection: swipeDirection, pagerScroll: pagerScroll)
     }

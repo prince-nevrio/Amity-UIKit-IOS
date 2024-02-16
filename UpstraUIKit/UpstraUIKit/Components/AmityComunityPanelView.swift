@@ -38,7 +38,7 @@ class AmityComunityPanelView: UIView {
     private func commonInit() {
         backgroundColor = AmityColorSet.backgroundColor
         topBorderLine.translatesAutoresizingMaskIntoConstraints = false
-        topBorderLine.backgroundColor = AmityColorSet.secondary.blend(.shade4)
+        topBorderLine.backgroundColor = AmityColorSet.dividerColor
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.font = AmityFontSet.bodyBold
         titleLabel.numberOfLines = 1

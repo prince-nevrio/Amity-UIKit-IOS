@@ -267,12 +267,16 @@ final public class LiveStreamBroadcastViewController: UIViewController {
         titleTextField.textColor = .white
         titleTextField.returnKeyType = .done
         titleTextField.delegate = self
+        titleTextField.attributedPlaceholder = NSAttributedString(
+            string: "Titel",
+            attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
         
         descriptionTextView.text = nil
         descriptionTextView.padding = .zero
         descriptionTextView.backgroundColor = .clear
         descriptionTextView.font = AmityFontSet.body
-        descriptionTextView.placeholder = "Tap to add post description..."
+        descriptionTextView.placeholder = "Tryck för att lägga till inläggsbeskrivning"
+        descriptionTextView.placeholderColor = .white
         descriptionTextView.textColor = .white
         descriptionTextView.returnKeyType = .done
         descriptionTextView.customTextViewDelegate = self
@@ -297,13 +301,13 @@ final public class LiveStreamBroadcastViewController: UIViewController {
         goLiveButton.layer.cornerRadius = 4
         goLiveButton.layer.borderWidth = 1
         goLiveButton.layer.borderColor = UIColor(red: 0.647, green: 0.663, blue: 0.71, alpha: 1).cgColor
-        goLiveButton.setAttributedTitle(NSAttributedString(string: "Go live", attributes: [
+        goLiveButton.setAttributedTitle(NSAttributedString(string: "Gå live", attributes: [
             .foregroundColor: UIColor.black,
             .font: AmityFontSet.bodyBold
         ]), for: .normal)
         
         finishButton.backgroundColor = .black
-        finishButton.setAttributedTitle(NSAttributedString(string: "Finish", attributes: [
+        finishButton.setAttributedTitle(NSAttributedString(string: "Klar", attributes: [
             .foregroundColor: UIColor.white,
             .font: AmityFontSet.bodyBold
         ]), for: .normal)
@@ -376,12 +380,12 @@ final public class LiveStreamBroadcastViewController: UIViewController {
     }
     
     private func presentEndLiveStreamConfirmationDialogue() {
-        let title = "Do yo want to end the live stream?"
+        let title = "Vill du avsluta livestreamen?"
         let alertController = UIAlertController(title: title, message: nil, preferredStyle: .alert)
-        let end = UIAlertAction(title: "End", style: .default) { [weak self] action in
+        let end = UIAlertAction(title: "Avsluta", style: .default) { [weak self] action in
             self?.finishLive()
         }
-        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let cancel = UIAlertAction(title: "Klar", style: .cancel, handler: nil)
         alertController.addAction(end)
         alertController.addAction(cancel)
         present(alertController, animated: true, completion: nil)
@@ -431,7 +435,7 @@ final public class LiveStreamBroadcastViewController: UIViewController {
             
             actionSheet.addAction(removeCoverPhotoAction)
             
-            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            let cancelAction = UIAlertAction(title: "Klar", style: .cancel, handler: nil)
             
             actionSheet.addAction(cancelAction)
             

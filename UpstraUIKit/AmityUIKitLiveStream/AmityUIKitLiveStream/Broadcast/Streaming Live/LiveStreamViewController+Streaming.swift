@@ -36,7 +36,7 @@ extension LiveStreamBroadcastViewController {
         case .connected:
             streamingStatusLabel.text = "LIVE \(durationText)"
         case .connecting, .disconnected, .idle:
-            streamingStatusLabel.text = "CONNECTING \(durationText)"
+            streamingStatusLabel.text = "kopplar upp \(durationText)"
         @unknown default:
             streamingStatusLabel.text = "LIVE \(durationText)"
         }

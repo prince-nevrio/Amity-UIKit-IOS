@@ -97,6 +97,16 @@ extension AmityCommunityMemberViewController: UITableViewDelegate {
 
 // MARK: - UITableView DataSource
 extension AmityCommunityMemberViewController: UITableViewDataSource {
+    
+    public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+         let user = screenViewModel.dataSource.member(at: indexPath)
+        if user.isDeleted {
+            return 0.0 // Set the height to zero
+        } else {
+            return UITableView.automaticDimension // Use the default cell height
+        }
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return screenViewModel.dataSource.numberOfMembers()
     }

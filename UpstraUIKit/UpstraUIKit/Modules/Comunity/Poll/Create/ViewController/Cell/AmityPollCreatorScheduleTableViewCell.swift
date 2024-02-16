@@ -60,7 +60,7 @@ final class AmityPollCreatorScheduleTableViewCell: UITableViewCell, Nibbable, Am
         
         dropdownImageView.image = AmityIconSet.iconDropdown
         
-        lineView.backgroundColor = AmityColorSet.secondary.blend(.shade4)
+        lineView.backgroundColor = AmityColorSet.dividerColor
     }
 
     // MARK: - Action

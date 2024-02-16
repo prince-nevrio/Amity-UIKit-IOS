@@ -79,7 +79,7 @@ private extension AmityTrendingCommunityTableViewCell {
     
     func setupNumber() {
         numberLabel.text = ""
-        numberLabel.textColor = AmityColorSet.highlight
+        numberLabel.textColor = AmityColorSet.primary
         numberLabel.font = AmityFontSet.title
     }
     

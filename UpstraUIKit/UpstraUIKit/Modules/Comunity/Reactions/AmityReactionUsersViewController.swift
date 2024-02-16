@@ -101,7 +101,7 @@ public final class AmityReactionUsersViewController: AmityViewController {
         title = AmityLocalizedStringSet.Reaction.reactionTitle.localizedString
         
         refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
-        
+        refreshControl.tintColor = AmityColorSet.base.blend(.shade3)
         tableView.register(cell: AmityReactionUserTableViewCell.self)
         tableView.register(cell: AmityReactionUserSkeletonCell.self)
         tableView.dataSource = self
@@ -148,7 +148,7 @@ extension AmityReactionUsersViewController: IndicatorInfoProvider {
         
         // Tab title if there is any reactions.
         if reactionsInfo.reactionsCount > 0 {
-            tabTitle = AmityLocalizedStringSet.General.generalAll.localizedString + " " +  reactionsInfo.reactionsCount.formatUsingAbbrevation()
+            tabTitle = AmityLocalizedStringSet.General.generalAll.localizedString
         }
         
         return IndicatorInfo(title: tabTitle)

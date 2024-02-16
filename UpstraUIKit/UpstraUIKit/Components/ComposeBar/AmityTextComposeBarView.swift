@@ -84,7 +84,7 @@ class AmityTextComposeBarView: AmityView {
         textView.backgroundColor = AmityColorSet.backgroundColor
         textView.layer.borderWidth = 1
         textView.layer.borderColor = AmityColorSet.secondary.blend(.shade4).cgColor
-        textView.layer.cornerRadius = 4
+        textView.layer.cornerRadius = textView.layer.frame.height / 2
         textView.customTextViewDelegate = self
         
         defaultHeightTextView = textView.frame.height

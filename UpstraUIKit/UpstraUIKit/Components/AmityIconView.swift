@@ -21,7 +21,7 @@ final class AmityIconView: AmityView {
         }
     }
     
-    var backgroundIcon: UIColor? = AmityColorSet.base.blend(.shade4) {
+    var backgroundIcon: UIColor? = AmityColorSet.backgroundColor {
         didSet {
             containerView.backgroundColor = backgroundIcon
         }

@@ -1,0 +1,29 @@
+PODS:
+  - Alamofire (5.8.1)
+  - SwiftEventBus (5.0.0)
+
+DEPENDENCIES:
+  - Alamofire (~> 5.2)
+  - SwiftEventBus (from `https://github.com/cesarferreira/SwiftEventBus.git`, tag `5.1.0`)
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+
+EXTERNAL SOURCES:
+  SwiftEventBus:
+    :git: https://github.com/cesarferreira/SwiftEventBus.git
+    :tag: 5.1.0
+
+CHECKOUT OPTIONS:
+  SwiftEventBus:
+    :git: https://github.com/cesarferreira/SwiftEventBus.git
+    :tag: 5.1.0
+
+SPEC CHECKSUMS:
+  Alamofire: 3ca42e259043ee0dc5c0cdd76c4bc568b8e42af7
+  SwiftEventBus: 976fdca8270b925c5f8e897f519cc49597e1f13c
+
+PODFILE CHECKSUM: f06081941a959e0a049fcce6803183f0e946a4b4
+
+COCOAPODS: 1.14.3

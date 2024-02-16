@@ -24,7 +24,7 @@ class AmityCommunityNotificationSettingsViewController: AmityViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        self.view.backgroundColor = AmityColorSet.backgroundColor
         screenViewModel.action.retrieveNotifcationSettings()
     }
     

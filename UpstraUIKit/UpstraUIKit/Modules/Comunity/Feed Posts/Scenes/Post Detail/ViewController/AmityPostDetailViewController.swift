@@ -76,7 +76,7 @@ open class AmityPostDetailViewController: AmityViewController {
     
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.setBackgroundColor(with: .white)
+        navigationController?.setBackgroundColor(with: AmityColorSet.backgroundColor)
         AmityKeyboardService.shared.delegate = self
         mentionManager?.delegate = self
         mentionManager?.setColor(AmityColorSet.base, highlightColor: AmityColorSet.primary)
@@ -263,7 +263,7 @@ extension AmityPostDetailViewController: AmityPostTableViewDelegate {
     
     func tableView(_ tableView: AmityPostTableView, viewForFooterInSection section: Int) -> UIView? {
         let separatorView = UIView(frame: CGRect(x: tableView.separatorInset.left, y: 0.0, width: tableView.frame.width - tableView.separatorInset.right - tableView.separatorInset.left, height: 1.0))
-        separatorView.backgroundColor = AmityColorSet.secondary.blend(.shade4)
+        separatorView.backgroundColor = AmityColorSet.dividerColor
         return separatorView
     }
     

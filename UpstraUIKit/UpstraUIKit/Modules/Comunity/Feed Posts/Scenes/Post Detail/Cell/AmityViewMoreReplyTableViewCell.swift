@@ -22,7 +22,7 @@ class AmityViewMoreReplyTableViewCell: UITableViewCell, Nibbable {
         titleLabel.text = AmityLocalizedStringSet.PostDetail.viewMoreReply.localizedString
         titleLabel.textColor = AmityColorSet.base.blend(.shade1)
         titleLabel.font = AmityFontSet.captionBold
-        containerView.backgroundColor = AmityColorSet.secondary.blend(.shade4)
+        containerView.backgroundColor = AmityColorSet.backgroundColor
     }
     
 }

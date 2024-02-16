@@ -71,7 +71,7 @@ private extension AmityCategoryPreviewViewController {
     
     func setupTitle() {
         titleLabel.text = AmityLocalizedStringSet.categoryTitle.localizedString
-        titleLabel.textColor = AmityColorSet.base
+        titleLabel.textColor = AmityColorSet.primary
         titleLabel.font = AmityFontSet.title
     }
     

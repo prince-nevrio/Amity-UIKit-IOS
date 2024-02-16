@@ -84,7 +84,7 @@ final public class AmityMyCommunityPreviewViewController: UIViewController {
         
         actionButton.setImage(AmityIconSet.iconNext, for: .normal)
         actionButton.tintColor = AmityColorSet.base
-        separatorView.backgroundColor = AmityColorSet.secondary.blend(.shade4)
+        separatorView.backgroundColor = AmityColorSet.dividerColor
         
         let layout = (collectionView.collectionViewLayout as? UICollectionViewFlowLayout)
         layout?.scrollDirection = .horizontal

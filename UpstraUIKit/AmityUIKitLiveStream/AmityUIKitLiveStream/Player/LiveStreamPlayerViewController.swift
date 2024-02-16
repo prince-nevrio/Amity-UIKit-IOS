@@ -193,13 +193,13 @@ public class LiveStreamPlayerViewController: UIViewController {
         case .ended, .recorded:
             // Stream End Container will obseceure all views to show title and description.
             streamEndContainer.isHidden = false
-            streamEndTitleLabel.text = "This livestream has ended."
-            streamEndDescriptionLabel.text = "Playback will be available for you to watch shortly."
+            streamEndTitleLabel.text = "Den här livestreamen har avslutats."
+            streamEndDescriptionLabel.text = "Uppspelning kommer att vara tillgänglig för dig att titta på inom kort."
             streamEndDescriptionLabel.isHidden = false
         case .idle:
             // Stream End Container will obseceure all views to show title and description.
             streamEndContainer.isHidden = false
-            streamEndTitleLabel.text = "The stream is currently unavailable."
+            streamEndTitleLabel.text = "Streamen är för närvarande inte tillgänglig."
             streamEndDescriptionLabel.text = nil
             streamEndDescriptionLabel.isHidden = true
         case .live, .none:

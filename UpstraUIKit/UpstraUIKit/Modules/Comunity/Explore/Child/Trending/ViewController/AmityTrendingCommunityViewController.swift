@@ -60,7 +60,7 @@ private extension AmityTrendingCommunityViewController {
     
     func setupTitle() {
         titleLabel.text = AmityLocalizedStringSet.trendingCommunityTitle.localizedString
-        titleLabel.textColor = AmityColorSet.base
+        titleLabel.textColor = AmityColorSet.primary
         titleLabel.font = AmityFontSet.title
     }
     

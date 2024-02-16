@@ -48,6 +48,14 @@ public struct AmityTheme {
     // It will apply to incoming message components
     let messageBubbleInverse: UIColor
     
+    let backgroundColor: UIColor
+    
+    let dividerColor: UIColor
+    
+    let greyLite: UIColor
+    
+    let grey: UIColor
+    
     public init(primary: UIColor? = nil,
                 secondary: UIColor? = nil,
                 alert: UIColor? = nil,
@@ -55,15 +63,36 @@ public struct AmityTheme {
                 base: UIColor? = nil,
                 baseInverse: UIColor? = nil,
                 messageBubble: UIColor? = nil,
-                messageBubbleInverse: UIColor? = nil) {
-        self.primary = primary ?? UIColor(hex: "#1054DE")
-        self.secondary = secondary ?? UIColor(hex: "#292B32")
+                messageBubbleInverse: UIColor? = nil,
+                backgroundColor : UIColor? = nil,
+                dividerColor : UIColor? = nil,
+                greyLite : UIColor? = nil,
+                grey : UIColor? = nil) {
+        self.primary = primary ?? UIColor(hex: "#351F65")
+        self.secondary = secondary ?? UIColor(hex: "#EAA794")
         self.alert = alert ?? UIColor(hex: "#FA4D30")
         self.highlight = highlight ?? UIColor(hex: "#1054DE")
-        self.base = base ?? UIColor(hex: "#292B32")
+        self.base = base ?? UIColor(hex: "#351F65")
         self.baseInverse = baseInverse ?? .white
-        self.messageBubble = messageBubble ?? UIColor(hex: "#1054DE")
+        self.messageBubble = messageBubble ?? UIColor(hex: "#351F65")
         self.messageBubbleInverse = messageBubbleInverse ?? UIColor(hex: "#EBECEF")
+        self.backgroundColor = backgroundColor ?? UIColor(hex: "#F6F4EE")
+        self.dividerColor = dividerColor ?? UIColor(hex: "#D9D9D9")
+        self.greyLite = dividerColor ?? UIColor(hex: "#ECECEC")
+        self.grey = dividerColor ?? UIColor(hex: "#A5A9B5")
     }
     
 }
+
+
+//self.primary = primary ?? UIColor(hex: "#351F65")
+//self.secondary = secondary ?? UIColor(hex: "#EAA794")
+//self.alert = alert ?? UIColor(hex: "#FA4D30")
+//self.highlight = highlight ?? UIColor(hex: "#1054DE")
+//self.base = base ?? UIColor(hex: "#292B32")
+//self.baseInverse = baseInverse ?? .white
+//self.messageBubble = messageBubble ?? UIColor(hex: "#1054DE")
+//self.messageBubbleInverse = messageBubbleInverse ?? UIColor(hex: "#EBECEF")
+//self.backgroundColor = backgroundColor ?? UIColor(hex: "#F6F4EE")
+//self.dividerColor = dividerColor ?? UIColor(hex: "#D9D9D9")
+//self.greyLite = dividerColor ?? UIColor(hex: "#ECECEC")

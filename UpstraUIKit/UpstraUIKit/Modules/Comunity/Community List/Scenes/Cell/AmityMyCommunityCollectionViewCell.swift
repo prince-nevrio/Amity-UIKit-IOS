@@ -57,7 +57,7 @@ final class AmityMyCommunityCollectionViewCell: UICollectionViewCell, Nibbable {
         displayNameLabel.text = AmityLocalizedStringSet.myCommunitySeeAll.localizedString
         avatarView.image = nil
         avatarView.placeholder = AmityIconSet.iconArrowRight
-        avatarView.backgroundColor = AmityColorSet.base.blend(.shade4)
+        avatarView.backgroundColor = AmityColorSet.backgroundColor
         privateBadgeImageView.isHidden = true
     }
 }

@@ -1,15 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Recoleta-Medium.ttf">
+            <string>Recoleta-Medium</string>
+        </array>
+        <array key="Recoleta-Regular.ttf">
+            <string>Recoleta-Regular</string>
+        </array>
+    </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AmityNewsfeedEmptyView" customModule="UpstraUIKit" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AmityNewsfeedEmptyView" customModule="AmityUIKit" customModuleProvider="target">
             <connections>
                 <outlet property="createCommunityButton" destination="5gz-ZL-mCQ" id="qLl-Ys-AuJ"/>
                 <outlet property="exploreCommunityButton" destination="8dF-Av-WbV" id="ii3-PU-aeb"/>
@@ -23,43 +31,47 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="mT6-H3-Pel">
-                    <rect key="frame" x="40" y="44" width="334" height="818"/>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="mT6-H3-Pel">
+                    <rect key="frame" x="16" y="48" width="382" height="814"/>
                     <subviews>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="empty_newsfeed" translatesAutoresizingMaskIntoConstraints="NO" id="r38-o5-ZXg">
-                            <rect key="frame" x="130.5" y="0.0" width="73" height="633"/>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="empty_newsfeed" translatesAutoresizingMaskIntoConstraints="NO" id="r38-o5-ZXg">
+                            <rect key="frame" x="78.5" y="0.0" width="225" height="227"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="225" id="Yu3-rK-OWY"/>
+                                <constraint firstAttribute="height" constant="227" id="tbX-sX-CyY"/>
+                            </constraints>
                         </imageView>
-                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="z65-Xi-9OX">
-                            <rect key="frame" x="33" y="653" width="268" height="45"/>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="z65-Xi-9OX">
+                            <rect key="frame" x="16" y="242" width="350" height="442"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Your feed is empty" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VRW-6u-3eK">
-                                    <rect key="frame" x="0.0" y="0.0" width="268" height="20.5"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                    <nil key="textColor"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Ditt community är tomt" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VRW-6u-3eK">
+                                    <rect key="frame" x="0.0" y="0.0" width="350" height="417.5"/>
+                                    <fontDescription key="fontDescription" name="Recoleta-Medium" family="Recoleta" pointSize="33"/>
+                                    <color key="textColor" name="TextColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Find community or create your own" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YDT-dF-GDc">
-                                    <rect key="frame" x="0.0" y="24.5" width="268" height="20.5"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                    <nil key="textColor"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Find community or create your own" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YDT-dF-GDc">
+                                    <rect key="frame" x="0.0" y="421.5" width="350" height="20.5"/>
+                                    <fontDescription key="fontDescription" name="Recoleta-Regular" family="Recoleta" pointSize="15"/>
+                                    <color key="textColor" name="TextColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
                         </stackView>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8dF-Av-WbV" customClass="AmityButton" customModule="UpstraUIKit" customModuleProvider="target">
-                            <rect key="frame" x="144" y="718" width="46" height="40"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8dF-Av-WbV" customClass="AmityButton" customModule="AmityUIKit" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="699" width="382" height="50"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="40" id="NPG-el-Zsf"/>
+                                <constraint firstAttribute="height" constant="50" id="NPG-el-Zsf"/>
                             </constraints>
                             <state key="normal" title="Button"/>
                             <connections>
                                 <action selector="exploreCommunityTap" destination="-1" eventType="touchUpInside" id="PEh-lX-jHZ"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5gz-ZL-mCQ" customClass="AmityButton" customModule="UpstraUIKit" customModuleProvider="target">
-                            <rect key="frame" x="144" y="778" width="46" height="40"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5gz-ZL-mCQ" customClass="AmityButton" customModule="AmityUIKit" customModuleProvider="target">
+                            <rect key="frame" x="168" y="764" width="46" height="50"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="40" id="4n6-Fr-Lop"/>
+                                <constraint firstAttribute="height" constant="50" id="4n6-Fr-Lop"/>
                             </constraints>
                             <state key="normal" title="Button"/>
                             <connections>
@@ -67,23 +79,33 @@
                             </connections>
                         </button>
                     </subviews>
+                    <color key="backgroundColor" name="BackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="z65-Xi-9OX" firstAttribute="leading" secondItem="mT6-H3-Pel" secondAttribute="leading" constant="16" id="Fmg-5c-IDq"/>
+                        <constraint firstItem="8dF-Av-WbV" firstAttribute="leading" secondItem="mT6-H3-Pel" secondAttribute="leading" id="VfZ-uz-sgJ"/>
+                        <constraint firstAttribute="trailing" secondItem="8dF-Av-WbV" secondAttribute="trailing" id="X1n-LQ-rWd"/>
+                        <constraint firstAttribute="trailing" secondItem="z65-Xi-9OX" secondAttribute="trailing" constant="16" id="xe7-Eg-vfg"/>
+                    </constraints>
                 </stackView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
-            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <color key="backgroundColor" name="BackgroundColor"/>
             <constraints>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="mT6-H3-Pel" secondAttribute="bottom" id="TdF-TW-u0I"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="mT6-H3-Pel" secondAttribute="trailing" constant="40" id="emH-DK-Ldw"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="mT6-H3-Pel" secondAttribute="trailing" constant="16" id="emH-DK-Ldw"/>
                 <constraint firstItem="mT6-H3-Pel" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="pFY-hI-Rkg"/>
-                <constraint firstItem="mT6-H3-Pel" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="40" id="xTc-FB-k62"/>
+                <constraint firstItem="mT6-H3-Pel" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="xTc-FB-k62"/>
             </constraints>
-            <point key="canvasLocation" x="139" y="100"/>
+            <point key="canvasLocation" x="137.68115942028987" y="99.776785714285708"/>
         </view>
     </objects>
     <resources>
         <image name="empty_newsfeed" width="73" height="73"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
+        <namedColor name="BackgroundColor">
+            <color red="0.96470588235294119" green="0.95686274509803926" blue="0.93333333333333335" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="TextColor">
+            <color red="0.20784313725490197" green="0.12156862745098039" blue="0.396078431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

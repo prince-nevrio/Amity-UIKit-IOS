@@ -39,10 +39,10 @@ class AmityPostNotificationSettingsViewController: AmityViewController {
         saveButton = UIBarButtonItem(title: AmityLocalizedStringSet.General.save.localizedString, style: .done, target: self, action: #selector(saveButtonDidTap))
 
         saveButton.isEnabled = false
-        
+        tableView.backgroundColor = AmityColorSet.backgroundColor
         tableView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(tableView)
-        
+        view.backgroundColor = AmityColorSet.backgroundColor
         NSLayoutConstraint.activate([
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
@@ -54,7 +54,6 @@ class AmityPostNotificationSettingsViewController: AmityViewController {
     private func setupTableView() {
         tableView.isEmptyViewHidden = Reachability.shared.isConnectedToNetwork
         tableView.updateEmptyView(title: AmityLocalizedStringSet.noInternetConnection.localizedString, subtitle: nil, image: AmityIconSet.noInternetConnection)
-        
         tableView.actionHandler = { [weak self] settingsItem in
             self?.handleActionItem(settingsItem: settingsItem)
         }

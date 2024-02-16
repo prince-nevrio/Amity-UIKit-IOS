@@ -12,6 +12,8 @@ import AmitySDK
 /// Recent chat
 public final class AmityRecentChatViewController: AmityViewController, IndicatorInfoProvider {
     
+    public static var isLiveStreamEnabled : Bool = false
+    
     var pageTitle: String?
     
     func indicatorInfo(for pagerTabStripController: AmityPagerTabViewController) -> IndicatorInfo {
@@ -22,7 +24,7 @@ public final class AmityRecentChatViewController: AmityViewController, Indicator
     @IBOutlet private var tableView: UITableView!
     
     // MARK: - Properties
-    private var screenViewModel: AmityRecentChatScreenViewModelType!
+     var screenViewModel: AmityRecentChatScreenViewModelType!
     
     private lazy var emptyView: AmityEmptyView = {
         let emptyView = AmityEmptyView(frame: tableView.frame)
@@ -66,9 +68,9 @@ private extension AmityRecentChatViewController {
 private extension AmityRecentChatViewController {
     func setupView() {
         if screenViewModel.dataSource.isAddMemberBarButtonEnabled() {
-            let addImage = UIImage(named: "icon_chat_create", in: AmityUIKitManager.bundle, compatibleWith: nil)
-            let barButton = UIBarButtonItem(image: addImage, style: .plain, target: self, action: #selector(didClickAdd(_:)))
-            navigationItem.rightBarButtonItem = barButton
+            let searchItem = UIBarButtonItem(image: AmityIconSet.iconChatCreate, style: .plain, target: self, action:  #selector(didClickAdd(_:)))
+            searchItem.tintColor = AmityColorSet.base
+            navigationItem.rightBarButtonItem = searchItem
         }
         setupTableView()
     }
@@ -77,9 +79,10 @@ private extension AmityRecentChatViewController {
         view.backgroundColor = AmityColorSet.backgroundColor
         tableView.register(AmityRecentChatTableViewCell.nib, forCellReuseIdentifier: AmityRecentChatTableViewCell.identifier)
         tableView.backgroundColor = AmityColorSet.backgroundColor
-        tableView.separatorInset.left = 64
+       // tableView.separatorInset.left = 64
         tableView.showsVerticalScrollIndicator = false
         tableView.tableFooterView = UIView()
+        tableView.tableFooterView?.backgroundColor = AmityColorSet.backgroundColor
         tableView.backgroundView = emptyView
         tableView.delegate = self
         tableView.dataSource = self
@@ -106,10 +109,25 @@ extension AmityRecentChatViewController: UITableViewDelegate {
             screenViewModel.action.loadMore()
         }
     }
+    
+    public func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+          // Set a static height for the footer view
+          return 80.0
+      }
 }
 
 // MARK: - UITableView DataSource
 extension AmityRecentChatViewController: UITableViewDataSource {
+    
+    public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+         let user = screenViewModel.dataSource.channel(at: indexPath)
+        if user.isDeleted || user.displayName == "Deleted Channel"{
+            return 0.0 // Set the height to zero
+        } else {
+            return UITableView.automaticDimension // Use the default cell height
+        }
+    }
+    
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return screenViewModel.dataSource.numberOfRow(in: section)
     }

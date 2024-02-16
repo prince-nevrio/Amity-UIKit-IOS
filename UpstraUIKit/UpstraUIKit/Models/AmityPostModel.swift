@@ -358,7 +358,7 @@ public class AmityPostModel {
         for aChild in childrenPosts {
             switch aChild.dataType {
             case "image":
-                let placeholder = AmityColorSet.base.blend(.shade4).asImage()
+                let placeholder = AmityColorSet.backgroundColor.asImage()
                 if let imageData = aChild.getImageInfo() {
                     let state = AmityMediaState.downloadableImage(
                         imageData: imageData,

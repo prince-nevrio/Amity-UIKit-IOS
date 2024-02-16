@@ -42,7 +42,7 @@ public final class AmityAvatarView: AmityImageView {
         }
     }
     
-    public var placeholderPostion: AmityAvatarPosition = .center {
+    public var placeholderPostion: AmityAvatarPosition = .fullSize {
         didSet {
             updatePlaceholderConstraint()
         }

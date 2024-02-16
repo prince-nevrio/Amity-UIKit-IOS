@@ -60,7 +60,7 @@ private extension AmityChannelMemberSettingsTableViewCell {
     }
     
     func setupAvatarView() {
-        avatarView.backgroundColor = AmityColorSet.secondary.blend(.shade4)
+        avatarView.backgroundColor = AmityColorSet.dividerColor
         avatarView.placeholder = AmityIconSet.defaultAvatar
         avatarView.actionHandler = { [weak self] in
             self?.avatarTap()

@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		92B2CA162B35C02200489559 /* SharedFrameworks in Frameworks */ = {isa = PBXBuildFile; productRef = 92B2CA152B35C02200489559 /* SharedFrameworks */; };
+		68B68BFA2AE1443B002217FF /* SharedFrameworks in Frameworks */ = {isa = PBXBuildFile; productRef = 68B68BF92AE1443B002217FF /* SharedFrameworks */; };
 		A0B68B3026E07278007D7B5B /* LiveStreamViewController+GoLive.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B68B2F26E07278007D7B5B /* LiveStreamViewController+GoLive.swift */; };
 		A0B68B3626E07824007D7B5B /* AsyncOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B68B3526E07824007D7B5B /* AsyncOperation.swift */; };
 		A0B68B3F26E07912007D7B5B /* CreatePost.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B68B3E26E07912007D7B5B /* CreatePost.swift */; };
@@ -33,7 +33,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5378308F1B943295D34496E1 /* Pods-AmityUIKitLiveStream.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AmityUIKitLiveStream.debug.xcconfig"; path = "Target Support Files/Pods-AmityUIKitLiveStream/Pods-AmityUIKitLiveStream.debug.xcconfig"; sourceTree = "<group>"; };
 		688F8615299E408F000FE6E7 /* SharedFrameworks */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = SharedFrameworks; path = ../SharedFrameworks; sourceTree = "<group>"; };
+		75EA5D6B1C6A757D0EC9C567 /* Pods-AmityUIKitLiveStream.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AmityUIKitLiveStream.release.xcconfig"; path = "Target Support Files/Pods-AmityUIKitLiveStream/Pods-AmityUIKitLiveStream.release.xcconfig"; sourceTree = "<group>"; };
 		A0B68B2F26E07278007D7B5B /* LiveStreamViewController+GoLive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LiveStreamViewController+GoLive.swift"; sourceTree = "<group>"; };
 		A0B68B3526E07824007D7B5B /* AsyncOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncOperation.swift; sourceTree = "<group>"; };
 		A0B68B3E26E07912007D7B5B /* CreatePost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePost.swift; sourceTree = "<group>"; };
@@ -69,7 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				92B2CA162B35C02200489559 /* SharedFrameworks in Frameworks */,
+				68B68BFA2AE1443B002217FF /* SharedFrameworks in Frameworks */,
 				A0BD0B3426DDD9820054088B /* AmityUIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -77,6 +79,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		03189EAB854FA6346828EB3E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5378308F1B943295D34496E1 /* Pods-AmityUIKitLiveStream.debug.xcconfig */,
+				75EA5D6B1C6A757D0EC9C567 /* Pods-AmityUIKitLiveStream.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		688F8614299E408F000FE6E7 /* Packages */ = {
 			isa = PBXGroup;
 			children = (
@@ -128,6 +139,7 @@
 				A0BD0B1726DCE4F50054088B /* AmityUIKitLiveStream */,
 				A0BD0B1626DCE4F50054088B /* Products */,
 				A0BD0B2026DCE5310054088B /* Frameworks */,
+				03189EAB854FA6346828EB3E /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -234,6 +246,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A0BD0B1D26DCE4F50054088B /* Build configuration list for PBXNativeTarget "AmityUIKitLiveStream" */;
 			buildPhases = (
+				7103B19665A823C7F9F083D3 /* [CP] Check Pods Manifest.lock */,
 				A0BD0B1026DCE4F50054088B /* Headers */,
 				A0BD0B1126DCE4F50054088B /* Sources */,
 				A0BD0B1226DCE4F50054088B /* Frameworks */,
@@ -245,7 +258,7 @@
 			);
 			name = AmityUIKitLiveStream;
 			packageProductDependencies = (
-				92B2CA152B35C02200489559 /* SharedFrameworks */,
+				68B68BF92AE1443B002217FF /* SharedFrameworks */,
 			);
 			productName = AmityUIKitLiveStream;
 			productReference = A0BD0B1526DCE4F50054088B /* AmityUIKitLiveStream.framework */;
@@ -274,8 +287,6 @@
 				Base,
 			);
 			mainGroup = A0BD0B0B26DCE4F50054088B;
-			packageReferences = (
-			);
 			productRefGroup = A0BD0B1626DCE4F50054088B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -297,6 +308,31 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7103B19665A823C7F9F083D3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AmityUIKitLiveStream-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A0BD0B1126DCE4F50054088B /* Sources */ = {
@@ -450,12 +486,13 @@
 		};
 		A0BD0B1E26DCE4F50054088B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5378308F1B943295D34496E1 /* Pods-AmityUIKitLiveStream.debug.xcconfig */;
 			buildSettings = {
 				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 37Z583JR6K;
+				DEVELOPMENT_TEAM = 4LXPC82MJM;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -479,12 +516,13 @@
 		};
 		A0BD0B1F26DCE4F50054088B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 75EA5D6B1C6A757D0EC9C567 /* Pods-AmityUIKitLiveStream.release.xcconfig */;
 			buildSettings = {
 				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 37Z583JR6K;
+				DEVELOPMENT_TEAM = 4LXPC82MJM;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -529,7 +567,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		92B2CA152B35C02200489559 /* SharedFrameworks */ = {
+		68B68BF92AE1443B002217FF /* SharedFrameworks */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = SharedFrameworks;
 		};

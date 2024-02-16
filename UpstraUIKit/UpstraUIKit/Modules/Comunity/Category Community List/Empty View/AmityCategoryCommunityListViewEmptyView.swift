@@ -27,15 +27,7 @@ class AmityCategoryCommunityListViewEmptyView: AmityView {
     private func setupView() {
         backgroundColor = AmityColorSet.backgroundColor
         contentView.backgroundColor = AmityColorSet.backgroundColor
-        
         imageView.image = AmityIconSet.emptyNewsfeed
-        titleLabel.text = AmityLocalizedStringSet.emptyNewsfeedTitle.localizedString
-        titleLabel.textColor = AmityColorSet.base.blend(.shade2)
-        titleLabel.font = AmityFontSet.headerLine
-        
-        subtitleLabel.text = AmityLocalizedStringSet.emptyNewsfeedSubtitle.localizedString
-        subtitleLabel.textColor = AmityColorSet.base.blend(.shade2)
-        subtitleLabel.font = AmityFontSet.body
     }
     
 }

@@ -78,7 +78,7 @@ public class AmitySearchViewController: AmityPageViewController {
         searchTextField.returnKeyType = .search
         searchTextField.clearButtonMode = .always
         
-        searchTextField.backgroundColor = AmityColorSet.secondary.blend(.shade4)
+        searchTextField.backgroundColor = AmityColorSet.backgroundColor
         searchTextField.tintColor = AmityColorSet.base
         searchTextField.textColor = AmityColorSet.base
         searchTextField.font = AmityFontSet.body
@@ -90,7 +90,7 @@ public class AmitySearchViewController: AmityPageViewController {
         searchIcon.image = AmityIconSet.iconSearch?.withRenderingMode(.alwaysTemplate)
         searchIcon.tintColor = AmityColorSet.base.blend(.shade1)
         
-        searchView.backgroundColor = AmityColorSet.secondary.blend(.shade4)
+        searchView.backgroundColor = AmityColorSet.backgroundColor
         searchView.layer.cornerRadius = 4
     }
     

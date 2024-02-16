@@ -106,12 +106,12 @@ final class AmityFollowersListViewController: AmityViewController, IndicatorInfo
         (searchController.searchBar.value(forKey: "cancelButton") as? UIButton)?.tintColor = AmityColorSet.base
 
         if #available(iOS 13, *) {
-            searchController.searchBar.searchTextField.backgroundColor = AmityColorSet.secondary.blend(.shade4)
+            searchController.searchBar.searchTextField.backgroundColor = AmityColorSet.backgroundColor
             searchController.searchBar.searchTextField.textColor = AmityColorSet.base
             searchController.searchBar.searchTextField.leftView?.tintColor = AmityColorSet.base.blend(.shade2)
         } else {
             if let textField = (searchController.searchBar.value(forKey: "searchField") as? UITextField) {
-                textField.backgroundColor = AmityColorSet.secondary.blend(.shade4)
+                textField.backgroundColor = AmityColorSet.backgroundColor
                 textField.tintColor = AmityColorSet.base
                 textField.textColor = AmityColorSet.base
                 textField.leftView?.tintColor = AmityColorSet.base.blend(.shade2)

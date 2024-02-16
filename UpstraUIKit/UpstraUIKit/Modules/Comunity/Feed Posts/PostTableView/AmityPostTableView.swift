@@ -83,8 +83,8 @@ final class AmityPostTableView: UITableView, UITableViewDelegate, UITableViewDat
         register(cell: AmityPostFooterTableViewCell.self)
         register(cell: AmityPostPreviewCommentTableViewCell.self)
         register(cell: AmityPostTextTableViewCell.self)
-        register(cell: AmityPreviewLinkCell.self)
         register(cell: AmityPostGalleryTableViewCell.self)
+        register(cell: AmityPreviewLinkCell.self)
         register(cell: AmityPostFileTableViewCell.self)
         register(cell: AmityPostLiveStreamTableViewCell.self)
         register(cell: AmityPostPlaceHolderTableViewCell.self)
@@ -136,6 +136,8 @@ final class AmityPostTableView: UITableView, UITableViewDelegate, UITableViewDat
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return postDataSource?.tableView(self, cellForRowAt: indexPath) ?? UITableViewCell()
+        let cell = postDataSource?.tableView(self, cellForRowAt: indexPath) ?? UITableViewCell()
+        cell.contentView.backgroundColor = AmityColorSet.backgroundColor
+        return cell
     }
 }

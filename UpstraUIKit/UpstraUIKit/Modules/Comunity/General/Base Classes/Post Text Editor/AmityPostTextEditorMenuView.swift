@@ -67,7 +67,7 @@ class AmityPostTextEditorMenuView: UIView {
         backgroundColor = AmityColorSet.backgroundColor
         layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         layer.cornerRadius = 16
-        layer.borderColor = AmityColorSet.secondary.blend(.shade4).cgColor
+        layer.borderColor = AmityColorSet.dividerColor.cgColor
         layer.borderWidth = 1
         clipsToBounds = true
         
@@ -78,6 +78,7 @@ class AmityPostTextEditorMenuView: UIView {
         topLineView.backgroundColor = .clear
         
         cameraButton.setImage(AmityIconSet.iconCameraSmall, for: .normal)
+        cameraButton.imageView?.contentMode = .scaleAspectFit
         cameraButton.addTarget(self, action: #selector(tapCamera), for: .touchUpInside)
         albumButton.setImage(AmityIconSet.iconPhoto, for: .normal)
         albumButton.addTarget(self, action: #selector(tapPhoto), for: .touchUpInside)
@@ -99,7 +100,7 @@ class AmityPostTextEditorMenuView: UIView {
             ])
             button.layer.cornerRadius = 16
             button.clipsToBounds = true
-            button.backgroundColor = (button == expandButton) ? .clear : AmityColorSet.base.blend(.shade4)
+            button.backgroundColor = .clear
             button.setTintColor(AmityColorSet.base, for: .normal)
             button.setTintColor(AmityColorSet.base.blend(.shade3), for: .disabled)
             stackView.addArrangedSubview(button)

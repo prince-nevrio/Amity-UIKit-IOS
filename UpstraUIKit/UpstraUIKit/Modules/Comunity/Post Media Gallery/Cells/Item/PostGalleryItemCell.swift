@@ -44,7 +44,7 @@ class PostGalleryItemCell: UICollectionViewCell, Nibbable {
         layer.cornerRadius = 8
         // Image View
         imageView.contentMode = .scaleAspectFill
-        imageView.backgroundColor = AmityThemeManager.currentTheme.base.blend(.shade4)
+        imageView.backgroundColor = AmityThemeManager.currentTheme.backgroundColor
         // Duration View
         durationView.backgroundColor = UIColor(hex: "000000", alpha: 0.7)
         durationView.clipsToBounds = true
@@ -56,10 +56,10 @@ class PostGalleryItemCell: UICollectionViewCell, Nibbable {
         streamStateContainer.layer.cornerRadius = 4
         //
         streamStateLabel.font = AmityFontSet.captionBold
-        streamStateLabel.textColor = .white
+        streamStateLabel.textColor = AmityColorSet.backgroundColor
         //
         mediaTitleLabel.font = AmityFontSet.bodyBold
-        mediaTitleLabel.textColor = .white
+        mediaTitleLabel.textColor = AmityColorSet.backgroundColor
         //
         // This view will be shown only when we show stream item for certain states.
         streamEndView.isHidden = true
@@ -152,18 +152,18 @@ class PostGalleryItemCell: UICollectionViewCell, Nibbable {
             streamEndDescriptionLabel.font = AmityFontSet.body
             
             streamStateLabel.font = AmityFontSet.captionBold
-            streamStateLabel.textColor = .white
+            streamStateLabel.textColor = AmityColorSet.backgroundColor
             
             switch streamStatus {
             case .idle:
                 streamEndView.isHidden = false
-                streamEndTitleLabel.text = "The stream is currently unavailable."
+                streamEndTitleLabel.text = "Streamen är för närvarande inte tillgänglig."
                 streamEndDescriptionLabel.text = nil
                 streamEndDescriptionLabel.isHidden = true
             case .ended:
                 streamEndView.isHidden = false
-                streamEndTitleLabel.text = "This livestream has ended."
-                streamEndDescriptionLabel.text = "Playback will be available for you to watch shortly."
+                streamEndTitleLabel.text = "Denna livestream har avslutats."
+                streamEndDescriptionLabel.text = "Uppspelning kommer att vara tillgänglig för dig att titta på inom kort."
                 streamEndDescriptionLabel.isHidden = false
             default:
                 streamEndView.isHidden = true
@@ -182,7 +182,7 @@ class PostGalleryItemCell: UICollectionViewCell, Nibbable {
             case .recorded:
                 streamStateContainer.isHidden = false
                 streamStateContainer.backgroundColor = UIColor.black.withAlphaComponent(0.7)
-                streamStateLabel.text = "RECORDED"
+                streamStateLabel.text = "Inspelat"
             default:
                 streamStateContainer.isHidden = true
             }
